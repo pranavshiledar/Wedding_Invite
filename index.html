@@ -2,13 +2,13 @@
 <html lang="mr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>प्रणव आणि सायली - विवाह निमंत्रण</title>
     
     <!-- Beautiful Marathi & Devanagari Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -91,7 +91,7 @@
             align-items: center;
             text-align: center;
             position: relative;
-            padding: 20px;
+            padding: 20px 15px;
             overflow: hidden;
         }
 
@@ -100,12 +100,15 @@
             max-width: 800px;
             width: 100%;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* --- Scroll Animation Classes (Triggered by JS) --- */
         .anim-element {
             opacity: 0;
-            transform: translateY(40px) scale(0.95);
+            transform: translateY(30px) scale(0.95);
             filter: blur(5px);
             transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
@@ -126,31 +129,33 @@
         /* Typography & Elements */
         .marathi-symbol {
             font-family: var(--font-traditional);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--gold-primary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
-        h1, h2, h3 {
+        h2 {
             font-family: var(--font-traditional);
-            color: var(--gold-light);
+            color: var(--gold-primary);
             font-weight: 400;
-            letter-spacing: 2px;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
 
         .intro-text {
             font-family: var(--font-modern);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            color: #d8c3c6;
-            margin: 20px 0;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            color: #e8d9db;
+            margin: 15px 0;
             line-height: 1.8;
             font-weight: 300;
         }
 
         .couple-names {
-            margin: 40px 0;
+            margin: 30px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -166,43 +171,42 @@
 
         .ampersand {
             font-family: var(--font-traditional);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--text-light);
-            margin: 0px 0;
+            margin: 5px 0;
         }
 
         .divider {
             width: 1px;
-            height: 60px;
+            height: 50px;
             background: linear-gradient(to bottom, transparent, var(--gold-primary), transparent);
-            margin: 30px auto;
+            margin: 20px auto;
         }
 
         /* Details Scene */
-        .scene-2 h2 {
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-            color: var(--gold-primary);
-        }
-
         .info-card {
             background: rgba(20, 3, 6, 0.4);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 40px;
-            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 35px;
+            border-radius: 12px;
             backdrop-filter: blur(10px);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .info-card h3 {
+            font-family: var(--font-traditional);
             font-size: 1.8rem;
             color: var(--gold-light);
             margin-bottom: 15px;
+            font-weight: 400;
         }
 
         .info-card p {
-            font-size: 1.1rem;
-            line-height: 2.2;
+            font-size: 1.15rem;
+            line-height: 2;
             color: #e0d5d7;
             font-weight: 300;
         }
@@ -218,9 +222,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: transparent;
+            margin-top: 20px;
+            padding: 14px 35px;
+            background: rgba(212, 175, 55, 0.1);
             color: var(--gold-primary);
             border: 1px solid var(--gold-primary);
             font-family: var(--font-modern);
@@ -230,7 +234,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 30px;
         }
 
         .btn-location::before {
@@ -246,6 +250,7 @@
 
         .btn-location:hover {
             color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
         .btn-location:hover::before {
@@ -255,26 +260,26 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         .mouse {
-            width: 25px;
-            height: 40px;
+            width: 22px;
+            height: 36px;
             border: 2px solid var(--gold-primary);
             border-radius: 15px;
             position: relative;
         }
 
         .wheel {
-            width: 3px;
-            height: 8px;
+            width: 2px;
+            height: 6px;
             background: var(--gold-primary);
             border-radius: 2px;
             position: absolute;
@@ -286,16 +291,78 @@
 
         @keyframes scrollWheel {
             0% { top: 6px; opacity: 1; }
-            100% { top: 20px; opacity: 0; }
+            100% { top: 18px; opacity: 0; }
         }
 
-        /* Responsive */
+        /* Mobile Responsiveness Improvements */
         @media (max-width: 768px) {
-            .name { font-size: 4rem; }
-            .ampersand { font-size: 2rem; }
-            h2 { font-size: 2.2rem !important; }
-            .info-card { padding: 30px 20px; }
-            .intro-text { font-size: 1rem; letter-spacing: 1px; }
+            .scene {
+                padding: 15px;
+            }
+            
+            .marathi-symbol {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+                line-height: 1.6;
+                padding: 0 10px;
+            }
+
+            .name {
+                font-size: 3.8rem;
+            }
+
+            .ampersand {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+
+            .info-card {
+                padding: 25px 20px;
+                width: 95%;
+            }
+
+            .info-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .info-card p {
+                font-size: 1.05rem;
+                line-height: 1.8;
+            }
+
+            .info-card strong {
+                font-size: 1.2rem;
+            }
+
+            .btn-location {
+                width: 95%;
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            .divider {
+                height: 40px;
+                margin: 15px auto;
+            }
+            
+            .scroll-indicator {
+                bottom: 20px;
+            }
+        }
+        
+        /* For very small devices (iPhone SE etc.) */
+        @media (max-width: 375px) {
+            .name { font-size: 3.2rem; }
+            h2 { font-size: 1.8rem; }
+            .intro-text { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -310,8 +377,10 @@
             <div class="anim-element delay-1 marathi-symbol">|| श्री गणेशाय नमः ||</div>
             
             <p class="anim-element delay-2 intro-text">
-                ईश्वर आणि ज्येष्ठांच्या आशीर्वादाने,<br>
-                आम्ही तुम्हाला आमच्या विवाह सोहळ्यास सस्नेह निमंत्रित करत आहोत.
+                सस्नेह निमंत्रण!<br>
+                श्रींच्या कृपेने व ज्येष्ठांच्या आशीर्वादाने,<br>
+                आमच्या जीवनातील या मंगलमयी क्षणाचे साक्षीदार होण्यासाठी<br>
+                आपणास आग्रहाचे निमंत्रण.
             </p>
             
             <div class="anim-element delay-3 couple-names">
@@ -320,10 +389,12 @@
                 <span class="name">सायली</span>
             </div>
             
-            <div class="anim-element delay-4 marathi-symbol" style="font-size: 2rem;">शुभ विवाह</div>
+            <div class="anim-element delay-4 marathi-symbol" style="font-size: 1.8rem; font-weight: bold; margin-top: 10px;">
+                ॥ शुभविवाह ॥
+            </div>
             
-            <p class="anim-element delay-5 intro-text" style="color: var(--gold-primary); font-weight: 500;">
-                बुधवार, २० ऑगस्ट २०२६
+            <p class="anim-element delay-5 intro-text" style="color: var(--gold-primary); font-weight: 500; font-size: 1.2rem;">
+                बुधवार, दि. २० ऑगस्ट २०२६
             </p>
         </div>
 
@@ -335,15 +406,15 @@
     <!-- Scene 2: Events -->
     <section class="scene scene-2">
         <div class="scene-content">
-            <h2 class="anim-element delay-1">विवाह सोहळा</h2>
+            <h2 class="anim-element delay-1">कार्यक्रमाची रूपरेषा</h2>
             <div class="divider anim-element delay-2"></div>
             
             <div class="info-card anim-element delay-3">
-                <h3>शुभविवाह मुहूर्त</h3>
+                <h3>विवाह मुहूर्त</h3>
                 <p>
-                    <strong>दुपारी १२:४५ वाजता</strong><br>
-                    बुधवार, २० ऑगस्ट २०२६<br><br>
-                    विवाहानंतर स्नेहभोजन
+                    <strong>दुपारी ठीक १२:४५ वाजता</strong><br>
+                    बुधवार, दि. २० ऑगस्ट २०२६<br><br>
+                    तदनंतर स्नेहभोजन
                 </p>
             </div>
         </div>
@@ -361,9 +432,8 @@
             <div class="info-card anim-element delay-2">
                 <h3>स्वयंवर मंगल कार्यालय</h3>
                 <p>
-                    अकलूज-टेंभुर्णी रोड<br>
-                    पंचवटी, ता. माळशिरस<br>
-                    जि. सोलापूर, महाराष्ट्र
+                    अकलूज-टेंभुर्णी रोड, पंचवटी,<br>
+                    ता. माळशिरस, जि. सोलापूर
                 </p>
             </div>
 
@@ -372,30 +442,27 @@
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                स्थळाकडे मार्गक्रमण करा (नकाशा)
+                नकाशावर मार्ग पहा
             </a>
 
             <div class="divider anim-element delay-4"></div>
             
-            <p class="anim-element delay-5 intro-text" style="font-family: var(--font-traditional); font-size: 2.2rem; color: var(--gold-primary);">
-                आपल्या उपस्थितीच्या प्रतीक्षेत...
+            <p class="anim-element delay-5 intro-text" style="font-family: var(--font-traditional); font-size: 2rem; color: var(--gold-primary);">
+                आपल्या शुभ उपस्थितीच्या प्रतीक्षेत...
             </p>
         </div>
     </section>
 
     <script>
-        // JS for Video-like animations based on scroll
         document.addEventListener("DOMContentLoaded", () => {
-            
-            // Generate Background Particles
+            // Generate Background Particles for Cinematic Effect
             const particleContainer = document.getElementById('particles');
-            const particleCount = 40;
+            const particleCount = window.innerWidth < 768 ? 20 : 40; // Less particles on mobile for better performance
             
             for(let i = 0; i < particleCount; i++) {
                 let particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Random properties for natural look
                 let size = Math.random() * 4 + 1;
                 let left = Math.random() * 100;
                 let duration = Math.random() * 10 + 10;
@@ -405,38 +472,29 @@
                 particle.style.height = `${size}px`;
                 particle.style.left = `${left}%`;
                 particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `-${delay}s`; // negative delay so they appear immediately
+                particle.style.animationDelay = `-${delay}s`;
                 
                 particleContainer.appendChild(particle);
             }
 
-            // Intersection Observer for playing/resetting animations per scene
+            // Intersection Observer for scroll animations
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.3 // Trigger when 30% of the section is visible
+                threshold: 0.2 // Trigger earlier on mobile screens
             };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // Find all elements to animate in this section
                     const animElements = entry.target.querySelectorAll('.anim-element');
-                    
                     if (entry.isIntersecting) {
-                        // Play animation
-                        animElements.forEach(el => {
-                            el.classList.add('is-visible');
-                        });
+                        animElements.forEach(el => el.classList.add('is-visible'));
                     } else {
-                        // Reset animation when out of view (like rewinding a video)
-                        animElements.forEach(el => {
-                            el.classList.remove('is-visible');
-                        });
+                        animElements.forEach(el => el.classList.remove('is-visible'));
                     }
                 });
             }, observerOptions);
 
-            // Observe all scenes
             document.querySelectorAll('.scene').forEach(scene => {
                 observer.observe(scene);
             });
