@@ -13,8 +13,8 @@
     <style>
         :root {
             /* Colors matching your screenshots */
-            --sage-green: #5e6f60; /* Darker sage for text */
-            --sage-light: #e6ebe7; /* Envelope background */
+            --sage-green: #5e6f60; 
+            --sage-light: #e6ebe7; 
             --text-dark: #333333;
             --divider-color: #d1dbd3;
             --gold-seal: #cda434;
@@ -84,7 +84,7 @@
 
         .click-text {
             position: absolute; bottom: -40px; width: 100%;
-            text-align: center; color: var(--sage-green); font-size: 1.1rem;
+            text-align: center; color: var(--sage-green); font-size: 1rem;
             animation: pulseText 2s infinite; font-weight: 500;
         }
 
@@ -125,9 +125,9 @@
         .scene-content {
             background-color: #ffffff;
             border-radius: 20px;
-            padding: 40px 20px;
-            width: 88%;
-            max-width: 400px;
+            padding: 35px 20px;
+            width: 85%;
+            max-width: 380px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.06);
             text-align: center;
             position: relative;
@@ -143,9 +143,9 @@
             background: rgba(255, 255, 255, 0.95);
             border: 1px solid var(--divider-color);
             color: var(--sage-green);
-            padding: 10px 25px;
+            padding: 8px 20px;
             border-radius: 30px;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             font-weight: 500;
             display: flex; align-items: center; gap: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -158,26 +158,26 @@
 
         @keyframes swipeRightAnim {
             0%, 100% { transform: translateX(-50%); }
-            50% { transform: translateX(calc(-50% + 10px)); }
+            50% { transform: translateX(calc(-50% + 8px)); }
         }
         
         @keyframes swipeLeftAnim {
             0%, 100% { transform: translateX(-50%); }
-            50% { transform: translateX(calc(-50% - 10px)); }
+            50% { transform: translateX(calc(-50% - 8px)); }
         }
 
-        /* Typography & Layout */
+        /* Typography & Layout - REDUCED FONT SIZES */
         .bg-script {
             font-family: var(--font-script);
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #d8dfd9; 
-            margin-bottom: -15px;
+            margin-bottom: -10px;
             white-space: nowrap;
         }
 
         .god-name {
             font-family: var(--font-marathi-serif);
-            font-size: 1.6rem;
+            font-size: 1.35rem;
             color: var(--sage-green);
             margin-bottom: 5px;
             font-weight: 600;
@@ -185,9 +185,9 @@
 
         .charoli {
             font-family: var(--font-marathi-sans);
-            font-size: 1.15rem;
+            font-size: 1rem;
             color: var(--text-dark);
-            margin: 25px 0;
+            margin: 20px 0;
             line-height: 1.8;
             font-style: normal;
         }
@@ -195,40 +195,40 @@
         .title-script {
             font-family: var(--font-script);
             color: var(--sage-green);
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.4rem;
+            margin-bottom: 15px;
             line-height: 1;
         }
 
         /* Couple Page Typography */
-        .title { font-size: 1.1rem; color: var(--sage-green); margin-bottom: 5px; }
-        .name { font-family: var(--font-marathi-serif); font-size: 3rem; line-height: 1.1; color: var(--text-dark); }
-        .parents { font-size: 0.95rem; color: #5a6b5d; margin-top: 8px; line-height: 1.5; }
-        .and-symbol { font-family: var(--font-script); font-size: 2.2rem; color: var(--sage-green); margin: 10px 0; }
+        .title { font-size: 0.95rem; color: var(--sage-green); margin-bottom: 5px; }
+        .name { font-family: var(--font-marathi-serif); font-size: 2.5rem; line-height: 1.1; color: var(--text-dark); }
+        .parents { font-size: 0.85rem; color: #5a6b5d; margin-top: 8px; line-height: 1.5; }
+        .and-symbol { font-family: var(--font-script); font-size: 1.8rem; color: var(--sage-green); margin: 8px 0; }
         
         .shubhvivah-text {
-            font-family: var(--font-marathi-serif); font-size: 1.6rem;
+            font-family: var(--font-marathi-serif); font-size: 1.3rem;
             color: var(--sage-green); margin-top: 20px; font-weight: bold;
             border-top: 1px solid var(--divider-color);
             border-bottom: 1px solid var(--divider-color);
-            padding: 10px 0; display: inline-block; width: 80%;
+            padding: 8px 0; display: inline-block; width: 75%;
         }
 
         /* Events Typography */
-        .event-item { margin-bottom: 20px; position: relative; padding-bottom: 20px; }
+        .event-item { margin-bottom: 18px; position: relative; padding-bottom: 18px; }
         .event-item:not(:last-child)::after {
-            content: ''; position: absolute; bottom: 0; left: 30%;
-            width: 40%; height: 1px; background: var(--divider-color);
+            content: ''; position: absolute; bottom: 0; left: 35%;
+            width: 30%; height: 1px; background: var(--divider-color);
         }
-        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.4rem; margin-bottom: 8px; color: var(--text-dark); }
-        .event-item p { font-size: 1.05rem; line-height: 1.6; color: var(--sage-green); }
-        .event-item strong { color: var(--sage-green); font-size: 1.15rem; font-weight: 600; }
+        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.2rem; margin-bottom: 6px; color: var(--text-dark); }
+        .event-item p { font-size: 0.9rem; line-height: 1.6; color: var(--sage-green); }
+        .event-item strong { color: var(--sage-green); font-size: 1rem; font-weight: 600; }
 
         /* Button */
         .btn-location {
-            display: inline-block; margin-top: 15px; padding: 12px 30px;
+            display: inline-block; margin-top: 15px; padding: 10px 25px;
             background: var(--sage-green); color: #fff; text-decoration: none;
-            border-radius: 30px; font-size: 1.05rem; letter-spacing: 0.5px;
+            border-radius: 30px; font-size: 0.95rem; letter-spacing: 0.5px;
             box-shadow: 0 4px 15px rgba(94, 111, 96, 0.3);
         }
 
@@ -242,12 +242,12 @@
         .delay-4 { transition-delay: 0.4s; }
 
         @media (max-height: 700px) {
-            .scene-content { padding: 30px 15px; }
-            .bg-script { font-size: 2.2rem; margin-bottom: -10px; }
-            .name { font-size: 2.6rem; }
-            .title-script { font-size: 2.5rem; margin-bottom: 15px; }
-            .event-item { margin-bottom: 15px; padding-bottom: 15px; }
-            .swipe-btn { bottom: 15px; padding: 8px 20px; font-size: 0.95rem; }
+            .scene-content { padding: 25px 15px; }
+            .bg-script { font-size: 1.8rem; margin-bottom: -10px; }
+            .name { font-size: 2.2rem; }
+            .title-script { font-size: 2rem; margin-bottom: 15px; }
+            .event-item { margin-bottom: 12px; padding-bottom: 12px; }
+            .swipe-btn { bottom: 15px; padding: 6px 15px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -275,9 +275,8 @@
             <div class="scene-content">
                 <div class="bg-script anim-element">Wedding Invitation</div>
                 <div class="anim-element delay-1 god-name" style="margin-top: 10px;">॥ श्री गणेशाय नमः ॥</div>
-                <div class="anim-element delay-1 god-name" style="font-size: 1.1rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
+                <div class="anim-element delay-1 god-name" style="font-size: 0.95rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
                 
-                <!-- NEW MESSAGE ADDED HERE -->
                 <p class="anim-element delay-2 charoli">
                     लग्नाची घाई, वेळेची कमतरता!<br>
                     म्हणूनच या प्रेमळ संदेशाद्वारे<br>
@@ -285,13 +284,13 @@
                     <strong>आमच्या लग्नाला नक्की या!</strong>
                 </p>
                 
-                <p class="anim-element delay-3" style="color: var(--sage-green); font-size: 1.25rem; font-family: var(--font-marathi-serif); font-weight: bold;">
+                <p class="anim-element delay-3" style="color: var(--sage-green); font-size: 1.1rem; font-family: var(--font-marathi-serif); font-weight: bold;">
                     सस्नेह निमंत्रण
                 </p>
             </div>
             <!-- Swipe Right Button -->
             <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(1)">
-                पुढे पहा <span style="font-size: 1.2rem;">➔</span>
+                पुढे पहा <span style="font-size: 1.1rem;">➔</span>
             </div>
         </section>
 
@@ -313,13 +312,13 @@
                 </div>
                 
                 <div class="anim-element delay-3 shubhvivah-text">यांचा शुभविवाह</div>
-                <p class="anim-element delay-4" style="margin-top: 15px; font-style: italic; color: var(--sage-green);">
+                <p class="anim-element delay-4" style="margin-top: 12px; font-size: 0.95rem; font-style: italic; color: var(--sage-green);">
                     या शुभप्रसंगी आपली उपस्थिती व आशीर्वाद प्रार्थनीय आहेत!
                 </p>
             </div>
             <!-- Swipe Right Button -->
             <div class="swipe-btn swipe-right" onclick="nextPage(2)">
-                पुढे पहा <span style="font-size: 1.2rem;">➔</span>
+                पुढे पहा <span style="font-size: 1.1rem;">➔</span>
             </div>
         </section>
 
@@ -341,12 +340,12 @@
                 <div class="event-item anim-element delay-3" style="border: none; margin-bottom: 0; padding-bottom: 0;">
                     <h3>शुभविवाह मुहूर्त</h3>
                     <p><strong>गुरुवार, २० ऑगस्ट २०२६</strong><br>दुपारी ठीक १२:४५ वाजता<br>
-                    <span style="font-size: 0.95rem; color: var(--text-dark);">(तदनंतर स्नेहभोजन)</span></p>
+                    <span style="font-size: 0.85rem; color: var(--text-dark);">(तदनंतर स्नेहभोजन)</span></p>
                 </div>
             </div>
             <!-- Swipe Right Button -->
             <div class="swipe-btn swipe-right" onclick="nextPage(3)">
-                पुढे पहा <span style="font-size: 1.2rem;">➔</span>
+                पुढे पहा <span style="font-size: 1.1rem;">➔</span>
             </div>
         </section>
 
@@ -356,27 +355,27 @@
                 <h2 class="title-script anim-element">Venue</h2>
                 
                 <div class="anim-element delay-1">
-                    <h3 style="color: var(--sage-green); font-family: var(--font-marathi-serif); font-size: 1.5rem; margin-bottom: 8px;">स्वयंवर मंगल कार्यालय</h3>
-                    <p style="color: var(--text-dark); font-size: 1.05rem; line-height: 1.5;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
+                    <h3 style="color: var(--sage-green); font-family: var(--font-marathi-serif); font-size: 1.25rem; margin-bottom: 8px;">स्वयंवर मंगल कार्यालय</h3>
+                    <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.5;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
                 </div>
                 
                 <!-- Divider -->
-                <div class="anim-element delay-2" style="width: 40px; height: 1px; background: var(--divider-color); margin: 20px auto;"></div>
+                <div class="anim-element delay-2" style="width: 40px; height: 1px; background: var(--divider-color); margin: 15px auto;"></div>
 
                 <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-2" target="_blank" rel="noopener noreferrer">
                     नकाशावर पहा (Map)
                 </a>
 
-                <div style="margin-top: 35px;" class="anim-element delay-3">
-                    <p style="color: var(--sage-green); font-family: var(--font-script); font-size: 2.2rem; margin-bottom: 5px;">Thank You</p>
-                    <p style="font-family: var(--font-marathi-serif); font-size: 1.15rem; font-weight: bold; color: var(--text-dark);">
+                <div style="margin-top: 30px;" class="anim-element delay-3">
+                    <p style="color: var(--sage-green); font-family: var(--font-script); font-size: 2rem; margin-bottom: 2px;">Thank You</p>
+                    <p style="font-family: var(--font-marathi-serif); font-size: 1rem; font-weight: bold; color: var(--text-dark);">
                         समस्त शिलेदार आणि शिंदे परिवार
                     </p>
                 </div>
             </div>
             <!-- Swipe Left (Back to start) Button -->
             <div class="swipe-btn swipe-left" onclick="nextPage(4)">
-                <span style="font-size: 1.2rem;">←</span> सुरवातीला जा
+                <span style="font-size: 1.1rem;">←</span> सुरवातीला जा
             </div>
         </section>
     </div>
@@ -400,7 +399,6 @@
                     envelopeScreen.style.display = 'none';
                     invitationContent.style.opacity = '1';
                     
-                    // Trigger animations for first scene
                     document.querySelectorAll('#scene1 .anim-element').forEach(el => {
                         el.classList.add('is-visible');
                     });
@@ -414,10 +412,8 @@
             const container = document.getElementById('invitation-content');
             
             if (currentIndex === 4) {
-                // Go back to the first page
                 container.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
-                // Go to next page
                 const nextScene = document.getElementById(`scene${currentIndex + 1}`);
                 if (nextScene) {
                     container.scrollTo({ left: nextScene.offsetLeft, behavior: 'smooth' });
