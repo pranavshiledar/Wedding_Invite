@@ -12,12 +12,16 @@
 
     <style>
         :root {
-            /* Regal Indian Palette */
-            --bg-dark: #3a0b12; /* Deep Maroon */
-            --bg-light: #52111c;
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --text-light: #fdfbf7;
+            /* Premium Royal Palette */
+            --bg-dark: #1a050a; /* Almost black burgundy */
+            --bg-light: #4a0d1e; /* Rich Wine/Burgundy */
+            --gold-primary: #E8C37F; /* Champagne Gold */
+            --gold-light: #FDF1D6;
+            --text-light: #F8F0E3;
+            
+            /* Glassmorphism Colors */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(232, 195, 127, 0.15);
             
             /* Marathi Typography */
             --font-traditional: 'Tiro Devanagari Marathi', serif;
@@ -40,48 +44,45 @@
             scroll-behavior: smooth;
         }
 
-        /* Cinematic Background Gradient */
+        /* Luxury Vignette Background */
         .cinematic-bg {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             background: radial-gradient(circle at center, var(--bg-light) 0%, var(--bg-dark) 100%);
             z-index: -3;
-            animation: pulseBg 10s infinite alternate linear;
         }
 
-        /* Traditional Pattern Overlay for Background */
+        /* Elegant Subtle Mandala Pattern */
         .pattern-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L50 100M0 50L100 50' stroke='rgba(232, 195, 127, 0.03)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(232, 195, 127, 0.02)' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 150px 150px;
             z-index: -2;
             pointer-events: none;
+            opacity: 0.6;
         }
 
-        /* Subtle Paithani/Traditional border styling overlay */
+        /* Minimalist Gold Border */
         .traditional-border {
             position: fixed;
-            top: 15px; left: 15px; right: 15px; bottom: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
+            top: 20px; left: 20px; right: 20px; bottom: 20px;
+            border: 1px solid rgba(232, 195, 127, 0.15);
+            border-radius: 12px;
             z-index: -1;
             pointer-events: none;
         }
         .traditional-border::before, .traditional-border::after {
-            content: '❀';
+            content: '✦';
             position: absolute;
-            color: rgba(212, 175, 55, 0.3);
-            font-size: 1.5rem;
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            opacity: 0.5;
         }
-        .traditional-border::before { top: 10px; left: 10px; }
-        .traditional-border::after { bottom: 10px; right: 10px; }
+        .traditional-border::before { top: 8px; left: 10px; }
+        .traditional-border::after { bottom: 8px; right: 10px; }
 
-        @keyframes pulseBg {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.1); opacity: 0.9; }
-        }
-
-        /* Golden Dust Particles */
+        /* Slow floating particles */
         .particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -93,19 +94,18 @@
             position: absolute;
             background: var(--gold-primary);
             border-radius: 50%;
-            filter: blur(1px);
+            filter: blur(2px);
             animation: floatUp infinite linear;
-            opacity: 0.5;
+            opacity: 0.3;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            20% { opacity: 0.8; }
-            80% { opacity: 0.5; }
-            100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-20vh) scale(1.5); opacity: 0; }
         }
 
-        /* Scenes (Pages) */
+        /* Scenes Setup */
         .scene {
             min-height: 100vh;
             width: 100vw;
@@ -116,8 +116,7 @@
             align-items: center;
             text-align: center;
             position: relative;
-            padding: 40px 15px;
-            overflow-y: auto;
+            padding: 50px 20px;
         }
 
         .scene-content {
@@ -127,285 +126,254 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: auto 0;
         }
 
-        /* Animations */
+        /* Premium Smooth Animations */
         .anim-element {
             opacity: 0;
-            transform: translateY(30px) scale(0.95);
-            filter: blur(5px);
-            transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(40px);
+            transition: all 1.4s cubic-bezier(0.23, 1, 0.32, 1); /* Elegant easing */
         }
 
         .anim-element.is-visible {
             opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
+            transform: translateY(0);
         }
 
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.3s; }
-        .delay-3 { transition-delay: 0.5s; }
-        .delay-4 { transition-delay: 0.7s; }
-        .delay-5 { transition-delay: 0.9s; }
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+        .delay-4 { transition-delay: 0.8s; }
+        .delay-5 { transition-delay: 1.0s; }
 
-        /* Typography */
+        /* Typography Upgrades */
         .god-name {
             font-family: var(--font-traditional);
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--gold-primary);
             margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            letter-spacing: 2px;
+            text-shadow: 0 0 25px rgba(232, 195, 127, 0.4);
         }
 
         .charoli {
             font-family: var(--font-traditional);
-            font-size: 1.3rem;
-            color: #e8d9db;
-            margin: 20px 0;
-            line-height: 1.8;
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin: 25px 0;
+            line-height: 1.9;
             font-style: italic;
+            opacity: 0.9;
         }
 
         h2 {
             font-family: var(--font-traditional);
-            color: var(--gold-primary);
-            font-weight: 600;
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            color: var(--gold-light);
+            font-weight: 500;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        /* Couple Section */
+        /* Couple Section - Floating Layout */
         .couple-names {
-            margin: 15px 0;
+            margin: 20px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
+            padding: 30px;
+            background: radial-gradient(circle, rgba(232, 195, 127, 0.05) 0%, transparent 70%);
         }
 
-        .person {
-            margin: 10px 0;
-        }
+        .person { margin: 15px 0; }
 
         .title {
             font-family: var(--font-traditional);
             color: var(--gold-primary);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .name {
             font-family: var(--font-traditional);
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--gold-light);
-            text-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            line-height: 1.2;
+            text-shadow: 0 0 30px rgba(232, 195, 127, 0.3);
+            line-height: 1.1;
         }
 
         .parents {
             font-family: var(--font-modern);
-            font-size: 1.1rem;
-            color: #d8c3c6;
-            margin-top: 5px;
-            line-height: 1.5;
+            font-size: 1.15rem;
+            color: rgba(248, 240, 227, 0.7);
+            margin-top: 8px;
+            line-height: 1.6;
             font-weight: 300;
+            max-width: 400px;
         }
 
         .swastik {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--gold-primary);
-            margin: 5px 0;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-            animation: pulseBg 3s infinite alternate ease-in-out;
+            margin: 10px 0;
+            filter: drop-shadow(0 0 10px rgba(232, 195, 127, 0.5));
         }
         
         .shubhvivah-text {
             font-family: var(--font-traditional);
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             color: var(--gold-primary);
-            margin-top: 15px;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-            font-weight: bold;
+            margin-top: 10px;
+            text-shadow: 0 0 20px rgba(232, 195, 127, 0.4);
         }
         
         .invitation-line {
-            font-family: var(--font-traditional);
+            font-family: var(--font-modern);
             font-size: 1.2rem;
-            color: #e8d9db;
-            margin-top: 15px;
-            font-style: italic;
-            line-height: 1.6;
+            color: rgba(248, 240, 227, 0.8);
+            margin-top: 25px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .divider {
             width: 1px;
-            height: 40px;
+            height: 50px;
             background: linear-gradient(to bottom, transparent, var(--gold-primary), transparent);
-            margin: 15px auto;
+            margin: 10px auto;
+            opacity: 0.6;
         }
 
-        /* Events & Location */
+        /* Glassmorphism Event Cards */
         .info-card {
-            background: rgba(30, 6, 9, 0.6);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-top: 3px solid var(--gold-primary);
-            padding: 25px 30px;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 25px 35px;
+            border-radius: 16px;
             margin-bottom: 20px;
             width: 100%;
-            max-width: 550px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* NEW: Colorful Themes for Event Cards */
-        .card-sakharpuda {
-            border-top-color: #e5989b; /* Rose Gold/Pink */
-            background: linear-gradient(135deg, rgba(30, 6, 9, 0.7) 0%, rgba(229, 152, 155, 0.15) 100%);
+        /* Subtle Color Accents for Events */
+        .card-sakharpuda::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: #e5989b; box-shadow: 0 0 15px #e5989b;
         }
-        .card-sakharpuda h3 { color: #e5989b !important; }
-        
-        .card-haldi {
-            border-top-color: #ffb703; /* Haldi Yellow */
-            background: linear-gradient(135deg, rgba(30, 6, 9, 0.7) 0%, rgba(255, 183, 3, 0.15) 100%);
+        .card-haldi::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: #ffb703; box-shadow: 0 0 15px #ffb703;
         }
-        .card-haldi h3 { color: #ffb703 !important; }
-        
-        .card-vivah {
-            border-top-color: #d4af37; /* Pure Gold */
-            background: linear-gradient(135deg, rgba(30, 6, 9, 0.7) 0%, rgba(212, 175, 55, 0.15) 100%);
+        .card-vivah::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--gold-primary); box-shadow: 0 0 15px var(--gold-primary);
         }
-        .card-vivah h3 { color: #d4af37 !important; }
 
         .info-card h3 {
             font-family: var(--font-traditional);
             font-size: 1.8rem;
-            margin-bottom: 12px;
-            font-weight: bold;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         .info-card p {
             font-size: 1.15rem;
-            line-height: 1.6;
-            color: #e0d5d7;
+            line-height: 1.7;
+            color: rgba(248, 240, 227, 0.9);
             font-weight: 300;
         }
 
         .info-card strong {
-            color: var(--text-light);
+            color: var(--gold-light);
             font-weight: 500;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             display: inline-block;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
+        /* Premium Button */
         .btn-location {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 15px;
-            padding: 12px 30px;
-            background: rgba(212, 175, 55, 0.1);
+            margin-top: 20px;
+            padding: 14px 35px;
+            background: transparent;
             color: var(--gold-primary);
             border: 1px solid var(--gold-primary);
             font-family: var(--font-modern);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
             text-decoration: none;
+            border-radius: 50px;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 30px;
-        }
-
-        .btn-location::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--gold-primary);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s ease;
+            backdrop-filter: blur(5px);
         }
 
         .btn-location:hover {
+            background: var(--gold-primary);
             color: var(--bg-dark);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 25px rgba(232, 195, 127, 0.5);
+            transform: translateY(-3px);
         }
 
-        .btn-location:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
+        /* Elegant Scroll Indicator (Chevron) */
         .scroll-indicator {
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0.6;
-            z-index: 20;
+            animation: bounce 2s infinite;
+            opacity: 0.7;
         }
 
-        .mouse {
+        .chevron {
             width: 20px;
-            height: 32px;
-            border: 2px solid var(--gold-primary);
-            border-radius: 15px;
-            position: relative;
+            height: 20px;
+            border-right: 2px solid var(--gold-primary);
+            border-bottom: 2px solid var(--gold-primary);
+            transform: rotate(45deg);
         }
 
-        .wheel {
-            width: 2px;
-            height: 6px;
-            background: var(--gold-primary);
-            border-radius: 2px;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: scrollWheel 2s infinite;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%) rotate(45deg); }
+            40% { transform: translateY(-15px) translateX(-50%) rotate(45deg); }
+            60% { transform: translateY(-7px) translateX(-50%) rotate(45deg); }
         }
 
-        @keyframes scrollWheel {
-            0% { top: 6px; opacity: 1; }
-            100% { top: 16px; opacity: 0; }
-        }
-
-        /* Mobile Responsiveness Improvements */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .scene { padding: 30px 10px 40px; }
-            .god-name { font-size: 1.6rem; }
-            .charoli { font-size: 1.1rem; padding: 0 15px; }
-            .name { font-size: 3rem; }
-            .title { font-size: 1.1rem; }
-            .parents { font-size: 0.9rem; padding: 0 5px; }
-            .swastik { font-size: 1.8rem; margin: 5px 0; }
-            .shubhvivah-text { font-size: 1.8rem; margin-top: 10px; }
-            .invitation-line { font-size: 1rem; margin-top: 10px; padding: 0 10px; }
-            h2 { font-size: 2.2rem; margin-bottom: 15px; }
-            .info-card { padding: 18px 15px; width: 95%; margin-bottom: 15px; }
+            .scene { padding: 40px 15px; }
+            .god-name { font-size: 1.8rem; }
+            .charoli { font-size: 1.2rem; padding: 0 10px; line-height: 1.7; }
+            .name { font-size: 3.5rem; }
+            .title { font-size: 1.3rem; }
+            .parents { font-size: 1rem; }
+            .swastik { font-size: 2rem; }
+            .shubhvivah-text { font-size: 2rem; }
+            .invitation-line { font-size: 1.05rem; }
+            h2 { font-size: 2.2rem; margin-bottom: 20px; }
+            .info-card { padding: 20px 25px; margin-bottom: 15px; border-radius: 12px; }
             .info-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
-            .info-card p { font-size: 1.05rem; line-height: 1.5; }
-            .info-card strong { font-size: 1.1rem; }
-            .scroll-indicator { bottom: 10px; }
+            .info-card p { font-size: 1.05rem; }
+            .info-card strong { font-size: 1.15rem; }
+            .scroll-indicator { bottom: 15px; }
         }
         
         @media (max-width: 375px) {
-            .name { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .parents { font-size: 0.8rem; }
-            .info-card { padding: 15px; margin-bottom: 12px; }
-            .info-card h3 { font-size: 1.3rem; }
+            .name { font-size: 3rem; }
+            h2 { font-size: 1.9rem; }
+            .parents { font-size: 0.9rem; }
+            .info-card { padding: 15px 20px; }
+            .info-card h3 { font-size: 1.4rem; }
             .info-card p { font-size: 0.95rem; }
         }
     </style>
@@ -421,7 +389,7 @@
     <section class="scene scene-1">
         <div class="scene-content">
             <div class="anim-element delay-1 god-name">॥ श्री गणेशाय नमः ॥</div>
-            <div class="anim-element delay-2 god-name" style="font-size: 1.4rem; margin-bottom: 20px;">॥ कुलदेवता प्रसन्न ॥</div>
+            <div class="anim-element delay-2 god-name" style="font-size: 1.3rem; margin-bottom: 10px; text-shadow: none; opacity: 0.8;">॥ कुलदेवता प्रसन्न ॥</div>
             
             <div class="divider anim-element delay-3"></div>
             
@@ -432,13 +400,13 @@
             
             <div class="divider anim-element delay-4"></div>
             
-            <p class="anim-element delay-5" style="margin-top: 20px; color: var(--gold-primary); font-size: 1.2rem; font-family: var(--font-traditional);">
+            <p class="anim-element delay-5" style="margin-top: 15px; color: var(--gold-primary); font-size: 1.3rem; font-family: var(--font-traditional); letter-spacing: 2px;">
                 सस्नेह निमंत्रण
             </p>
         </div>
 
         <div class="scroll-indicator anim-element delay-5">
-            <div class="mouse"><div class="wheel"></div></div>
+            <div class="chevron"></div>
         </div>
     </section>
 
@@ -473,22 +441,22 @@
             </div>
             
             <p class="anim-element delay-5 invitation-line">
-                "या शुभप्रसंगी आपली उपस्थिती व आशीर्वाद प्रार्थनीय आहेत!"
+                या शुभप्रसंगी आपली उपस्थिती व आशीर्वाद प्रार्थनीय आहेत!
             </p>
             
         </div>
         
         <div class="scroll-indicator anim-element delay-5">
-            <div class="mouse"><div class="wheel"></div></div>
+            <div class="chevron"></div>
         </div>
     </section>
 
-    <!-- Scene 3: Events with Colorful Cards -->
+    <!-- Scene 3: Events with Premium Glassmorphism Cards -->
     <section class="scene scene-3">
         <div class="scene-content">
             
             <div class="info-card card-sakharpuda anim-element delay-1">
-                <h3>साखरपुडा</h3>
+                <h3 style="color: #e5989b;">साखरपुडा</h3>
                 <p>
                     <strong>बुधवार, दि. १९ ऑगस्ट २०२६</strong><br>
                     सायंकाळी ५:१५ वाजता
@@ -496,7 +464,7 @@
             </div>
 
             <div class="info-card card-haldi anim-element delay-2">
-                <h3>हळदी समारंभ</h3>
+                <h3 style="color: #ffb703;">हळदी समारंभ</h3>
                 <p>
                     <strong>बुधवार, दि. १९ ऑगस्ट २०२६</strong><br>
                     सायंकाळी ७:०० वाजता
@@ -504,17 +472,17 @@
             </div>
 
             <div class="info-card card-vivah anim-element delay-3">
-                <h3>शुभविवाह मुहूर्त</h3>
+                <h3 style="color: var(--gold-primary);">शुभविवाह मुहूर्त</h3>
                 <p>
                     <strong>गुरुवार, दि. २० ऑगस्ट २०२६</strong><br>
                     दुपारी ठीक १२:४५ वाजता<br>
-                    <span style="font-size: 0.95rem; opacity: 0.8;">(तदनंतर स्नेहभोजन)</span>
+                    <span style="font-size: 0.95rem; opacity: 0.7; font-weight: 400;">(तदनंतर स्नेहभोजन)</span>
                 </p>
             </div>
         </div>
         
         <div class="scroll-indicator anim-element delay-4">
-            <div class="mouse"><div class="wheel"></div></div>
+            <div class="chevron"></div>
         </div>
     </section>
 
@@ -523,8 +491,8 @@
         <div class="scene-content">
             <h2 class="anim-element delay-1">विवाह स्थळ</h2>
             
-            <div class="info-card card-vivah anim-element delay-2">
-                <h3>स्वयंवर मंगल कार्यालय</h3>
+            <div class="info-card card-vivah anim-element delay-2" style="text-align: center;">
+                <h3 style="color: var(--gold-primary);">स्वयंवर मंगल कार्यालय</h3>
                 <p>
                     अकलूज-टेंभुर्णी रोड, पंचवटी,<br>
                     ता. माळशिरस, जि. सोलापूर
@@ -532,18 +500,18 @@
             </div>
 
             <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-3" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
                 नकाशावर विवाह स्थळ पहा
             </a>
 
-            <div class="divider anim-element delay-4" style="margin: 30px auto 20px;"></div>
+            <div class="divider anim-element delay-4" style="margin: 40px auto 20px; height: 30px;"></div>
             
             <div class="anim-element delay-5" style="width: 100%;">
-                <p style="color: var(--gold-light); font-size: 1.1rem; margin-bottom: 5px;">स्वागतोत्सुक / निमंत्रक:</p>
-                <p style="font-family: var(--font-traditional); font-size: 1.6rem; color: var(--gold-primary);">
+                <p style="color: rgba(248, 240, 227, 0.7); font-size: 1.1rem; margin-bottom: 8px; font-weight: 300;">स्वागतोत्सुक / निमंत्रक:</p>
+                <p style="font-family: var(--font-traditional); font-size: 1.8rem; color: var(--gold-primary); text-shadow: 0 2px 10px rgba(232, 195, 127, 0.2);">
                     समस्त शिलेदार आणि शिंदे परिवार
                 </p>
             </div>
@@ -552,17 +520,17 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Generate Background Particles for Cinematic Effect
+            // Generate Ambient Gold Particles
             const particleContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth < 768 ? 20 : 40;
+            const particleCount = window.innerWidth < 768 ? 20 : 35;
             
             for(let i = 0; i < particleCount; i++) {
                 let particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                let size = Math.random() * 4 + 1;
+                let size = Math.random() * 3 + 1; // Smaller, elegant particles
                 let left = Math.random() * 100;
-                let duration = Math.random() * 10 + 10;
+                let duration = Math.random() * 15 + 15; // Slower float
                 let delay = Math.random() * 10;
                 
                 particle.style.width = `${size}px`;
@@ -574,11 +542,11 @@
                 particleContainer.appendChild(particle);
             }
 
-            // Intersection Observer for scroll animations
+            // Intersection Observer for graceful scroll animations
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.2
+                threshold: 0.15
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -587,7 +555,6 @@
                     if (entry.isIntersecting) {
                         animElements.forEach(el => el.classList.add('is-visible'));
                     } else {
-                        // Reset animation when scrolling away for re-triggering
                         animElements.forEach(el => el.classList.remove('is-visible'));
                     }
                 });
