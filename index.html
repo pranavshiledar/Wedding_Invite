@@ -12,7 +12,7 @@
 
     <style>
         :root {
-            /* Colors matching your screenshots */
+            /* Colors matching your theme */
             --sage-green: #5e6f60; 
             --sage-light: #e6ebe7; 
             --text-dark: #333333;
@@ -33,7 +33,7 @@
             color: var(--text-dark);
             overflow: hidden; 
             overscroll-behavior-y: none;
-            /* Dotted Background matching screenshots */
+            /* Dotted Background */
             background-color: #f8f9f8;
             background-image: radial-gradient(#d1dbd3 1.5px, transparent 1.5px);
             background-size: 25px 25px;
@@ -97,7 +97,7 @@
         .envelope-wrapper.open .wax-seal { opacity: 0; display: none; }
         
         /* -------------------------------------------
-           MAIN INVITATION CONTENT (HORIZONTAL SCROLL)
+           MAIN INVITATION CONTENT
         ------------------------------------------- */
         #invitation-content {
             display: none; 
@@ -119,9 +119,6 @@
             position: relative;
         }
 
-        /* -------------------------------------------
-           UNIFORM CARD STYLE FOR ALL PAGES
-        ------------------------------------------- */
         .scene-content {
             background-color: #ffffff;
             border-radius: 20px;
@@ -166,39 +163,14 @@
             50% { transform: translateX(calc(-50% - 8px)); }
         }
 
-        /* Typography & Layout - REDUCED FONT SIZES */
+        /* Typography */
         .bg-script {
-            font-family: var(--font-script);
-            font-size: 2rem;
-            color: #d8dfd9; 
-            margin-bottom: -10px;
-            white-space: nowrap;
+            font-family: var(--font-script); font-size: 2rem;
+            color: #d8dfd9; margin-bottom: -10px; white-space: nowrap;
         }
-
-        .god-name {
-            font-family: var(--font-marathi-serif);
-            font-size: 1.35rem;
-            color: var(--sage-green);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .charoli {
-            font-family: var(--font-marathi-sans);
-            font-size: 1rem;
-            color: var(--text-dark);
-            margin: 20px 0;
-            line-height: 1.8;
-            font-style: normal;
-        }
-
-        .title-script {
-            font-family: var(--font-script);
-            color: var(--sage-green);
-            font-size: 2.4rem;
-            margin-bottom: 15px;
-            line-height: 1;
-        }
+        .god-name { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--sage-green); font-weight: 600; margin-bottom: 5px; }
+        .charoli { font-family: var(--font-marathi-sans); font-size: 1rem; color: var(--text-dark); margin: 20px 0; line-height: 1.8; }
+        .title-script { font-family: var(--font-script); color: var(--sage-green); font-size: 2.4rem; margin-bottom: 15px; }
 
         /* Couple Page Typography */
         .title { font-size: 0.95rem; color: var(--sage-green); margin-bottom: 5px; }
@@ -206,12 +178,26 @@
         .parents { font-size: 0.85rem; color: #5a6b5d; margin-top: 8px; line-height: 1.5; }
         .and-symbol { font-family: var(--font-script); font-size: 1.8rem; color: var(--sage-green); margin: 8px 0; }
         
+        /* New Shubhvivah & Kalash Divider Styles */
+        .shubhvivah-container {
+            display: flex; flex-direction: column; align-items: center;
+            margin-top: 15px; width: 100%;
+        }
+
+        .floral-divider {
+            display: flex; align-items: center; justify-content: center;
+            width: 90%; margin: 5px auto;
+        }
+
+        .floral-divider::before, .floral-divider::after {
+            content: ''; height: 1px; background: var(--divider-color);
+            flex-grow: 1; max-width: 50px; margin: 0 10px;
+        }
+
         .shubhvivah-text {
-            font-family: var(--font-marathi-serif); font-size: 1.3rem;
-            color: var(--sage-green); margin-top: 20px; font-weight: bold;
-            border-top: 1px solid var(--divider-color);
-            border-bottom: 1px solid var(--divider-color);
-            padding: 8px 0; display: inline-block; width: 75%;
+            font-family: var(--font-marathi-serif); font-size: 1.35rem;
+            color: var(--sage-green); font-weight: bold;
+            padding: 8px 0;
         }
 
         /* Events Typography */
@@ -224,29 +210,23 @@
         .event-item p { font-size: 0.9rem; line-height: 1.6; color: var(--sage-green); }
         .event-item strong { color: var(--sage-green); font-size: 1rem; font-weight: 600; }
 
-        /* Button */
         .btn-location {
             display: inline-block; margin-top: 15px; padding: 10px 25px;
             background: var(--sage-green); color: #fff; text-decoration: none;
-            border-radius: 30px; font-size: 0.95rem; letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(94, 111, 96, 0.3);
+            border-radius: 30px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(94, 111, 96, 0.3);
         }
 
         /* Animations */
         .anim-element { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
         .anim-element.is-visible { opacity: 1; transform: translateY(0); }
-        
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
+        .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
 
         @media (max-height: 700px) {
             .scene-content { padding: 25px 15px; }
             .bg-script { font-size: 1.8rem; margin-bottom: -10px; }
             .name { font-size: 2.2rem; }
+            .shubhvivah-text { font-size: 1.2rem; }
             .title-script { font-size: 2rem; margin-bottom: 15px; }
-            .event-item { margin-bottom: 12px; padding-bottom: 12px; }
             .swipe-btn { bottom: 15px; padding: 6px 15px; font-size: 0.85rem; }
         }
     </style>
@@ -267,7 +247,7 @@
         </div>
     </div>
 
-    <!-- MAIN INVITATION (HORIZONTAL SCROLL) -->
+    <!-- MAIN INVITATION -->
     <div id="invitation-content">
 
         <!-- Scene 1: Introduction -->
@@ -288,13 +268,12 @@
                     सस्नेह निमंत्रण
                 </p>
             </div>
-            <!-- Swipe Right Button -->
             <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(1)">
                 पुढे पहा <span style="font-size: 1.1rem;">➔</span>
             </div>
         </section>
 
-        <!-- Scene 2: Bride & Groom -->
+        <!-- Scene 2: Bride & Groom (With Kalash Design) -->
         <section class="scene" id="scene2">
             <div class="scene-content">
                 <div class="person anim-element">
@@ -311,12 +290,30 @@
                     <div class="parents">(श्री. बाळासाहेब चंद्रकांत शिंदे व सौ. सुवर्णा बाळासाहेब शिंदे यांची सुकन्या)</div>
                 </div>
                 
-                <div class="anim-element delay-3 shubhvivah-text">यांचा शुभविवाह</div>
-                <p class="anim-element delay-4" style="margin-top: 12px; font-size: 0.95rem; font-style: italic; color: var(--sage-green);">
-                    या शुभप्रसंगी आपली उपस्थिती व आशीर्वाद प्रार्थनीय आहेत!
-                </p>
+                <!-- NEW KALASH & FLORAL DESIGN -->
+                <div class="shubhvivah-container anim-element delay-3">
+                    <div class="floral-divider">
+                        <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
+                        <!-- SVG Kalash -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--sage-green)" style="margin: 0 6px;">
+                            <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
+                        </svg>
+                        <span style="font-size: 1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
+                    </div>
+                    
+                    <div class="shubhvivah-text">यांच्या शुभविवाहास अगत्याचे निमंत्रण!</div>
+                    
+                    <div class="floral-divider">
+                        <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
+                        <!-- SVG Kalash -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--sage-green)" style="margin: 0 6px;">
+                            <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
+                        </svg>
+                        <span style="font-size: 1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
+                    </div>
+                </div>
+
             </div>
-            <!-- Swipe Right Button -->
             <div class="swipe-btn swipe-right" onclick="nextPage(2)">
                 पुढे पहा <span style="font-size: 1.1rem;">➔</span>
             </div>
@@ -343,7 +340,6 @@
                     <span style="font-size: 0.85rem; color: var(--text-dark);">(तदनंतर स्नेहभोजन)</span></p>
                 </div>
             </div>
-            <!-- Swipe Right Button -->
             <div class="swipe-btn swipe-right" onclick="nextPage(3)">
                 पुढे पहा <span style="font-size: 1.1rem;">➔</span>
             </div>
@@ -359,7 +355,6 @@
                     <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.5;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
                 </div>
                 
-                <!-- Divider -->
                 <div class="anim-element delay-2" style="width: 40px; height: 1px; background: var(--divider-color); margin: 15px auto;"></div>
 
                 <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-2" target="_blank" rel="noopener noreferrer">
@@ -373,7 +368,6 @@
                     </p>
                 </div>
             </div>
-            <!-- Swipe Left (Back to start) Button -->
             <div class="swipe-btn swipe-left" onclick="nextPage(4)">
                 <span style="font-size: 1.1rem;">←</span> सुरवातीला जा
             </div>
@@ -381,7 +375,6 @@
     </div>
 
     <script>
-        // Envelope Open Logic
         function openInvitation() {
             const envelopeScreen = document.getElementById('envelope-screen');
             const envelopeWrapper = document.getElementById('envelope');
@@ -407,7 +400,6 @@
             }, 900);
         }
 
-        // Horizontal Scroll Button Logic
         function nextPage(currentIndex) {
             const container = document.getElementById('invitation-content');
             
@@ -421,14 +413,9 @@
             }
         }
 
-        // Scroll Observer for triggering animations when swiping manually
         document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById('invitation-content');
-            const observerOptions = {
-                root: container,
-                rootMargin: '0px',
-                threshold: 0.5 
-            };
+            const observerOptions = { root: container, rootMargin: '0px', threshold: 0.5 };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
