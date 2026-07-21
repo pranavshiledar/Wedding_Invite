@@ -11,16 +11,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 
     <style>
+        /* -------------------------------------------
+           THEME VARIABLES (Pink, Maroon, Green)
+        ------------------------------------------- */
         :root {
-            --sage-green: #5e6f60; 
-            --sage-light: #e6ebe7; 
-            --text-dark: #333333;
-            --divider-color: #d1dbd3;
+            /* DEFAULT: BLUSH PINK / ROSE GOLD */
+            --bg-color: #fdfbfb; 
+            --main-color: #b76e79; /* Rose Gold */
+            --envelope-main: #cda2a9; 
+            --envelope-flap: #b76e79;
+            --envelope-side: #c0848e;
+            --envelope-shadow: #995560;
+            --text-dark: #591828; /* Dark Rose for readability */
+            --divider-color: #ecd9dc;
+            --bg-script-color: #ecd9dc;
+            --btn-text: #ffffff;
+            
+            /* Universal Golds */
             --gold-seal: #cda434;
             --gold-light: #e8c973;
             
             --font-marathi-serif: 'Tiro Devanagari Marathi', serif;
             --font-marathi-sans: 'Anek Devanagari', sans-serif;
+            
+            /* Handmade Paper Texture (Seamless SVG) */
+            --paper-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        /* ROYAL MAROON THEME */
+        [data-theme="maroon"] {
+            --bg-color: #fcfaf8; 
+            --main-color: #800020; /* Royal Maroon */
+            --envelope-main: #991c39;
+            --envelope-flap: #800020;
+            --envelope-side: #8c0d29;
+            --envelope-shadow: #5c0016;
+            --text-dark: #3a000f;
+            --divider-color: #e8d0d5;
+            --bg-script-color: #e8d0d5;
+            --btn-text: #f8e5b0; /* Gold text on maroon */
+        }
+
+        /* SAGE GREEN THEME */
+        [data-theme="green"] {
+            --bg-color: #f8f9f8; 
+            --main-color: #5e6f60; /* Sage Green */
+            --envelope-main: #687a6a;
+            --envelope-flap: #738775;
+            --envelope-side: #5e6f60;
+            --envelope-shadow: #4d5c4e;
+            --text-dark: #2c3a2e;
+            --divider-color: #d1dbd3;
+            --bg-script-color: #d8dfd9;
+            --btn-text: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,47 +74,66 @@
             color: var(--text-dark);
             overflow: hidden; 
             overscroll-behavior-y: none;
-            background-color: #f8f9f8;
-            background-image: radial-gradient(#d1dbd3 1.5px, transparent 1.5px);
-            background-size: 25px 25px;
+            background-color: var(--bg-color);
+            background-image: var(--paper-texture);
+            transition: background-color 0.5s ease;
         }
+
+        /* THEME SWITCHER BUTTON */
+        .theme-switcher {
+            position: fixed;
+            top: 20px; right: 20px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid var(--divider-color);
+            color: var(--main-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 10000;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .theme-switcher:hover { transform: scale(1.05); }
 
         /* -------------------------------------------
            ENVELOPE SCREEN
         ------------------------------------------- */
         #envelope-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh;
-            background-color: var(--sage-light);
+            background-color: var(--bg-color);
+            background-image: var(--paper-texture);
             display: flex; justify-content: center; align-items: center;
             z-index: 9999; transition: opacity 1s ease, transform 1s ease;
         }
 
         .envelope-wrapper {
-            position: relative; 
-            width: 330px; height: 220px; /* SIZE INCREASED FOR MOBILE */
+            position: relative; width: 330px; height: 220px; 
             cursor: pointer; transition: all 0.5s ease;
         }
         
         .envelope {
             position: absolute; width: 100%; height: 100%;
-            background: #5b6b5d; border-radius: 5px;
+            background: var(--envelope-shadow); border-radius: 5px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: background 0.5s ease;
         }
 
-        .envelope-flap { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
-        .flap-bottom { background: #687a6a; clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%); z-index: 3; border-radius: 0 0 5px 5px; }
-        .flap-left { background: #5e6f60; clip-path: polygon(0 0, 50% 50%, 0 100%); z-index: 2; border-radius: 5px 0 0 5px; }
-        .flap-right { background: #5e6f60; clip-path: polygon(100% 0, 50% 50%, 100% 100%); z-index: 2; border-radius: 0 5px 5px 0; }
+        .envelope-flap { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: background 0.5s ease; }
+        .flap-bottom { background: var(--envelope-main); clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%); z-index: 3; border-radius: 0 0 5px 5px; }
+        .flap-left { background: var(--envelope-side); clip-path: polygon(0 0, 50% 50%, 0 100%); z-index: 2; border-radius: 5px 0 0 5px; }
+        .flap-right { background: var(--envelope-side); clip-path: polygon(100% 0, 50% 50%, 100% 100%); z-index: 2; border-radius: 0 5px 5px 0; }
         .flap-top {
-            background: #738775; clip-path: polygon(0 0, 100% 0, 50% 55%);
+            background: var(--envelope-flap); clip-path: polygon(0 0, 100% 0, 50% 55%);
             z-index: 4; transform-origin: top;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.4s;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease, z-index 0s 0.4s;
             border-radius: 5px 5px 0 0;
         }
 
         .wax-seal {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -15%);
-            width: 60px; height: 60px; /* SEAL SIZE INCREASED */
+            width: 60px; height: 60px;
             background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #9c7a21);
             border-radius: 50%; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex; justify-content: center; align-items: center;
@@ -80,7 +142,7 @@
 
         .click-text {
             position: absolute; bottom: -45px; width: 100%; text-align: center;
-            color: var(--sage-green); font-size: 1.05rem;
+            color: var(--main-color); font-size: 1.05rem;
             animation: pulseText 2s infinite; font-weight: 500;
         }
 
@@ -107,19 +169,22 @@
             position: relative;
         }
 
-        /* DEFAULT MOBILE STYLES */
+        /* CARD WITH PAPER TEXTURE */
         .scene-content {
-            background-color: #ffffff; border-radius: 20px; padding: 35px 20px;
-            width: 85%; max-width: 380px; box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            background-color: #ffffff; 
+            background-image: var(--paper-texture); /* Adds texture to cards */
+            border-radius: 20px; padding: 35px 20px;
+            width: 85%; max-width: 380px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             text-align: center; position: relative; z-index: 10;
         }
 
         .swipe-btn {
             position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95); border: 1px solid var(--divider-color);
-            color: var(--sage-green); padding: 8px 20px; border-radius: 30px;
+            color: var(--main-color); padding: 8px 20px; border-radius: 30px;
             font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05); cursor: pointer; z-index: 20;
+            transition: all 0.3s ease;
         }
 
         .swipe-right { animation: swipeRightAnim 2s infinite; }
@@ -129,43 +194,41 @@
 
         /* Typography */
         .bg-script { 
-            font-family: var(--font-marathi-serif); 
-            font-size: 2rem; 
-            color: #d8dfd9; 
-            margin-bottom: 5px; 
-            white-space: nowrap; 
-            font-weight: bold;
-            opacity: 0.5;
+            font-family: var(--font-marathi-serif); font-size: 2rem; 
+            color: var(--bg-script-color); margin-bottom: 5px; 
+            white-space: nowrap; font-weight: bold; opacity: 0.6;
         }
         
-        .god-name { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--sage-green); font-weight: 600; margin-bottom: 5px; }
+        .god-name { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
         .charoli { font-family: var(--font-marathi-sans); font-size: 1rem; color: var(--text-dark); margin: 20px 0; line-height: 1.8; }
         
         .title-script { 
-            font-family: var(--font-marathi-serif); 
-            color: var(--sage-green); 
-            font-size: 2.1rem; 
-            margin-bottom: 20px; 
-            font-weight: bold;
+            font-family: var(--font-marathi-serif); color: var(--main-color); 
+            font-size: 2.1rem; margin-bottom: 20px; font-weight: bold;
         }
 
-        .title { font-size: 0.95rem; color: var(--sage-green); margin-bottom: 5px; }
-        .name { font-family: var(--font-marathi-serif); font-size: 2.5rem; line-height: 1.1; color: var(--text-dark); }
-        .parents { font-size: 0.85rem; color: #5a6b5d; margin-top: 8px; line-height: 1.5; }
-        .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.5rem; color: var(--sage-green); margin: 8px 0; font-weight: bold; }
+        .title { font-size: 0.95rem; color: var(--main-color); margin-bottom: 5px; font-weight: 500; }
+        .name { font-family: var(--font-marathi-serif); font-size: 2.5rem; line-height: 1.1; color: var(--main-color); }
+        .parents { font-size: 0.85rem; color: var(--text-dark); margin-top: 8px; line-height: 1.5; opacity: 0.8; }
+        .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.5rem; color: var(--main-color); margin: 8px 0; font-weight: bold; }
         
         .shubhvivah-container { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
         .floral-divider { display: flex; align-items: center; justify-content: center; width: 90%; margin: 5px auto; }
         .floral-divider::before, .floral-divider::after { content: ''; height: 1px; background: var(--divider-color); flex-grow: 1; max-width: 50px; margin: 0 10px; }
-        .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--sage-green); font-weight: bold; padding: 8px 0; }
+        .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--main-color); font-weight: bold; padding: 8px 0; }
 
         .event-item { margin-bottom: 18px; position: relative; padding-bottom: 18px; }
         .event-item:not(:last-child)::after { content: ''; position: absolute; bottom: 0; left: 35%; width: 30%; height: 1px; background: var(--divider-color); }
-        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.2rem; margin-bottom: 6px; color: var(--text-dark); font-weight: bold;}
-        .event-item p { font-size: 0.9rem; line-height: 1.6; color: var(--sage-green); }
-        .event-item strong { color: var(--sage-green); font-size: 1rem; font-weight: 600; }
+        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.2rem; margin-bottom: 6px; color: var(--main-color); font-weight: bold;}
+        .event-item p { font-size: 0.9rem; line-height: 1.6; color: var(--text-dark); opacity: 0.9; }
+        .event-item strong { color: var(--main-color); font-size: 1rem; font-weight: 600; }
 
-        .btn-location { display: inline-block; margin-top: 15px; padding: 10px 25px; background: var(--sage-green); color: #fff; text-decoration: none; border-radius: 30px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(94, 111, 96, 0.3); }
+        .btn-location { 
+            display: inline-block; margin-top: 15px; padding: 10px 25px; 
+            background: var(--main-color); color: var(--btn-text); text-decoration: none; 
+            border-radius: 30px; font-size: 0.95rem; font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); transition: background 0.3s ease;
+        }
 
         .anim-element { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
         .anim-element.is-visible { opacity: 1; transform: translateY(0); }
@@ -185,8 +248,8 @@
         ------------------------------------------- */
         @media (min-width: 768px) {
             .scene-content { max-width: 550px; padding: 50px 40px; border-radius: 25px; }
-            .envelope-wrapper { width: 450px; height: 300px; } /* INCREASED FOR DESKTOP */
-            .wax-seal { width: 80px; height: 80px; font-size: 2.2rem; } /* INCREASED FOR DESKTOP */
+            .envelope-wrapper { width: 450px; height: 300px; } 
+            .wax-seal { width: 80px; height: 80px; font-size: 2.2rem; } 
             .bg-script { font-size: 2.8rem; margin-bottom: 10px; }
             .god-name { font-size: 1.6rem; }
             .charoli { font-size: 1.25rem; }
@@ -202,10 +265,16 @@
             .event-item strong { font-size: 1.2rem; }
             .btn-location { font-size: 1.15rem; padding: 12px 35px; }
             .swipe-btn { bottom: 40px; padding: 12px 30px; font-size: 1.1rem; }
+            .theme-switcher { top: 30px; right: 40px; font-size: 1rem; padding: 10px 20px; }
         }
     </style>
 </head>
-<body>
+<body data-theme="pink">
+
+    <!-- THEME SWITCHER BUTTON -->
+    <div class="theme-switcher" onclick="changeTheme()">
+        🎨 रंग बदला
+    </div>
 
     <!-- ENVELOPE SCREEN -->
     <div id="envelope-screen">
@@ -235,10 +304,10 @@
                     लग्नाची घाई, वेळेची कमतरता!<br>
                     म्हणूनच या प्रेमळ संदेशाद्वारे<br>
                     तुम्हाला आमंत्रित करत आहोत.<br><br>
-                    <strong>आमच्या लग्नाला नक्की या!</strong>
+                    <strong style="color: var(--main-color);">आमच्या लग्नाला नक्की या!</strong>
                 </p>
                 
-                <p class="anim-element delay-3" style="color: var(--sage-green); font-size: 1.1rem; font-family: var(--font-marathi-serif); font-weight: bold;">
+                <p class="anim-element delay-3" style="color: var(--main-color); font-size: 1.1rem; font-family: var(--font-marathi-serif); font-weight: bold;">
                     सस्नेह निमंत्रण
                 </p>
             </div>
@@ -267,7 +336,7 @@
                 <div class="shubhvivah-container anim-element delay-3">
                     <div class="floral-divider">
                         <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--sage-green)" style="margin: 0 6px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--main-color)" style="margin: 0 6px; transition: fill 0.5s ease;">
                             <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
                         </svg>
                         <span style="font-size: 1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
@@ -277,7 +346,7 @@
                     
                     <div class="floral-divider">
                         <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--sage-green)" style="margin: 0 6px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--main-color)" style="margin: 0 6px; transition: fill 0.5s ease;">
                             <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
                         </svg>
                         <span style="font-size: 1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
@@ -308,7 +377,7 @@
                 <div class="event-item anim-element delay-3" style="border: none; margin-bottom: 0; padding-bottom: 0;">
                     <h3>शुभविवाह मुहूर्त</h3>
                     <p><strong>गुरुवार, २० ऑगस्ट २०२६</strong><br>दुपारी ठीक १२:४५ वाजता<br>
-                    <span style="font-size: 0.85rem; color: var(--text-dark);">(तदनंतर स्नेहभोजन)</span></p>
+                    <span style="font-size: 0.85rem; color: var(--text-dark); opacity: 0.8;">(तदनंतर स्नेहभोजन)</span></p>
                 </div>
             </div>
             <div class="swipe-btn swipe-right" onclick="nextPage(3)">
@@ -322,8 +391,8 @@
                 <h2 class="title-script anim-element">स्थळ</h2>
                 
                 <div class="anim-element delay-1">
-                    <h3 style="color: var(--sage-green); font-family: var(--font-marathi-serif); font-size: 1.25rem; margin-bottom: 8px;">स्वयंवर मंगल कार्यालय</h3>
-                    <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.5;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
+                    <h3 style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.25rem; margin-bottom: 8px; font-weight: bold;">स्वयंवर मंगल कार्यालय</h3>
+                    <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
                 </div>
                 
                 <div class="anim-element delay-2" style="width: 40px; height: 1px; background: var(--divider-color); margin: 15px auto;"></div>
@@ -333,7 +402,7 @@
                 </a>
 
                 <div style="margin-top: 30px;" class="anim-element delay-3">
-                    <p style="color: var(--sage-green); font-family: var(--font-marathi-serif); font-size: 1.8rem; margin-bottom: 5px; font-weight: bold;">धन्यवाद !</p>
+                    <p style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.8rem; margin-bottom: 5px; font-weight: bold;">धन्यवाद !</p>
                     <p style="font-family: var(--font-marathi-serif); font-size: 1rem; font-weight: bold; color: var(--text-dark);">
                         समस्त शिलेदार आणि शिंदे परिवार
                     </p>
@@ -346,6 +415,16 @@
     </div>
 
     <script>
+        // Array of themes
+        const themes = ['pink', 'maroon', 'green'];
+        let currentThemeIndex = 0;
+
+        // Function to change theme
+        function changeTheme() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            document.body.setAttribute('data-theme', themes[currentThemeIndex]);
+        }
+
         function openInvitation() {
             const envelopeScreen = document.getElementById('envelope-screen');
             const envelopeWrapper = document.getElementById('envelope');
