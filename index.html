@@ -17,135 +17,80 @@
         :root {
             /* DEFAULT: BLUSH PINK / ROSE GOLD */
             --bg-color: #fdfbfb; 
-            --main-color: #b76e79; /* Rose Gold */
+            --main-color: #b76e79; 
             --envelope-main: #cda2a9; 
             --envelope-flap: #b76e79;
             --envelope-side: #c0848e;
             --envelope-shadow: #995560;
-            --text-dark: #591828; /* Dark Rose for readability */
+            --text-dark: #591828; 
             --divider-color: #ecd9dc;
             --bg-script-color: #ecd9dc;
             --btn-text: #ffffff;
             
-            /* Universal Golds */
             --gold-seal: #cda434;
             --gold-light: #e8c973;
             
             --font-marathi-serif: 'Tiro Devanagari Marathi', serif;
             --font-marathi-sans: 'Anek Devanagari', sans-serif;
             
-            /* Handmade Paper Texture (Seamless SVG) */
             --paper-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
         }
 
-        /* ROYAL MAROON THEME */
         [data-theme="maroon"] {
-            --bg-color: #fcfaf8; 
-            --main-color: #800020; /* Royal Maroon */
-            --envelope-main: #991c39;
-            --envelope-flap: #800020;
-            --envelope-side: #8c0d29;
-            --envelope-shadow: #5c0016;
-            --text-dark: #3a000f;
-            --divider-color: #e8d0d5;
-            --bg-script-color: #e8d0d5;
-            --btn-text: #f8e5b0; /* Gold text on maroon */
+            --bg-color: #fcfaf8; --main-color: #800020; --envelope-main: #991c39;
+            --envelope-flap: #800020; --envelope-side: #8c0d29; --envelope-shadow: #5c0016;
+            --text-dark: #3a000f; --divider-color: #e8d0d5; --bg-script-color: #e8d0d5; --btn-text: #f8e5b0; 
         }
 
-        /* SAGE GREEN THEME */
         [data-theme="green"] {
-            --bg-color: #f8f9f8; 
-            --main-color: #5e6f60; /* Sage Green */
-            --envelope-main: #687a6a;
-            --envelope-flap: #738775;
-            --envelope-side: #5e6f60;
-            --envelope-shadow: #4d5c4e;
-            --text-dark: #2c3a2e;
-            --divider-color: #d1dbd3;
-            --bg-script-color: #d8dfd9;
-            --btn-text: #ffffff;
+            --bg-color: #f8f9f8; --main-color: #5e6f60; --envelope-main: #687a6a;
+            --envelope-flap: #738775; --envelope-side: #5e6f60; --envelope-shadow: #4d5c4e;
+            --text-dark: #2c3a2e; --divider-color: #d1dbd3; --bg-script-color: #d8dfd9; --btn-text: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
-            height: 100dvh;
-            font-family: var(--font-marathi-sans);
-            color: var(--text-dark);
-            overflow: hidden; 
-            overscroll-behavior-y: none;
-            background-color: var(--bg-color);
-            background-image: var(--paper-texture);
+            height: 100dvh; font-family: var(--font-marathi-sans);
+            color: var(--text-dark); overflow: hidden; overscroll-behavior-y: none;
+            background-color: var(--bg-color); background-image: var(--paper-texture);
             transition: background-color 0.5s ease;
         }
 
         /* THEME SWITCHER BUTTON */
         .theme-switcher {
-            position: fixed;
-            top: 20px; right: 20px;
-            background: rgba(255,255,255,0.9);
-            border: 1px solid var(--divider-color);
-            color: var(--main-color);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            z-index: 10000;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            position: fixed; top: 15px; right: 15px; background: rgba(255,255,255,0.95);
+            border: 1px solid var(--divider-color); color: var(--main-color);
+            padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;
+            z-index: 10000; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .theme-switcher:hover { transform: scale(1.05); }
 
         /* -------------------------------------------
            ENVELOPE SCREEN
         ------------------------------------------- */
         #envelope-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh;
-            background-color: var(--bg-color);
-            background-image: var(--paper-texture);
+            background-color: var(--bg-color); background-image: var(--paper-texture);
             display: flex; justify-content: center; align-items: center;
             z-index: 9999; transition: opacity 1s ease, transform 1s ease;
         }
 
-        .envelope-wrapper {
-            position: relative; width: 330px; height: 220px; 
-            cursor: pointer; transition: all 0.5s ease;
-        }
-        
-        .envelope {
-            position: absolute; width: 100%; height: 100%;
-            background: var(--envelope-shadow); border-radius: 5px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            transition: background 0.5s ease;
-        }
-
+        .envelope-wrapper { position: relative; width: 330px; height: 220px; cursor: pointer; }
+        .envelope { position: absolute; width: 100%; height: 100%; background: var(--envelope-shadow); border-radius: 5px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); transition: background 0.5s ease; }
         .envelope-flap { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: background 0.5s ease; }
         .flap-bottom { background: var(--envelope-main); clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%); z-index: 3; border-radius: 0 0 5px 5px; }
         .flap-left { background: var(--envelope-side); clip-path: polygon(0 0, 50% 50%, 0 100%); z-index: 2; border-radius: 5px 0 0 5px; }
         .flap-right { background: var(--envelope-side); clip-path: polygon(100% 0, 50% 50%, 100% 100%); z-index: 2; border-radius: 0 5px 5px 0; }
-        .flap-top {
-            background: var(--envelope-flap); clip-path: polygon(0 0, 100% 0, 50% 55%);
-            z-index: 4; transform-origin: top;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease, z-index 0s 0.4s;
-            border-radius: 5px 5px 0 0;
-        }
+        .flap-top { background: var(--envelope-flap); clip-path: polygon(0 0, 100% 0, 50% 55%); z-index: 4; transform-origin: top; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease, z-index 0s 0.4s; border-radius: 5px 5px 0 0; }
 
         .wax-seal {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -15%);
-            width: 60px; height: 60px;
-            background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #9c7a21);
+            width: 60px; height: 60px; background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #9c7a21);
             border-radius: 50%; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: flex; justify-content: center; align-items: center;
-            color: #5c4712; font-size: 1.7rem; transition: opacity 0.3s ease;
+            display: flex; justify-content: center; align-items: center; color: #5c4712; font-size: 1.7rem;
         }
 
-        .click-text {
-            position: absolute; bottom: -45px; width: 100%; text-align: center;
-            color: var(--main-color); font-size: 1.05rem;
-            animation: pulseText 2s infinite; font-weight: 500;
-        }
-
+        .click-text { position: absolute; bottom: -45px; width: 100%; text-align: center; color: var(--main-color); font-size: 1.05rem; animation: pulseText 2s infinite; font-weight: 500; }
         @keyframes pulseText { 0%, 100% { opacity: 0.6; transform: translateY(0); } 50% { opacity: 1; transform: translateY(3px); } }
         .envelope-wrapper.open .flap-top { transform: rotateX(180deg); z-index: 1; }
         .envelope-wrapper.open .wax-seal { opacity: 0; display: none; }
@@ -155,126 +100,91 @@
         ------------------------------------------- */
         #invitation-content {
             display: none; flex-direction: row; width: 100vw; height: 100dvh;
-            overflow-x: auto; overflow-y: hidden;
-            scroll-snap-type: x mandatory; scroll-behavior: smooth;
-            opacity: 0; transition: opacity 1s ease;
+            overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; opacity: 0; transition: opacity 1s ease;
         }
-
         #invitation-content::-webkit-scrollbar { display: none; }
-        #invitation-content { -ms-overflow-style: none; scrollbar-width: none; }
+        .scene { flex: 0 0 100vw; height: 100dvh; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; padding-bottom: 20px;}
 
-        .scene {
-            flex: 0 0 100vw; height: 100dvh; scroll-snap-align: start;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            position: relative;
+        /* BIGGER CARD WITH INNER BORDER */
+        .scene-content {
+            background-color: #ffffff; background-image: var(--paper-texture);
+            border-radius: 16px; padding: 40px 20px; 
+            width: 93%; /* INCREASED WIDTH */
+            max-width: 420px; box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            text-align: center; position: relative; z-index: 10;
+            border: 1px solid var(--divider-color);
         }
 
-        /* CARD WITH PAPER TEXTURE */
-        .scene-content {
-            background-color: #ffffff; 
-            background-image: var(--paper-texture); /* Adds texture to cards */
-            border-radius: 20px; padding: 35px 20px;
-            width: 85%; max-width: 380px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            text-align: center; position: relative; z-index: 10;
+        /* Decorative Inner Frame */
+        .scene-content::before {
+            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 1.5px solid var(--main-color); opacity: 0.25;
+            border-radius: 10px; pointer-events: none;
         }
 
         .swipe-btn {
-            position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95); border: 1px solid var(--divider-color);
-            color: var(--main-color); padding: 8px 20px; border-radius: 30px;
-            font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); cursor: pointer; z-index: 20;
-            transition: all 0.3s ease;
+            color: var(--main-color); padding: 10px 25px; border-radius: 30px;
+            font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); cursor: pointer; z-index: 20;
         }
 
         .swipe-right { animation: swipeRightAnim 2s infinite; }
-        .swipe-left { animation: swipeLeftAnim 2s infinite; }
         @keyframes swipeRightAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% + 8px)); } }
-        @keyframes swipeLeftAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% - 8px)); } }
 
         /* Typography */
-        .bg-script { 
-            font-family: var(--font-marathi-serif); font-size: 2rem; 
-            color: var(--bg-script-color); margin-bottom: 5px; 
-            white-space: nowrap; font-weight: bold; opacity: 0.6;
+        .bg-script { font-family: var(--font-marathi-serif); font-size: 2.2rem; color: var(--bg-script-color); margin-bottom: 5px; font-weight: bold; opacity: 0.7; }
+        .god-name { font-family: var(--font-marathi-serif); font-size: 1.25rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
+        .charoli { font-family: var(--font-marathi-sans); font-size: 1.05rem; color: var(--text-dark); margin: 25px 0; line-height: 1.8; }
+        .title-script { font-family: var(--font-marathi-serif); color: var(--main-color); font-size: 2.2rem; margin-bottom: 25px; font-weight: bold; }
+
+        .title { font-size: 1rem; color: var(--main-color); margin-bottom: 5px; font-weight: 500; }
+        .name { font-family: var(--font-marathi-serif); font-size: 2.7rem; line-height: 1.1; color: var(--main-color); }
+        .parents { font-size: 0.9rem; color: var(--text-dark); margin-top: 8px; line-height: 1.5; opacity: 0.8; }
+        .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.6rem; color: var(--main-color); margin: 12px 0; font-weight: bold; }
+        
+        .floral-divider { display: flex; align-items: center; justify-content: center; width: 95%; margin: 10px auto; }
+        .floral-divider::before, .floral-divider::after { content: ''; height: 1.5px; background: var(--main-color); opacity: 0.3; flex-grow: 1; max-width: 60px; margin: 0 10px; }
+        .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.4rem; color: var(--main-color); font-weight: bold; padding: 10px 0; }
+
+        /* EVENT CARDS (NEW VISUAL DESIGN) */
+        .event-box {
+            background: rgba(0,0,0,0.02); /* Slight tint */
+            border: 1px solid var(--divider-color);
+            border-radius: 12px; padding: 15px 10px; margin-bottom: 15px;
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        /* Left border highlight for event box */
+        .event-box::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--main-color); opacity: 0.7;
         }
         
-        .god-name { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
-        .charoli { font-family: var(--font-marathi-sans); font-size: 1rem; color: var(--text-dark); margin: 20px 0; line-height: 1.8; }
-        
-        .title-script { 
-            font-family: var(--font-marathi-serif); color: var(--main-color); 
-            font-size: 2.1rem; margin-bottom: 20px; font-weight: bold;
-        }
+        .icon-container { margin-bottom: 8px; }
+        .event-box h3 { font-family: var(--font-marathi-serif); font-size: 1.3rem; margin-bottom: 5px; color: var(--main-color); font-weight: bold;}
+        .event-box p { font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); opacity: 0.9; }
+        .event-box strong { font-size: 1.05rem; font-weight: 600; color: var(--text-dark);}
 
-        .title { font-size: 0.95rem; color: var(--main-color); margin-bottom: 5px; font-weight: 500; }
-        .name { font-family: var(--font-marathi-serif); font-size: 2.5rem; line-height: 1.1; color: var(--main-color); }
-        .parents { font-size: 0.85rem; color: var(--text-dark); margin-top: 8px; line-height: 1.5; opacity: 0.8; }
-        .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.5rem; color: var(--main-color); margin: 8px 0; font-weight: bold; }
-        
-        .shubhvivah-container { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
-        .floral-divider { display: flex; align-items: center; justify-content: center; width: 90%; margin: 5px auto; }
-        .floral-divider::before, .floral-divider::after { content: ''; height: 1px; background: var(--divider-color); flex-grow: 1; max-width: 50px; margin: 0 10px; }
-        .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--main-color); font-weight: bold; padding: 8px 0; }
-
-        .event-item { margin-bottom: 18px; position: relative; padding-bottom: 18px; }
-        .event-item:not(:last-child)::after { content: ''; position: absolute; bottom: 0; left: 35%; width: 30%; height: 1px; background: var(--divider-color); }
-        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.2rem; margin-bottom: 6px; color: var(--main-color); font-weight: bold;}
-        .event-item p { font-size: 0.9rem; line-height: 1.6; color: var(--text-dark); opacity: 0.9; }
-        .event-item strong { color: var(--main-color); font-size: 1rem; font-weight: 600; }
-
-        .btn-location { 
-            display: inline-block; margin-top: 15px; padding: 10px 25px; 
-            background: var(--main-color); color: var(--btn-text); text-decoration: none; 
-            border-radius: 30px; font-size: 0.95rem; font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); transition: background 0.3s ease;
-        }
+        .btn-location { display: inline-block; margin-top: 15px; padding: 12px 28px; background: var(--main-color); color: var(--btn-text); text-decoration: none; border-radius: 30px; font-size: 1rem; font-weight: 500; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); transition: background 0.3s ease; }
 
         .anim-element { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
         .anim-element.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
 
         @media (max-height: 700px) {
-            .scene-content { padding: 25px 15px; }
-            .bg-script { font-size: 1.6rem; margin-bottom: 0px; }
-            .name { font-size: 2.2rem; }
-            .shubhvivah-text { font-size: 1.2rem; }
-            .title-script { font-size: 1.8rem; margin-bottom: 15px; }
-            .swipe-btn { bottom: 15px; padding: 6px 15px; font-size: 0.85rem; }
-        }
-
-        /* -------------------------------------------
-           DESKTOP STYLES
-        ------------------------------------------- */
-        @media (min-width: 768px) {
-            .scene-content { max-width: 550px; padding: 50px 40px; border-radius: 25px; }
-            .envelope-wrapper { width: 450px; height: 300px; } 
-            .wax-seal { width: 80px; height: 80px; font-size: 2.2rem; } 
-            .bg-script { font-size: 2.8rem; margin-bottom: 10px; }
-            .god-name { font-size: 1.6rem; }
-            .charoli { font-size: 1.25rem; }
-            .title-script { font-size: 2.6rem; margin-bottom: 25px; }
-            .title { font-size: 1.2rem; }
-            .name { font-size: 3.8rem; }
-            .parents { font-size: 1.1rem; }
-            .shubhvivah-text { font-size: 1.8rem; }
-            .floral-divider::before, .floral-divider::after { max-width: 80px; }
-            .event-item { margin-bottom: 25px; padding-bottom: 25px; }
-            .event-item h3 { font-size: 1.6rem; margin-bottom: 8px; }
-            .event-item p { font-size: 1.1rem; }
-            .event-item strong { font-size: 1.2rem; }
-            .btn-location { font-size: 1.15rem; padding: 12px 35px; }
-            .swipe-btn { bottom: 40px; padding: 12px 30px; font-size: 1.1rem; }
-            .theme-switcher { top: 30px; right: 40px; font-size: 1rem; padding: 10px 20px; }
+            .scene-content { padding: 25px 15px; width: 95%; }
+            .bg-script { font-size: 1.8rem; margin-bottom: 0px; }
+            .name { font-size: 2.3rem; }
+            .title-script { font-size: 2rem; margin-bottom: 15px; }
+            .event-box { padding: 12px 10px; margin-bottom: 12px; }
+            .swipe-btn { bottom: 15px; padding: 8px 18px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body data-theme="pink">
 
-    <!-- THEME SWITCHER BUTTON -->
-    <div class="theme-switcher" onclick="changeTheme()">
-        🎨 रंग बदला
-    </div>
+    <div class="theme-switcher" onclick="changeTheme()">🎨 रंग बदला</div>
 
     <!-- ENVELOPE SCREEN -->
     <div id="envelope-screen">
@@ -297,22 +207,30 @@
         <section class="scene" id="scene1">
             <div class="scene-content">
                 <div class="bg-script anim-element">विवाह निमंत्रण</div>
-                <div class="anim-element delay-1 god-name" style="margin-top: 10px;">॥ श्री गणेशाय नमः ॥</div>
-                <div class="anim-element delay-1 god-name" style="font-size: 0.95rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
+                
+                <!-- Ganesha Icon (Visual element) -->
+                <div class="anim-element delay-1 icon-container" style="margin: 10px 0;">
+                    <svg viewBox="0 0 24 24" width="45" height="45" fill="var(--main-color)" style="opacity: 0.9;">
+                        <path d="M12 2C9 2 7 4 7 7C7 8.5 7.5 9.8 8.4 10.9L8.1 11.2C7.3 11.8 6.9 12.8 6.9 13.9C6.9 15.6 8 17 9.5 17.5V19.5C9.5 20.3 10.2 21 11 21H13C13.8 21 14.5 20.3 14.5 19.5V17.5C16 17 17.1 15.6 17.1 13.9C17.1 12.8 16.7 11.8 15.9 11.2L15.6 10.9C16.5 9.8 17 8.5 17 7C17 4 15 2 12 2ZM12 4C13.7 4 15 5.3 15 7C15 8.1 14.4 9 13.6 9.5L12 10.5L10.4 9.5C9.6 9 9 8.1 9 7C9 5.3 10.3 4 12 4ZM10 13.5C10 12.7 10.7 12 11.5 12H12.5C13.3 12 14 12.7 14 13.5C14 14.3 13.3 15 12.5 15H11.5C10.7 15 10 14.3 10 13.5Z" />
+                    </svg>
+                </div>
+
+                <div class="anim-element delay-1 god-name">॥ श्री गणेशाय नमः ॥</div>
+                <div class="anim-element delay-1 god-name" style="font-size: 1rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
                 
                 <p class="anim-element delay-2 charoli">
                     लग्नाची घाई, वेळेची कमतरता!<br>
                     म्हणूनच या प्रेमळ संदेशाद्वारे<br>
                     तुम्हाला आमंत्रित करत आहोत.<br><br>
-                    <strong style="color: var(--main-color);">आमच्या लग्नाला नक्की या!</strong>
+                    <strong style="color: var(--main-color); font-size: 1.15rem;">आमच्या लग्नाला नक्की या!</strong>
                 </p>
                 
-                <p class="anim-element delay-3" style="color: var(--main-color); font-size: 1.1rem; font-family: var(--font-marathi-serif); font-weight: bold;">
+                <p class="anim-element delay-3" style="color: var(--main-color); font-size: 1.2rem; font-family: var(--font-marathi-serif); font-weight: bold;">
                     सस्नेह निमंत्रण
                 </p>
             </div>
             <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(1)">
-                पुढे पहा <span style="font-size: 1.1rem;">➔</span>
+                पुढे पहा <span style="font-size: 1.2rem;">➔</span>
             </div>
         </section>
 
@@ -333,55 +251,76 @@
                     <div class="parents">(श्री. बाळासाहेब चंद्रकांत शिंदे व सौ. सुवर्णा बाळासाहेब शिंदे यांची सुकन्या)</div>
                 </div>
                 
-                <div class="shubhvivah-container anim-element delay-3">
+                <div class="anim-element delay-3" style="margin-top: 15px; width: 100%;">
                     <div class="floral-divider">
-                        <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--main-color)" style="margin: 0 6px; transition: fill 0.5s ease;">
+                        <span style="font-size: 1.1rem; opacity: 0.8;">🌿</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="var(--main-color)" style="margin: 0 8px; transition: fill 0.5s ease;">
                             <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
                         </svg>
-                        <span style="font-size: 1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
+                        <span style="font-size: 1.1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
                     </div>
                     
                     <div class="shubhvivah-text">यांच्या शुभविवाहास अगत्याचे निमंत्रण!</div>
                     
                     <div class="floral-divider">
-                        <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--main-color)" style="margin: 0 6px; transition: fill 0.5s ease;">
+                        <span style="font-size: 1.1rem; opacity: 0.8;">🌿</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="var(--main-color)" style="margin: 0 8px; transition: fill 0.5s ease;">
                             <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
                         </svg>
-                        <span style="font-size: 1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
+                        <span style="font-size: 1.1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
                     </div>
                 </div>
-
             </div>
             <div class="swipe-btn swipe-right" onclick="nextPage(2)">
-                पुढे पहा <span style="font-size: 1.1rem;">➔</span>
+                पुढे पहा <span style="font-size: 1.2rem;">➔</span>
             </div>
         </section>
 
-        <!-- Scene 3: Events -->
+        <!-- Scene 3: Events (NOW WITH EVENT CARDS & ICONS) -->
         <section class="scene" id="scene3">
             <div class="scene-content">
                 <h2 class="title-script anim-element">कार्यक्रम</h2>
                 
-                <div class="event-item anim-element delay-1">
+                <!-- Sakharpuda Card -->
+                <div class="event-box anim-element delay-1">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="var(--main-color)" stroke-width="1.5" stroke-linecap="round">
+                            <circle cx="12" cy="15" r="5"/>
+                            <path d="M9 11l3 -4l3 4z"/>
+                        </svg>
+                    </div>
                     <h3>साखरपुडा</h3>
                     <p><strong>बुधवार, १९ ऑगस्ट २०२६</strong><br>सायंकाळी ५:१५ वाजता</p>
                 </div>
 
-                <div class="event-item anim-element delay-2">
+                <!-- Haldi Card -->
+                <div class="event-box anim-element delay-2">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="var(--main-color)" stroke-width="1.5" stroke-linecap="round">
+                            <path d="M12 22s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/>
+                            <path d="M12 22s-3-4.5-3-10a3 3 0 0 1 6 0c0 5.5-3 10-3 10z"/>
+                            <path d="M12 12v-6"/>
+                            <path d="M12 3v1"/>
+                        </svg>
+                    </div>
                     <h3>हळदी समारंभ</h3>
                     <p><strong>बुधवार, १९ ऑगस्ट २०२६</strong><br>सायंकाळी ७:०० वाजता</p>
                 </div>
 
-                <div class="event-item anim-element delay-3" style="border: none; margin-bottom: 0; padding-bottom: 0;">
+                <!-- Vivah Card -->
+                <div class="event-box anim-element delay-3" style="margin-bottom: 0;">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="var(--main-color)" style="opacity: 0.85;">
+                            <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
+                        </svg>
+                    </div>
                     <h3>शुभविवाह मुहूर्त</h3>
                     <p><strong>गुरुवार, २० ऑगस्ट २०२६</strong><br>दुपारी ठीक १२:४५ वाजता<br>
-                    <span style="font-size: 0.85rem; color: var(--text-dark); opacity: 0.8;">(तदनंतर स्नेहभोजन)</span></p>
+                    <span style="font-size: 0.85rem; opacity: 0.8;">(तदनंतर स्नेहभोजन)</span></p>
                 </div>
             </div>
             <div class="swipe-btn swipe-right" onclick="nextPage(3)">
-                पुढे पहा <span style="font-size: 1.1rem;">➔</span>
+                पुढे पहा <span style="font-size: 1.2rem;">➔</span>
             </div>
         </section>
 
@@ -391,35 +330,33 @@
                 <h2 class="title-script anim-element">स्थळ</h2>
                 
                 <div class="anim-element delay-1">
-                    <h3 style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.25rem; margin-bottom: 8px; font-weight: bold;">स्वयंवर मंगल कार्यालय</h3>
-                    <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
+                    <h3 style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.4rem; margin-bottom: 10px; font-weight: bold;">स्वयंवर मंगल कार्यालय</h3>
+                    <p style="color: var(--text-dark); font-size: 1rem; line-height: 1.6; opacity: 0.9;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
                 </div>
                 
-                <div class="anim-element delay-2" style="width: 40px; height: 1px; background: var(--divider-color); margin: 15px auto;"></div>
-
                 <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-2" target="_blank" rel="noopener noreferrer">
-                    नकाशावर पहा
+                    📍 नकाशावर पहा
                 </a>
 
-                <div style="margin-top: 30px;" class="anim-element delay-3">
-                    <p style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.8rem; margin-bottom: 5px; font-weight: bold;">धन्यवाद !</p>
-                    <p style="font-family: var(--font-marathi-serif); font-size: 1rem; font-weight: bold; color: var(--text-dark);">
+                <div class="anim-element delay-3" style="width: 50px; height: 1.5px; background: var(--main-color); opacity: 0.3; margin: 25px auto;"></div>
+
+                <div style="margin-top: 15px;" class="anim-element delay-3">
+                    <p style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 2.2rem; margin-bottom: 8px; font-weight: bold;">धन्यवाद !</p>
+                    <p style="font-family: var(--font-marathi-serif); font-size: 1.1rem; font-weight: bold; color: var(--text-dark);">
                         समस्त शिलेदार आणि शिंदे परिवार
                     </p>
                 </div>
             </div>
-            <div class="swipe-btn swipe-left" onclick="nextPage(4)">
-                <span style="font-size: 1.1rem;">←</span> सुरवातीला जा
+            <div class="swipe-btn swipe-right" onclick="nextPage(4)" style="animation: none;">
+                <span style="font-size: 1.2rem;">←</span> सुरवातीला जा
             </div>
         </section>
     </div>
 
     <script>
-        // Array of themes
         const themes = ['pink', 'maroon', 'green'];
         let currentThemeIndex = 0;
 
-        // Function to change theme
         function changeTheme() {
             currentThemeIndex = (currentThemeIndex + 1) % themes.length;
             document.body.setAttribute('data-theme', themes[currentThemeIndex]);
@@ -465,7 +402,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById('invitation-content');
-            const observerOptions = { root: container, rootMargin: '0px', threshold: 0.5 };
+            const observerOptions = { root: container, rootMargin: '0px', threshold: 0.4 };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
