@@ -8,7 +8,7 @@
     <!-- Beautiful Marathi & Devanagari Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -22,7 +22,6 @@
             /* Marathi Typography */
             --font-traditional: 'Tiro Devanagari Marathi', serif;
             --font-modern: 'Anek Devanagari', sans-serif;
-            --font-display: 'Yatra One', display;
         }
 
         * {
@@ -160,9 +159,9 @@
         }
 
         h2 {
-            font-family: var(--font-display);
+            font-family: var(--font-traditional);
             color: var(--gold-primary);
-            font-weight: 400;
+            font-weight: 600;
             font-size: 2.8rem;
             margin-bottom: 30px;
             letter-spacing: 1px;
@@ -189,12 +188,13 @@
             margin-bottom: 5px;
         }
 
+        /* Changed to traditional font to fix 'Pranav' spelling rendering issue */
         .name {
-            font-family: var(--font-display);
-            font-size: 4.2rem;
+            font-family: var(--font-traditional);
+            font-size: 4rem;
             color: var(--gold-light);
             text-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .parents {
@@ -346,7 +346,7 @@
             .scene { padding: 15px 10px; }
             .god-name { font-size: 1.6rem; }
             .charoli { font-size: 1.1rem; padding: 0 15px; }
-            .name { font-size: 3.2rem; }
+            .name { font-size: 3rem; }
             .title { font-size: 1.1rem; }
             .parents { font-size: 0.9rem; padding: 0 5px; }
             .swastik { font-size: 1.8rem; margin: 5px 0; }
@@ -359,7 +359,7 @@
         }
         
         @media (max-width: 375px) {
-            .name { font-size: 2.8rem; }
+            .name { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
             .parents { font-size: 0.8rem; }
         }
@@ -422,7 +422,6 @@
                 </div>
             </div>
             
-            <!-- ADDED TEXT HERE -->
             <div class="anim-element delay-4 shubhvivah-text">
                 यांचा शुभविवाह
             </div>
