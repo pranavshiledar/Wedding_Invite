@@ -45,8 +45,17 @@
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             background: radial-gradient(circle at center, var(--bg-light) 0%, var(--bg-dark) 100%);
-            z-index: -2;
+            z-index: -3;
             animation: pulseBg 10s infinite alternate linear;
+        }
+
+        /* NEW: Traditional Pattern Overlay for Background */
+        .pattern-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -2;
+            pointer-events: none;
         }
 
         /* Subtle Paithani/Traditional border styling overlay */
@@ -239,6 +248,21 @@
             margin: 15px auto;
         }
 
+        /* NEW: Animated Bride and Groom */
+        .animated-couple {
+            width: 140px;
+            height: auto;
+            margin-bottom: 25px;
+            animation: floatCouple 4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+        }
+
+        @keyframes floatCouple {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
         /* Events & Location */
         .info-card {
             background: rgba(30, 6, 9, 0.6);
@@ -362,6 +386,7 @@
             .shubhvivah-text { font-size: 1.8rem; margin-top: 10px; }
             .invitation-line { font-size: 1rem; margin-top: 10px; padding: 0 10px; }
             h2 { font-size: 2.2rem; margin-bottom: 15px; }
+            .animated-couple { width: 110px; margin-bottom: 20px; }
             .info-card { padding: 15px; width: 95%; margin-bottom: 10px; }
             .info-card h3 { font-size: 1.3rem; margin-bottom: 5px; }
             .info-card p { font-size: 1rem; line-height: 1.4; }
@@ -373,6 +398,7 @@
             .name { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
             .parents { font-size: 0.8rem; }
+            .animated-couple { width: 90px; margin-bottom: 15px; }
             .info-card { padding: 12px; margin-bottom: 8px; }
             .info-card h3 { font-size: 1.2rem; }
             .info-card p { font-size: 0.95rem; }
@@ -382,6 +408,7 @@
 <body>
 
     <div class="cinematic-bg"></div>
+    <div class="pattern-overlay"></div>
     <div class="traditional-border"></div>
     <div class="particles" id="particles"></div>
 
@@ -440,7 +467,6 @@
                 यांचा शुभविवाह
             </div>
             
-            <!-- NEW LINE ADDED HERE -->
             <p class="anim-element delay-5 invitation-line">
                 "या शुभप्रसंगी आपली उपस्थिती व आशीर्वाद प्रार्थनीय आहेत!"
             </p>
@@ -452,10 +478,12 @@
         </div>
     </section>
 
-    <!-- Scene 3: Events -->
+    <!-- Scene 3: Events with Animated Couple -->
     <section class="scene scene-3">
         <div class="scene-content">
-            <h2 class="anim-element delay-1">कार्यक्रमाची रूपरेषा</h2>
+            
+            <!-- Animated Bride & Groom -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3750/3750392.png" alt="Bride and Groom" class="animated-couple anim-element delay-1">
             
             <div class="info-card anim-element delay-2">
                 <h3>साखरपुडा</h3>
