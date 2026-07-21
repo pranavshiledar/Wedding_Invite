@@ -132,7 +132,7 @@
         .anim-element {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 1.4s cubic-bezier(0.23, 1, 0.32, 1); /* Elegant easing */
+            transition: all 1.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .anim-element.is-visible {
@@ -140,11 +140,26 @@
             transform: translateY(0);
         }
 
-        .delay-1 { transition-delay: 0.2s; }
-        .delay-2 { transition-delay: 0.4s; }
-        .delay-3 { transition-delay: 0.6s; }
-        .delay-4 { transition-delay: 0.8s; }
-        .delay-5 { transition-delay: 1.0s; }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.5s; }
+        .delay-4 { transition-delay: 0.7s; }
+        .delay-5 { transition-delay: 0.9s; }
+        .delay-6 { transition-delay: 1.1s; }
+
+        /* Ganesha Image Styling */
+        .ganesha-logo {
+            width: 90px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(232, 195, 127, 0.6));
+            animation: floatGanesha 4s ease-in-out infinite;
+        }
+
+        @keyframes floatGanesha {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
 
         /* Typography Upgrades */
         .god-name {
@@ -262,7 +277,6 @@
             overflow: hidden;
         }
 
-        /* Subtle Color Accents for Events */
         .card-sakharpuda::before {
             content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
             background: #e5989b; box-shadow: 0 0 15px #e5989b;
@@ -325,7 +339,7 @@
             transform: translateY(-3px);
         }
 
-        /* Elegant Scroll Indicator (Chevron) */
+        /* Elegant Scroll Indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -352,6 +366,7 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .scene { padding: 40px 15px; }
+            .ganesha-logo { width: 75px; margin-bottom: 15px; }
             .god-name { font-size: 1.8rem; }
             .charoli { font-size: 1.2rem; padding: 0 10px; line-height: 1.7; }
             .name { font-size: 3.5rem; }
@@ -388,24 +403,28 @@
     <!-- Scene 1: Introduction & Verse -->
     <section class="scene scene-1">
         <div class="scene-content">
-            <div class="anim-element delay-1 god-name">॥ श्री गणेशाय नमः ॥</div>
-            <div class="anim-element delay-2 god-name" style="font-size: 1.3rem; margin-bottom: 10px; text-shadow: none; opacity: 0.8;">॥ कुलदेवता प्रसन्न ॥</div>
             
-            <div class="divider anim-element delay-3"></div>
+            <!-- Ganesha Image Added Here -->
+            <img src="https://img.icons8.com/ios-filled/150/E8C37F/ganesha.png" alt="Shri Ganesha" class="ganesha-logo anim-element delay-1">
+
+            <div class="anim-element delay-2 god-name">॥ श्री गणेशाय नमः ॥</div>
+            <div class="anim-element delay-3 god-name" style="font-size: 1.3rem; margin-bottom: 10px; text-shadow: none; opacity: 0.8;">॥ कुलदेवता प्रसन्न ॥</div>
             
-            <p class="anim-element delay-4 charoli">
+            <div class="divider anim-element delay-4"></div>
+            
+            <p class="anim-element delay-5 charoli">
                 "दोन जीवांचे, दोन घराण्यांचे,<br>पवित्र बंधन म्हणजे विवाह...<br><br>
                 अतूट नात्याची ही सुरुवात,<br>तुमच्या आशीर्वादाने होऊ दे खास!"
             </p>
             
-            <div class="divider anim-element delay-4"></div>
+            <div class="divider anim-element delay-5"></div>
             
-            <p class="anim-element delay-5" style="margin-top: 15px; color: var(--gold-primary); font-size: 1.3rem; font-family: var(--font-traditional); letter-spacing: 2px;">
+            <p class="anim-element delay-6" style="margin-top: 15px; color: var(--gold-primary); font-size: 1.3rem; font-family: var(--font-traditional); letter-spacing: 2px;">
                 सस्नेह निमंत्रण
             </p>
         </div>
 
-        <div class="scroll-indicator anim-element delay-5">
+        <div class="scroll-indicator anim-element delay-6">
             <div class="chevron"></div>
         </div>
     </section>
@@ -451,7 +470,7 @@
         </div>
     </section>
 
-    <!-- Scene 3: Events with Premium Glassmorphism Cards -->
+    <!-- Scene 3: Events -->
     <section class="scene scene-3">
         <div class="scene-content">
             
