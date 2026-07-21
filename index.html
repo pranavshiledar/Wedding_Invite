@@ -12,7 +12,6 @@
 
     <style>
         :root {
-            /* Colors matching your theme */
             --sage-green: #5e6f60; 
             --sage-light: #e6ebe7; 
             --text-dark: #333333;
@@ -33,7 +32,6 @@
             color: var(--text-dark);
             overflow: hidden; 
             overscroll-behavior-y: none;
-            /* Dotted Background */
             background-color: #f8f9f8;
             background-image: radial-gradient(#d1dbd3 1.5px, transparent 1.5px);
             background-size: 25px 25px;
@@ -43,12 +41,10 @@
            ENVELOPE SCREEN
         ------------------------------------------- */
         #envelope-screen {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100dvh;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh;
             background-color: var(--sage-light);
             display: flex; justify-content: center; align-items: center;
-            z-index: 9999;
-            transition: opacity 1s ease, transform 1s ease;
+            z-index: 9999; transition: opacity 1s ease, transform 1s ease;
         }
 
         .envelope-wrapper {
@@ -74,8 +70,8 @@
         }
 
         .wax-seal {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -15%); width: 55px; height: 55px;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -15%);
+            width: 55px; height: 55px;
             background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #9c7a21);
             border-radius: 50%; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex; justify-content: center; align-items: center;
@@ -83,16 +79,12 @@
         }
 
         .click-text {
-            position: absolute; bottom: -40px; width: 100%;
-            text-align: center; color: var(--sage-green); font-size: 1rem;
+            position: absolute; bottom: -40px; width: 100%; text-align: center;
+            color: var(--sage-green); font-size: 1rem;
             animation: pulseText 2s infinite; font-weight: 500;
         }
 
-        @keyframes pulseText {
-            0%, 100% { opacity: 0.6; transform: translateY(0); }
-            50% { opacity: 1; transform: translateY(3px); }
-        }
-
+        @keyframes pulseText { 0%, 100% { opacity: 0.6; transform: translateY(0); } 50% { opacity: 1; transform: translateY(3px); } }
         .envelope-wrapper.open .flap-top { transform: rotateX(180deg); z-index: 1; }
         .envelope-wrapper.open .wax-seal { opacity: 0; display: none; }
         
@@ -100,9 +92,7 @@
            MAIN INVITATION CONTENT
         ------------------------------------------- */
         #invitation-content {
-            display: none; 
-            flex-direction: row;
-            width: 100vw; height: 100dvh;
+            display: none; flex-direction: row; width: 100vw; height: 100dvh;
             overflow-x: auto; overflow-y: hidden;
             scroll-snap-type: x mandatory; scroll-behavior: smooth;
             opacity: 0; transition: opacity 1s ease;
@@ -112,111 +102,54 @@
         #invitation-content { -ms-overflow-style: none; scrollbar-width: none; }
 
         .scene {
-            flex: 0 0 100vw; height: 100dvh;
-            scroll-snap-align: start;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
+            flex: 0 0 100vw; height: 100dvh; scroll-snap-align: start;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
             position: relative;
         }
 
+        /* DEFAULT MOBILE STYLES (DO NOT CHANGE) */
         .scene-content {
-            background-color: #ffffff;
-            border-radius: 20px;
-            padding: 35px 20px;
-            width: 85%;
-            max-width: 380px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-            text-align: center;
-            position: relative;
-            z-index: 10;
+            background-color: #ffffff; border-radius: 20px; padding: 35px 20px;
+            width: 85%; max-width: 380px; box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            text-align: center; position: relative; z-index: 10;
         }
 
-        /* Swipe Button */
         .swipe-btn {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid var(--divider-color);
-            color: var(--sage-green);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: flex; align-items: center; gap: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            cursor: pointer;
-            z-index: 20;
+            position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); border: 1px solid var(--divider-color);
+            color: var(--sage-green); padding: 8px 20px; border-radius: 30px;
+            font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); cursor: pointer; z-index: 20;
         }
 
         .swipe-right { animation: swipeRightAnim 2s infinite; }
         .swipe-left { animation: swipeLeftAnim 2s infinite; }
+        @keyframes swipeRightAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% + 8px)); } }
+        @keyframes swipeLeftAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% - 8px)); } }
 
-        @keyframes swipeRightAnim {
-            0%, 100% { transform: translateX(-50%); }
-            50% { transform: translateX(calc(-50% + 8px)); }
-        }
-        
-        @keyframes swipeLeftAnim {
-            0%, 100% { transform: translateX(-50%); }
-            50% { transform: translateX(calc(-50% - 8px)); }
-        }
-
-        /* Typography */
-        .bg-script {
-            font-family: var(--font-script); font-size: 2rem;
-            color: #d8dfd9; margin-bottom: -10px; white-space: nowrap;
-        }
+        /* Mobile Typography */
+        .bg-script { font-family: var(--font-script); font-size: 2rem; color: #d8dfd9; margin-bottom: -10px; white-space: nowrap; }
         .god-name { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--sage-green); font-weight: 600; margin-bottom: 5px; }
         .charoli { font-family: var(--font-marathi-sans); font-size: 1rem; color: var(--text-dark); margin: 20px 0; line-height: 1.8; }
         .title-script { font-family: var(--font-script); color: var(--sage-green); font-size: 2.4rem; margin-bottom: 15px; }
-
-        /* Couple Page Typography */
         .title { font-size: 0.95rem; color: var(--sage-green); margin-bottom: 5px; }
         .name { font-family: var(--font-marathi-serif); font-size: 2.5rem; line-height: 1.1; color: var(--text-dark); }
         .parents { font-size: 0.85rem; color: #5a6b5d; margin-top: 8px; line-height: 1.5; }
         .and-symbol { font-family: var(--font-script); font-size: 1.8rem; color: var(--sage-green); margin: 8px 0; }
         
-        /* New Shubhvivah & Kalash Divider Styles */
-        .shubhvivah-container {
-            display: flex; flex-direction: column; align-items: center;
-            margin-top: 15px; width: 100%;
-        }
+        .shubhvivah-container { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
+        .floral-divider { display: flex; align-items: center; justify-content: center; width: 90%; margin: 5px auto; }
+        .floral-divider::before, .floral-divider::after { content: ''; height: 1px; background: var(--divider-color); flex-grow: 1; max-width: 50px; margin: 0 10px; }
+        .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--sage-green); font-weight: bold; padding: 8px 0; }
 
-        .floral-divider {
-            display: flex; align-items: center; justify-content: center;
-            width: 90%; margin: 5px auto;
-        }
-
-        .floral-divider::before, .floral-divider::after {
-            content: ''; height: 1px; background: var(--divider-color);
-            flex-grow: 1; max-width: 50px; margin: 0 10px;
-        }
-
-        .shubhvivah-text {
-            font-family: var(--font-marathi-serif); font-size: 1.35rem;
-            color: var(--sage-green); font-weight: bold;
-            padding: 8px 0;
-        }
-
-        /* Events Typography */
         .event-item { margin-bottom: 18px; position: relative; padding-bottom: 18px; }
-        .event-item:not(:last-child)::after {
-            content: ''; position: absolute; bottom: 0; left: 35%;
-            width: 30%; height: 1px; background: var(--divider-color);
-        }
+        .event-item:not(:last-child)::after { content: ''; position: absolute; bottom: 0; left: 35%; width: 30%; height: 1px; background: var(--divider-color); }
         .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.2rem; margin-bottom: 6px; color: var(--text-dark); }
         .event-item p { font-size: 0.9rem; line-height: 1.6; color: var(--sage-green); }
         .event-item strong { color: var(--sage-green); font-size: 1rem; font-weight: 600; }
 
-        .btn-location {
-            display: inline-block; margin-top: 15px; padding: 10px 25px;
-            background: var(--sage-green); color: #fff; text-decoration: none;
-            border-radius: 30px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(94, 111, 96, 0.3);
-        }
+        .btn-location { display: inline-block; margin-top: 15px; padding: 10px 25px; background: var(--sage-green); color: #fff; text-decoration: none; border-radius: 30px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(94, 111, 96, 0.3); }
 
-        /* Animations */
         .anim-element { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
         .anim-element.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
@@ -228,6 +161,33 @@
             .shubhvivah-text { font-size: 1.2rem; }
             .title-script { font-size: 2rem; margin-bottom: 15px; }
             .swipe-btn { bottom: 15px; padding: 6px 15px; font-size: 0.85rem; }
+        }
+
+        /* -------------------------------------------
+           DESKTOP STYLES (NEW - FOR LARGER SCREENS)
+        ------------------------------------------- */
+        @media (min-width: 768px) {
+            .scene-content {
+                max-width: 550px; /* Increased card size for desktop */
+                padding: 50px 40px;
+                border-radius: 25px;
+            }
+            .envelope-wrapper { width: 400px; height: 260px; } /* Slightly larger envelope */
+            .bg-script { font-size: 3rem; margin-bottom: -15px; }
+            .god-name { font-size: 1.6rem; }
+            .charoli { font-size: 1.25rem; }
+            .title-script { font-size: 3.5rem; margin-bottom: 25px; }
+            .title { font-size: 1.2rem; }
+            .name { font-size: 3.8rem; }
+            .parents { font-size: 1.1rem; }
+            .shubhvivah-text { font-size: 1.8rem; }
+            .floral-divider::before, .floral-divider::after { max-width: 80px; }
+            .event-item { margin-bottom: 25px; padding-bottom: 25px; }
+            .event-item h3 { font-size: 1.6rem; margin-bottom: 8px; }
+            .event-item p { font-size: 1.1rem; }
+            .event-item strong { font-size: 1.2rem; }
+            .btn-location { font-size: 1.15rem; padding: 12px 35px; }
+            .swipe-btn { bottom: 40px; padding: 12px 30px; font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -273,7 +233,7 @@
             </div>
         </section>
 
-        <!-- Scene 2: Bride & Groom (With Kalash Design) -->
+        <!-- Scene 2: Bride & Groom -->
         <section class="scene" id="scene2">
             <div class="scene-content">
                 <div class="person anim-element">
@@ -290,11 +250,9 @@
                     <div class="parents">(श्री. बाळासाहेब चंद्रकांत शिंदे व सौ. सुवर्णा बाळासाहेब शिंदे यांची सुकन्या)</div>
                 </div>
                 
-                <!-- NEW KALASH & FLORAL DESIGN -->
                 <div class="shubhvivah-container anim-element delay-3">
                     <div class="floral-divider">
                         <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
-                        <!-- SVG Kalash -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--sage-green)" style="margin: 0 6px;">
                             <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
                         </svg>
@@ -305,7 +263,6 @@
                     
                     <div class="floral-divider">
                         <span style="font-size: 1rem; opacity: 0.8;">🌿</span>
-                        <!-- SVG Kalash -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--sage-green)" style="margin: 0 6px;">
                             <path d="M12 1.5l-2.5 4h5l-2.5-4zM6.5 6.5c-1.5 1.5-3 1.5-3 1.5s1.5 1.5 3 0c0 0 .5-1 0-1.5zM17.5 6.5c1.5 1.5 3 1.5 3 1.5s-1.5 1.5-3 0c0 0-.5-1 0-1.5zM7 8c-1.5 4 0 9 5 9s6.5-5 5-9H7zm2.5 10c-.5 1-1.5 1.5-1.5 2h8c0-.5-1-1-1.5-2h-5z"/>
                         </svg>
