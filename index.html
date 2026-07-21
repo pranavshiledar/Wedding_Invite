@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- मोबाईलच्या डार्क मोडमुळे रंग बदलू नयेत यासाठी हे टॅग ऍड केले आहेत -->
+    <meta name="color-scheme" content="light">
+    
     <title>प्रणव आणि सायली - विवाह निमंत्रण</title>
     
     <!-- Fonts -->
@@ -46,6 +49,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
+            /* Force light color scheme to prevent mobile browsers from auto-inverting colors */
+            color-scheme: light; 
             height: 100dvh; font-family: var(--font-marathi-sans);
             color: var(--text-dark); overflow: hidden; overscroll-behavior-y: none;
             background-color: var(--bg-color); background-image: var(--paper-texture);
