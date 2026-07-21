@@ -8,32 +8,35 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600&family=Tiro+Devanagari+Marathi:ital@0;1&family=Alex+Brush&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600&family=Tiro+Devanagari+Marathi:ital@0;1&family=Alex+Brush&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-color: #f3f6f3; 
-            --sage-green: #687a6a; 
-            --sage-light: #e6ebe7;
-            --text-dark: #2c3a2e;
+            /* Colors matching your screenshots */
+            --sage-green: #5e6f60; /* Darker sage for text */
+            --sage-light: #e6ebe7; /* Envelope background */
+            --text-dark: #333333;
+            --divider-color: #d1dbd3;
             --gold-seal: #cda434;
             --gold-light: #e8c973;
             
             --font-marathi-serif: 'Tiro Devanagari Marathi', serif;
             --font-marathi-sans: 'Anek Devanagari', sans-serif;
             --font-script: 'Alex Brush', cursive;
-            --font-display: 'Playfair Display', serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
-            height: 100%;
+            height: 100dvh; /* Better mobile rendering */
             font-family: var(--font-marathi-sans);
-            background-color: var(--bg-color);
             color: var(--text-dark);
             overflow: hidden; 
             overscroll-behavior-y: none;
+            /* Dotted Background matching screenshots */
+            background-color: #f8f9f8;
+            background-image: radial-gradient(#d1dbd3 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
         }
 
         /* -------------------------------------------
@@ -41,77 +44,48 @@
         ------------------------------------------- */
         #envelope-screen {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0; left: 0; width: 100vw; height: 100dvh;
             background-color: var(--sage-light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center;
             z-index: 9999;
             transition: opacity 1s ease, transform 1s ease;
         }
 
         .envelope-wrapper {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            cursor: pointer;
-            transition: all 0.5s ease;
+            position: relative; width: 300px; height: 200px;
+            cursor: pointer; transition: all 0.5s ease;
         }
         
         .envelope {
-            position: absolute;
-            width: 100%; height: 100%;
-            background: #5b6b5d;
-            border-radius: 5px;
+            position: absolute; width: 100%; height: 100%;
+            background: #5b6b5d; border-radius: 5px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .envelope-flap { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
-
-        .flap-bottom {
-            background: #687a6a;
-            clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%);
-            z-index: 3; border-radius: 0 0 5px 5px;
-        }
-
-        .flap-left {
-            background: #5e6f60;
-            clip-path: polygon(0 0, 50% 50%, 0 100%);
-            z-index: 2; border-radius: 5px 0 0 5px;
-        }
-
-        .flap-right {
-            background: #5e6f60;
-            clip-path: polygon(100% 0, 50% 50%, 100% 100%);
-            z-index: 2; border-radius: 0 5px 5px 0;
-        }
-
+        .flap-bottom { background: #687a6a; clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%); z-index: 3; border-radius: 0 0 5px 5px; }
+        .flap-left { background: #5e6f60; clip-path: polygon(0 0, 50% 50%, 0 100%); z-index: 2; border-radius: 5px 0 0 5px; }
+        .flap-right { background: #5e6f60; clip-path: polygon(100% 0, 50% 50%, 100% 100%); z-index: 2; border-radius: 0 5px 5px 0; }
         .flap-top {
-            background: #738775;
-            clip-path: polygon(0 0, 100% 0, 50% 55%);
-            z-index: 4;
-            transform-origin: top;
+            background: #738775; clip-path: polygon(0 0, 100% 0, 50% 55%);
+            z-index: 4; transform-origin: top;
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.4s;
             border-radius: 5px 5px 0 0;
         }
 
         .wax-seal {
             position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -15%);
-            width: 55px; height: 55px;
+            transform: translate(-50%, -15%); width: 55px; height: 55px;
             background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #9c7a21);
-            border-radius: 50%; z-index: 5;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-radius: 50%; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex; justify-content: center; align-items: center;
-            color: #5c4712; font-size: 1.5rem;
-            transition: opacity 0.3s ease;
+            color: #5c4712; font-size: 1.5rem; transition: opacity 0.3s ease;
         }
 
         .click-text {
             position: absolute; bottom: -40px; width: 100%;
-            text-align: center; font-family: var(--font-display);
-            font-style: italic; color: var(--sage-green); font-size: 1.1rem;
-            animation: pulseText 2s infinite;
+            text-align: center; color: var(--sage-green); font-size: 1.1rem;
+            animation: pulseText 2s infinite; font-weight: 500;
         }
 
         @keyframes pulseText {
@@ -127,155 +101,153 @@
         ------------------------------------------- */
         #invitation-content {
             display: none; /* Changed to flex via JS */
-            flex-direction: row; /* HORIZONTAL LAYOUT */
-            width: 100vw;
-            height: 100vh;
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            background: linear-gradient(135deg, #fcfbf8 0%, #e6ebe7 100%);
-            /* Safe offline pattern */
-            background-image: radial-gradient(rgba(104, 122, 106, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0;
-            transition: opacity 1s ease;
+            flex-direction: row;
+            width: 100vw; height: 100dvh;
+            overflow-x: auto; overflow-y: hidden;
+            scroll-snap-type: x mandatory; scroll-behavior: smooth;
+            opacity: 0; transition: opacity 1s ease;
         }
 
-        /* Hide scrollbar for a clean look */
         #invitation-content::-webkit-scrollbar { display: none; }
         #invitation-content { -ms-overflow-style: none; scrollbar-width: none; }
 
         .scene {
-            flex: 0 0 100vw; /* Each scene takes exactly 1 screen width */
-            height: 100vh;
-            scroll-snap-align: start; /* Snap to screen perfectly */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            flex: 0 0 100vw; height: 100dvh;
+            scroll-snap-align: start;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            position: relative;
+        }
+
+        /* -------------------------------------------
+           UNIFORM CARD STYLE FOR ALL PAGES
+        ------------------------------------------- */
+        .scene-content {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px 20px;
+            width: 88%;
+            max-width: 400px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
             text-align: center;
             position: relative;
-            padding: 40px 15px;
-        }
-
-        .scene-content {
-            max-width: 500px;
-            width: 90%;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 45px 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(104, 122, 106, 0.2);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
         }
 
-        /* Fixed the cut-off text issue */
+        /* Swipe Button */
+        .swipe-btn {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--divider-color);
+            color: var(--sage-green);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .swipe-right { animation: swipeRightAnim 2s infinite; }
+        .swipe-left { animation: swipeLeftAnim 2s infinite; }
+
+        @keyframes swipeRightAnim {
+            0%, 100% { transform: translateX(-50%); }
+            50% { transform: translateX(calc(-50% + 10px)); }
+        }
+        
+        @keyframes swipeLeftAnim {
+            0%, 100% { transform: translateX(-50%); }
+            50% { transform: translateX(calc(-50% - 10px)); }
+        }
+
+        /* Typography & Layout */
         .bg-script {
             font-family: var(--font-script);
-            font-size: 2.8rem;
-            color: rgba(104, 122, 106, 0.15);
-            margin-bottom: -15px; /* Pulls next content up nicely */
+            font-size: 2.5rem;
+            color: #d8dfd9; /* Very light sage */
+            margin-bottom: -15px;
             white-space: nowrap;
-            text-align: center;
-            width: 100%;
         }
 
-        /* Typography */
         .god-name {
             font-family: var(--font-marathi-serif);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--sage-green);
             margin-bottom: 5px;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .charoli {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
+            font-family: var(--font-marathi-sans);
+            font-size: 1.1rem;
             color: var(--text-dark);
-            margin: 20px 0;
+            margin: 25px 0;
             line-height: 1.8;
             font-style: italic;
         }
 
-        h2.section-title {
+        .title-script {
             font-family: var(--font-script);
             color: var(--sage-green);
-            font-size: 3.2rem;
-            margin-bottom: 25px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             line-height: 1;
         }
 
-        /* Couple Section */
-        .couple-names { width: 100%; }
-        .person { margin: 15px 0; }
+        /* Couple Page Typography */
         .title { font-size: 1.1rem; color: var(--sage-green); margin-bottom: 5px; }
-        .name { font-family: var(--font-marathi-serif); font-size: 3.2rem; line-height: 1.1; }
-        .parents { font-size: 0.9rem; color: #5a6b5d; margin-top: 5px; }
-        .and-symbol { font-family: var(--font-script); font-size: 2.2rem; color: var(--sage-green); }
+        .name { font-family: var(--font-marathi-serif); font-size: 3rem; line-height: 1.1; color: var(--text-dark); }
+        .parents { font-size: 0.95rem; color: #5a6b5d; margin-top: 8px; line-height: 1.5; }
+        .and-symbol { font-family: var(--font-script); font-size: 2.2rem; color: var(--sage-green); margin: 10px 0; }
         
         .shubhvivah-text {
-            font-family: var(--font-marathi-serif); font-size: 1.8rem;
-            color: var(--sage-green); margin-top: 15px; font-weight: bold;
-            border-top: 1px solid rgba(104, 122, 106, 0.3);
-            border-bottom: 1px solid rgba(104, 122, 106, 0.3);
-            padding: 8px 0; display: inline-block;
+            font-family: var(--font-marathi-serif); font-size: 1.6rem;
+            color: var(--sage-green); margin-top: 20px; font-weight: bold;
+            border-top: 1px solid var(--divider-color);
+            border-bottom: 1px solid var(--divider-color);
+            padding: 10px 0; display: inline-block; width: 80%;
         }
 
-        /* Events */
-        .event-item { margin-bottom: 25px; position: relative; }
+        /* Events Typography */
+        .event-item { margin-bottom: 20px; position: relative; padding-bottom: 20px; }
         .event-item:not(:last-child)::after {
-            content: ''; position: absolute; bottom: -12px; left: 35%;
-            width: 30%; height: 1px; background: rgba(104, 122, 106, 0.3);
+            content: ''; position: absolute; bottom: 0; left: 30%;
+            width: 40%; height: 1px; background: var(--divider-color);
         }
-        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.4rem; margin-bottom: 5px; }
-        .event-item p { font-size: 1.05rem; line-height: 1.6; color: #5a6b5d; }
-        .event-item strong { color: var(--sage-green); font-size: 1.15rem; }
+        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.4rem; margin-bottom: 8px; color: var(--text-dark); }
+        .event-item p { font-size: 1.05rem; line-height: 1.6; color: var(--sage-green); }
+        .event-item strong { color: var(--sage-green); font-size: 1.15rem; font-weight: 600; }
 
+        /* Button */
         .btn-location {
             display: inline-block; margin-top: 15px; padding: 12px 30px;
             background: var(--sage-green); color: #fff; text-decoration: none;
-            border-radius: 30px; box-shadow: 0 4px 15px rgba(104, 122, 106, 0.3);
+            border-radius: 30px; font-size: 1.05rem; letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(94, 111, 96, 0.3);
         }
 
-        /* SWIPE INDICATORS */
-        .swipe-hint {
-            position: absolute;
-            bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-marathi-sans);
-            color: var(--sage-green);
-            background: rgba(255,255,255,0.7);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            animation: slideRight 2s infinite;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        @keyframes slideRight {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
-
-        /* Animations for elements inside scenes */
-        .anim-element { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
+        /* Animations */
+        .anim-element { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
         .anim-element.is-visible { opacity: 1; transform: translateY(0); }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
 
         @media (max-height: 700px) {
-            .scene-content { padding: 25px 20px; }
-            .bg-script { font-size: 2.2rem; }
+            .scene-content { padding: 30px 15px; }
+            .bg-script { font-size: 2.2rem; margin-bottom: -10px; }
             .name { font-size: 2.6rem; }
-            .shubhvivah-text { font-size: 1.5rem; }
-            h2.section-title { font-size: 2.5rem; }
-            .event-item { margin-bottom: 15px; }
+            .title-script { font-size: 2.5rem; margin-bottom: 15px; }
+            .event-item { margin-bottom: 15px; padding-bottom: 15px; }
+            .swipe-btn { bottom: 15px; padding: 8px 20px; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -301,48 +273,49 @@
         <!-- Scene 1: Introduction -->
         <section class="scene" id="scene1">
             <div class="scene-content">
-                <!-- Text moved inside flow, no more negative absolute positioning -->
                 <div class="bg-script anim-element">Wedding Invitation</div>
-                <div class="anim-element god-name" style="margin-top: 10px;">॥ श्री गणेशाय नमः ॥</div>
-                <div class="anim-element god-name" style="font-size: 1rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
+                <div class="anim-element delay-1 god-name" style="margin-top: 10px;">॥ श्री गणेशाय नमः ॥</div>
+                <div class="anim-element delay-1 god-name" style="font-size: 1.1rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
                 
-                <p class="anim-element charoli">
+                <p class="anim-element delay-2 charoli">
                     दोन जीवांचे, दोन घराण्यांचे,<br>पवित्र बंधन म्हणजे विवाह...<br><br>
                     अतूट नात्याची ही सुरुवात,<br>तुमच्या आशीर्वादाने होऊ दे खास!
                 </p>
                 
-                <p class="anim-element" style="color: var(--sage-green); font-size: 1.2rem; font-family: var(--font-marathi-serif); font-weight: bold;">
+                <p class="anim-element delay-3" style="color: var(--sage-green); font-size: 1.25rem; font-family: var(--font-marathi-serif); font-weight: bold;">
                     सस्नेह निमंत्रण
                 </p>
             </div>
-            <div class="swipe-hint" onclick="nextPage(1)">
+            <!-- Swipe Right Button -->
+            <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(1)">
                 पुढे पहा <span style="font-size: 1.2rem;">➔</span>
             </div>
         </section>
 
-        <!-- Scene 2: Bride & Groom -->
+        <!-- Scene 2: Bride & Groom (Now in Card Style) -->
         <section class="scene" id="scene2">
-            <div class="scene-content" style="background: transparent; border: none; box-shadow: none;">
-                <div class="couple-names">
-                    <div class="person anim-element">
-                        <div class="title">चि.</div>
-                        <div class="name">प्रणव</div>
-                        <div class="parents">(श्री. महादेव बापु शिलेदार व सौ. वंदना महादेव शिलेदार यांचे सुपुत्र)</div>
-                    </div>
-                    
-                    <div class="anim-element and-symbol">&</div>
-                    
-                    <div class="person anim-element">
-                        <div class="title">चि. सौ. कां.</div>
-                        <div class="name">सायली</div>
-                        <div class="parents">(श्री. बाळासाहेब चंद्रकांत शिंदे व सौ. सुवर्णा बाळासाहेब शिंदे यांची सुकन्या)</div>
-                    </div>
+            <div class="scene-content">
+                <div class="person anim-element">
+                    <div class="title">चि.</div>
+                    <div class="name">प्रणव</div>
+                    <div class="parents">(श्री. महादेव बापु शिलेदार व सौ. वंदना महादेव शिलेदार यांचे सुपुत्र)</div>
                 </div>
                 
-                <div class="anim-element shubhvivah-text">यांचा शुभविवाह</div>
-                <p class="anim-element" style="margin-top: 10px; font-style: italic;">या शुभप्रसंगी आपली उपस्थिती व आशीर्वाद प्रार्थनीय आहेत!</p>
+                <div class="anim-element delay-1 and-symbol">&</div>
+                
+                <div class="person anim-element delay-2">
+                    <div class="title">चि. सौ. कां.</div>
+                    <div class="name">सायली</div>
+                    <div class="parents">(श्री. बाळासाहेब चंद्रकांत शिंदे व सौ. सुवर्णा बाळासाहेब शिंदे यांची सुकन्या)</div>
+                </div>
+                
+                <div class="anim-element delay-3 shubhvivah-text">यांचा शुभविवाह</div>
+                <p class="anim-element delay-4" style="margin-top: 15px; font-style: italic; color: var(--sage-green);">
+                    या शुभप्रसंगी आपली उपस्थिती व आशीर्वाद प्रार्थनीय आहेत!
+                </p>
             </div>
-            <div class="swipe-hint" onclick="nextPage(2)">
+            <!-- Swipe Right Button -->
+            <div class="swipe-btn swipe-right" onclick="nextPage(2)">
                 पुढे पहा <span style="font-size: 1.2rem;">➔</span>
             </div>
         </section>
@@ -350,25 +323,26 @@
         <!-- Scene 3: Events -->
         <section class="scene" id="scene3">
             <div class="scene-content">
-                <h2 class="section-title anim-element">Details</h2>
+                <h2 class="title-script anim-element">Details</h2>
                 
-                <div class="event-item anim-element">
+                <div class="event-item anim-element delay-1">
                     <h3>साखरपुडा</h3>
                     <p><strong>बुधवार, १९ ऑगस्ट २०२६</strong><br>सायंकाळी ५:१५ वाजता</p>
                 </div>
 
-                <div class="event-item anim-element">
+                <div class="event-item anim-element delay-2">
                     <h3>हळदी समारंभ</h3>
                     <p><strong>बुधवार, १९ ऑगस्ट २०२६</strong><br>सायंकाळी ७:०० वाजता</p>
                 </div>
 
-                <div class="event-item anim-element" style="border: none; margin-bottom: 0;">
+                <div class="event-item anim-element delay-3" style="border: none; margin-bottom: 0; padding-bottom: 0;">
                     <h3>शुभविवाह मुहूर्त</h3>
                     <p><strong>गुरुवार, २० ऑगस्ट २०२६</strong><br>दुपारी ठीक १२:४५ वाजता<br>
-                    <span style="font-size: 0.9rem;">(तदनंतर स्नेहभोजन)</span></p>
+                    <span style="font-size: 0.95rem; color: var(--text-dark);">(तदनंतर स्नेहभोजन)</span></p>
                 </div>
             </div>
-            <div class="swipe-hint" onclick="nextPage(3)">
+            <!-- Swipe Right Button -->
+            <div class="swipe-btn swipe-right" onclick="nextPage(3)">
                 पुढे पहा <span style="font-size: 1.2rem;">➔</span>
             </div>
         </section>
@@ -376,23 +350,30 @@
         <!-- Scene 4: Venue -->
         <section class="scene" id="scene4">
             <div class="scene-content">
-                <h2 class="section-title anim-element">Venue</h2>
+                <h2 class="title-script anim-element">Venue</h2>
                 
-                <div class="event-item anim-element" style="border:none;">
-                    <h3 style="color: var(--sage-green); font-size: 1.6rem; margin-bottom: 10px;">स्वयंवर मंगल कार्यालय</h3>
-                    <p>अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
+                <div class="anim-element delay-1">
+                    <h3 style="color: var(--sage-green); font-family: var(--font-marathi-serif); font-size: 1.5rem; margin-bottom: 8px;">स्वयंवर मंगल कार्यालय</h3>
+                    <p style="color: var(--text-dark); font-size: 1.05rem; line-height: 1.5;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
                 </div>
+                
+                <!-- Divider -->
+                <div class="anim-element delay-2" style="width: 40px; height: 1px; background: var(--divider-color); margin: 20px auto;"></div>
 
-                <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element" target="_blank" rel="noopener noreferrer">
+                <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-2" target="_blank" rel="noopener noreferrer">
                     नकाशावर पहा (Map)
                 </a>
 
-                <div style="margin-top: 30px;" class="anim-element">
-                    <p style="color: var(--sage-green); font-family: var(--font-script); font-size: 1.8rem; margin-bottom: 5px;">Thank You</p>
-                    <p style="font-family: var(--font-marathi-serif); font-size: 1.2rem; font-weight: bold;">
+                <div style="margin-top: 35px;" class="anim-element delay-3">
+                    <p style="color: var(--sage-green); font-family: var(--font-script); font-size: 2.2rem; margin-bottom: 5px;">Thank You</p>
+                    <p style="font-family: var(--font-marathi-serif); font-size: 1.15rem; font-weight: bold; color: var(--text-dark);">
                         समस्त शिलेदार आणि शिंदे परिवार
                     </p>
                 </div>
+            </div>
+            <!-- Swipe Left (Back to start) Button -->
+            <div class="swipe-btn swipe-left" onclick="nextPage(4)">
+                <span style="font-size: 1.2rem;">←</span> सुरवातीला जा
             </div>
         </section>
     </div>
@@ -410,7 +391,6 @@
                 envelopeScreen.style.transform = 'translateY(100vh)';
                 envelopeScreen.style.opacity = '0';
                 
-                // Set layout to horizontal flex
                 invitationContent.style.display = 'flex';
                 
                 setTimeout(() => {
@@ -418,8 +398,8 @@
                     invitationContent.style.opacity = '1';
                     
                     // Trigger animations for first scene
-                    document.querySelectorAll('#scene1 .anim-element').forEach((el, index) => {
-                        setTimeout(() => el.classList.add('is-visible'), index * 150);
+                    document.querySelectorAll('#scene1 .anim-element').forEach(el => {
+                        el.classList.add('is-visible');
                     });
                 }, 500);
 
@@ -429,32 +409,33 @@
         // Horizontal Scroll Button Logic
         function nextPage(currentIndex) {
             const container = document.getElementById('invitation-content');
-            const nextScene = document.getElementById(`scene${currentIndex + 1}`);
-            if(nextScene) {
-                // Scroll container horizontally to the next scene
-                container.scrollTo({
-                    left: nextScene.offsetLeft,
-                    behavior: 'smooth'
-                });
+            
+            if (currentIndex === 4) {
+                // Go back to the first page
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Go to next page
+                const nextScene = document.getElementById(`scene${currentIndex + 1}`);
+                if (nextScene) {
+                    container.scrollTo({ left: nextScene.offsetLeft, behavior: 'smooth' });
+                }
             }
         }
 
-        // Scroll Observer for triggering animations when swiping horizontally
+        // Scroll Observer for triggering animations when swiping manually
         document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById('invitation-content');
             const observerOptions = {
                 root: container,
                 rootMargin: '0px',
-                threshold: 0.5 // Trigger when scene is 50% visible
+                threshold: 0.5 
             };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    const animElements = entry.target.querySelectorAll('.anim-element');
                     if (entry.isIntersecting) {
-                        animElements.forEach((el, index) => {
-                            setTimeout(() => el.classList.add('is-visible'), index * 150);
-                        });
+                        const animElements = entry.target.querySelectorAll('.anim-element');
+                        animElements.forEach(el => el.classList.add('is-visible'));
                     }
                 });
             }, observerOptions);
