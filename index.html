@@ -99,7 +99,6 @@
         }
         #invitation-content::-webkit-scrollbar { display: none; }
         
-        /* Adjusted padding so content pushes up slightly, leaving room for absolute button */
         .scene { flex: 0 0 100vw; height: 100dvh; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; padding-bottom: 50px; }
 
         .scene-content {
@@ -116,7 +115,6 @@
             border-radius: 10px; pointer-events: none;
         }
 
-        /* Adjusted Button Placement */
         .swipe-btn {
             position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95); border: 1px solid var(--divider-color);
@@ -130,8 +128,8 @@
 
         /* Typography */
         .bg-script { font-family: var(--font-marathi-serif); font-size: 2.2rem; color: var(--bg-script-color); margin-bottom: 5px; font-weight: bold; opacity: 0.7; }
-        .god-name { font-family: var(--font-marathi-serif); font-size: 1.25rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
-        .charoli { font-family: var(--font-marathi-sans); font-size: 1.05rem; color: var(--text-dark); margin: 20px 0; line-height: 1.8; }
+        .god-name { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
+        .charoli { font-family: var(--font-marathi-sans); font-size: 1.05rem; color: var(--text-dark); margin: 25px 0; line-height: 1.8; }
         .title-script { font-family: var(--font-marathi-serif); color: var(--main-color); font-size: 2rem; margin-bottom: 18px; font-weight: bold; }
 
         .title { font-size: 1rem; color: var(--main-color); margin-bottom: 5px; font-weight: 500; }
@@ -139,11 +137,28 @@
         .parents { font-size: 0.9rem; color: var(--text-dark); margin-top: 8px; line-height: 1.5; opacity: 0.8; }
         .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.6rem; color: var(--main-color); margin: 10px 0; font-weight: bold; }
         
+        /* Clean Ganesha Icon using CSS Masking */
+        .ganesha-icon {
+            width: 55px;
+            height: 55px;
+            background-color: var(--main-color);
+            -webkit-mask-image: url('https://img.icons8.com/ios-filled/150/000000/ganesha.png');
+            -webkit-mask-size: contain;
+            -webkit-mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+            mask-image: url('https://img.icons8.com/ios-filled/150/000000/ganesha.png');
+            mask-size: contain;
+            mask-position: center;
+            mask-repeat: no-repeat;
+            margin: 5px auto 12px auto;
+            opacity: 0.9;
+        }
+
         .floral-divider { display: flex; align-items: center; justify-content: center; width: 95%; margin: 8px auto; }
         .floral-divider::before, .floral-divider::after { content: ''; height: 1.5px; background: var(--main-color); opacity: 0.3; flex-grow: 1; max-width: 60px; margin: 0 10px; }
         .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--main-color); font-weight: bold; padding: 5px 0; }
 
-        /* EVENT CARDS - ADJUSTED FOR COMPACTNESS */
+        /* EVENT CARDS */
         .event-box {
             background: rgba(0,0,0,0.02); 
             border: 1px solid var(--divider-color);
@@ -182,7 +197,7 @@
 </head>
 <body data-theme="maroon">
 
-    <!-- THEME SWITCHER BUTTON (Only Maroon & Green now) -->
+    <!-- THEME SWITCHER BUTTON -->
     <div class="theme-switcher" onclick="changeTheme()">🎨 रंग बदला</div>
 
     <!-- ENVELOPE SCREEN -->
@@ -207,14 +222,10 @@
             <div class="scene-content">
                 <div class="bg-script anim-element">विवाह निमंत्रण</div>
                 
-                <div class="anim-element delay-1 icon-container" style="margin: 8px 0;">
-                    <svg viewBox="0 0 24 24" width="40" height="40" fill="var(--main-color)" style="opacity: 0.9;">
-                        <path d="M12 2C9 2 7 4 7 7C7 8.5 7.5 9.8 8.4 10.9L8.1 11.2C7.3 11.8 6.9 12.8 6.9 13.9C6.9 15.6 8 17 9.5 17.5V19.5C9.5 20.3 10.2 21 11 21H13C13.8 21 14.5 20.3 14.5 19.5V17.5C16 17 17.1 15.6 17.1 13.9C17.1 12.8 16.7 11.8 15.9 11.2L15.6 10.9C16.5 9.8 17 8.5 17 7C17 4 15 2 12 2ZM12 4C13.7 4 15 5.3 15 7C15 8.1 14.4 9 13.6 9.5L12 10.5L10.4 9.5C9.6 9 9 8.1 9 7C9 5.3 10.3 4 12 4ZM10 13.5C10 12.7 10.7 12 11.5 12H12.5C13.3 12 14 12.7 14 13.5C14 14.3 13.3 15 12.5 15H11.5C10.7 15 10 14.3 10 13.5Z" />
-                    </svg>
-                </div>
+                <!-- NEW NEAT GANESHA ICON -->
+                <div class="anim-element delay-1 ganesha-icon"></div>
 
                 <div class="anim-element delay-1 god-name">॥ श्री गणेशाय नमः ॥</div>
-                <div class="anim-element delay-1 god-name" style="font-size: 1rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
                 
                 <p class="anim-element delay-2 charoli">
                     लग्नाची घाई, वेळेची कमतरता!<br>
@@ -352,7 +363,6 @@
     </div>
 
     <script>
-        // Only Maroon and Green themes remain
         const themes = ['maroon', 'green'];
         let currentThemeIndex = 0;
 
