@@ -3,286 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav weds Sayali</title>
+    <title>Pranav & Sayali - Wedding Invitation</title>
+    
+    <!-- Modern Elegant Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary-color: #2c3e2d; /* Deep sage/charcoal */
+            --accent-color: #c5a880; /* Muted champagne gold */
+            --bg-color: #f7f6f2; /* Soft ivory */
+            --card-bg: #ffffff;
+            --text-main: #4a4a4a;
+            --text-light: #7a7a7a;
+            
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-script: 'Pinyon Script', cursive;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            background-image: radial-gradient(var(--accent-color) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            background-position: 0 0;
+            background-attachment: fixed;
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .invitation-container {
             width: 100%;
-            max-width: 900px;
-            background: white;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
+            max-width: 800px;
+            background: var(--card-bg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
             overflow: hidden;
+            position: relative;
+        }
+
+        /* Subtle inner border for the card look */
+        .invitation-container::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            pointer-events: none;
+            z-index: 10;
         }
 
         .page {
             min-height: 100vh;
-            padding: 60px 40px;
+            padding: 80px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            page-break-after: always;
+            position: relative;
+            background: var(--card-bg);
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Page 1 - Title */
-        .page-1 {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        }
-
-        .decorative-line {
-            width: 60px;
-            height: 2px;
-            background: #d4a574;
-            margin: 20px auto;
-        }
-
         .page-1 h1 {
-            font-size: 4em;
-            color: #8b4513;
-            font-weight: normal;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            font-family: var(--font-heading);
+            font-size: 1.5em;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .decorative-ornament {
+            color: var(--accent-color);
+            font-size: 24px;
+            margin: 20px 0;
+            opacity: 0.8;
         }
 
         .page-1 p {
-            font-size: 1.3em;
-            color: #a0522d;
-            font-style: italic;
+            font-size: 0.9em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 2;
             margin: 10px 0;
+            font-weight: 300;
         }
 
         .couple-names {
-            margin-top: 40px;
-            font-size: 2.2em;
-            color: #8b4513;
-            font-weight: normal;
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.2;
         }
 
         .couple-names .name {
-            display: inline;
+            font-family: var(--font-script);
+            font-size: 5.5em;
+            color: var(--primary-color);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
         }
 
         .couple-names .and {
-            font-size: 0.7em;
-            font-style: italic;
-            display: block;
-            margin: 15px 0;
+            font-family: var(--font-script);
+            font-size: 3em;
+            color: var(--accent-color);
+            margin: -10px 0;
         }
 
         .wedding-date {
-            margin-top: 30px;
-            font-size: 1em;
-            color: #a0522d;
+            margin-top: 40px;
+            font-family: var(--font-heading);
+            font-size: 1.4em;
+            color: var(--primary-color);
+            font-style: italic;
         }
 
         .scroll-down {
-            margin-top: 60px;
-            font-size: 0.9em;
-            color: #a0522d;
-            opacity: 0.7;
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
         /* Page 2 - Details */
         .page-2 {
-            background: linear-gradient(135deg, #fff5ee 0%, #ffe4d4 100%);
+            border-top: 1px solid rgba(197, 168, 128, 0.2);
         }
 
-        .invitation-details {
-            max-width: 700px;
-        }
-
-        .page-2 h2 {
-            font-size: 3em;
-            color: #8b4513;
-            margin-bottom: 40px;
+        .page-2 h2, .page-3 h2 {
+            font-family: var(--font-script);
+            font-size: 4em;
+            color: var(--accent-color);
+            margin-bottom: 50px;
             font-weight: normal;
-            letter-spacing: 2px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 600px;
+            width: 100%;
         }
 
         .detail-section {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            border-left: 4px solid #d4a574;
+            padding: 30px;
+            background: #faf9f7;
+            border-radius: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-section:hover {
+            transform: translateY(-5px);
         }
 
         .detail-section h3 {
-            font-size: 1.2em;
-            color: #a0522d;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            font-family: var(--font-heading);
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 400;
         }
 
         .detail-section p {
+            font-size: 0.95em;
+            color: var(--text-main);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .detail-section strong {
+            font-weight: 500;
+            color: var(--accent-color);
             font-size: 1.1em;
-            color: #5a4a42;
-            line-height: 1.6;
         }
 
         .rsvp {
-            margin-top: 50px;
-            font-size: 1em;
-            color: #8b4513;
-        }
-
-        .rsvp a {
-            color: #d4a574;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .rsvp a:hover {
-            text-decoration: underline;
+            margin-top: 60px;
+            font-family: var(--font-heading);
+            font-size: 1.4em;
+            color: var(--primary-color);
+            font-style: italic;
         }
 
         /* Page 3 - Location */
         .page-3 {
-            background: linear-gradient(135deg, #e8d5c4 0%, #d7c1b8 100%);
-        }
-
-        .location-content {
-            max-width: 700px;
-        }
-
-        .page-3 h2 {
-            font-size: 2.5em;
-            color: #8b4513;
-            margin-bottom: 30px;
-            font-weight: normal;
-            letter-spacing: 2px;
+            border-top: 1px solid rgba(197, 168, 128, 0.2);
         }
 
         .location-info {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .location-info h3 {
-            font-size: 1.3em;
-            color: #8b4513;
-            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 400;
         }
 
         .location-info p {
-            font-size: 1.1em;
-            color: #5a4a42;
+            font-size: 1em;
+            color: var(--text-main);
             line-height: 1.8;
-            margin-bottom: 10px;
+            font-weight: 300;
         }
 
         .location-link {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-top: 30px;
+            padding: 15px 40px;
+            background-color: var(--primary-color);
             color: white;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85em;
+            border-radius: 0;
+            transition: all 0.4s ease;
+            border: 1px solid var(--primary-color);
         }
 
         .location-link:hover {
-            transform: scale(1.05);
+            background-color: transparent;
+            color: var(--primary-color);
         }
 
         .thank-you {
-            margin-top: 50px;
-            font-size: 1.5em;
-            color: #8b4513;
-            font-style: italic;
+            margin-top: 80px;
+            font-family: var(--font-script);
+            font-size: 3.5em;
+            color: var(--accent-color);
         }
 
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            
+            .invitation-container::before {
+                top: 10px; left: 10px; right: 10px; bottom: 10px;
             }
 
-            .page {
-                page-break-after: always;
-                box-shadow: none;
-            }
+            .page { padding: 60px 20px; }
 
-            .scroll-down {
-                display: none;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .page-1 h1 {
-                font-size: 2.5em;
-            }
-
-            .couple-names {
-                font-size: 1.5em;
-            }
-
-            .page-2 h2 {
-                font-size: 2em;
-            }
-
-            .page-3 h2 {
-                font-size: 1.8em;
-            }
-
-            .page {
-                padding: 40px 20px;
-            }
+            .couple-names .name { font-size: 4em; }
+            .couple-names .and { font-size: 2.5em; }
+            
+            .page-1 p { font-size: 0.75em; letter-spacing: 2px; }
+            
+            .page-2 h2, .page-3 h2 { font-size: 3em; margin-bottom: 30px; }
+            
+            .detail-section { padding: 25px 15px; }
+            
+            .thank-you { font-size: 2.8em; margin-top: 60px; }
         }
     </style>
 </head>
 <body>
     <div class="invitation-container">
         <!-- Page 1: Title -->
-        <div class="page page-1">
-            <div>
-                <div class="decorative-line"></div>
-                <h1>Together</h1>
-                <div class="decorative-line"></div>
-                <p>with their families request the honour of your presence</p>
-                <p>at the marriage of</p>
-                <div class="couple-names">
-                    <span class="name">PRANAV</span>
-                    <span class="and">&</span>
-                    <span class="name">SAYALI</span>
-                </div>
-                <div class="decorative-line"></div>
-                <p class="wedding-date">
-                    Wednesday, the twentieth of August<br>
-                    Two thousand twenty-six<br>
-                    at 12:45 PM
-                </p>
-                <div class="scroll-down">↓ Scroll for details ↓</div>
+        <div class="page page-1 fade-in" id="home">
+            <h1>Together</h1>
+            <div class="decorative-ornament">✧</div>
+            <p>With their families request the honour<br>of your presence at the marriage of</p>
+            
+            <div class="couple-names">
+                <span class="name">Pranav</span>
+                <span class="and">&</span>
+                <span class="name">Sayali</span>
             </div>
+            
+            <div class="decorative-ornament">✧</div>
+            
+            <p class="wedding-date">
+                Wednesday, the Twentieth of August<br>
+                Two Thousand Twenty-Six<br>
+                at 12:45 in the afternoon
+            </p>
+            
+            <a href="#details" class="scroll-down" style="text-decoration: none;">↓ Scroll for details ↓</a>
         </div>
 
         <!-- Page 2: Details -->
-        <div class="page page-2">
-            <div class="invitation-details">
-                <h2>Celebration Details</h2>
+        <div class="page page-2" id="details">
+            <h2>The Celebration</h2>
 
+            <div class="details-grid">
                 <div class="detail-section">
                     <h3>Ceremony</h3>
                     <p>
@@ -305,44 +352,34 @@
                         Dist. Solapur
                     </p>
                 </div>
+            </div>
 
-                <div class="detail-section">
-                    <h3>Dress Code</h3>
-                    <p>Formal / Semi-Formal</p>
-                </div>
-
-                <div class="rsvp">
-                    <p>
-                        We would be delighted to have you join us<br>
-                        for this special occasion.
-                    </p>
-                </div>
+            <div class="rsvp">
+                <p>We would be delighted to have you join us<br>for this special occasion.</p>
             </div>
         </div>
 
         <!-- Page 3: Location -->
         <div class="page page-3">
-            <div class="location-content">
-                <h2>Find Us</h2>
+            <h2>Find Us</h2>
 
-                <div class="location-info">
-                    <h3>Wedding Venue</h3>
-                    <p><strong>Swayamvar Mangal Karyalay</strong></p>
-                    <p>
-                        Akluj Tembhurni Road<br>
-                        Panchavati, Tal. Malshiras<br>
-                        Dist. Solapur, Maharashtra
-                    </p>
-                </div>
-
-                <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="location-link" target="_blank">
-                    Get Directions on Google Maps
-                </a>
-
-                <p class="thank-you">
-                    We look forward to celebrating with you!
+            <div class="location-info">
+                <h3>Wedding Venue</h3>
+                <p><strong>Swayamvar Mangal Karyalay</strong></p>
+                <p>
+                    Akluj Tembhurni Road<br>
+                    Panchavati, Tal. Malshiras<br>
+                    Dist. Solapur, Maharashtra
                 </p>
             </div>
+
+            <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="location-link" target="_blank" rel="noopener noreferrer">
+                View on Google Maps
+            </a>
+
+            <p class="thank-you">
+                We look forward to celebrating with you!
+            </p>
         </div>
     </div>
 </body>
