@@ -171,7 +171,7 @@
 
         /* Couple Section */
         .couple-names {
-            margin: 20px 0;
+            margin: 15px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -179,7 +179,7 @@
         }
 
         .person {
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
         .title {
@@ -191,7 +191,7 @@
 
         .name {
             font-family: var(--font-display);
-            font-size: 4.5rem;
+            font-size: 4.2rem;
             color: var(--gold-light);
             text-shadow: 0 5px 15px rgba(0,0,0,0.4);
             line-height: 1.1;
@@ -201,17 +201,26 @@
             font-family: var(--font-modern);
             font-size: 1.1rem;
             color: #d8c3c6;
-            margin-top: 10px;
-            line-height: 1.6;
+            margin-top: 5px;
+            line-height: 1.5;
             font-weight: 300;
         }
 
         .swastik {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--gold-primary);
-            margin: 10px 0;
+            margin: 5px 0;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
             animation: pulseBg 3s infinite alternate ease-in-out;
+        }
+        
+        .shubhvivah-text {
+            font-family: var(--font-traditional);
+            font-size: 2.4rem;
+            color: var(--gold-primary);
+            margin-top: 15px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            font-weight: bold;
         }
 
         .divider {
@@ -297,7 +306,7 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 25px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -337,21 +346,22 @@
             .scene { padding: 15px 10px; }
             .god-name { font-size: 1.6rem; }
             .charoli { font-size: 1.1rem; padding: 0 15px; }
-            .name { font-size: 3.5rem; }
-            .title { font-size: 1.2rem; }
-            .parents { font-size: 0.95rem; padding: 0 10px; }
-            .swastik { font-size: 2rem; margin: 5px 0; }
+            .name { font-size: 3.2rem; }
+            .title { font-size: 1.1rem; }
+            .parents { font-size: 0.9rem; padding: 0 5px; }
+            .swastik { font-size: 1.8rem; margin: 5px 0; }
+            .shubhvivah-text { font-size: 1.8rem; margin-top: 10px; }
             h2 { font-size: 2.2rem; margin-bottom: 20px; }
             .info-card { padding: 20px 15px; width: 95%; margin-bottom: 15px; }
             .info-card h3 { font-size: 1.4rem; }
             .info-card p { font-size: 1rem; }
-            .scroll-indicator { bottom: 15px; }
+            .scroll-indicator { bottom: 10px; }
         }
         
         @media (max-width: 375px) {
-            .name { font-size: 3rem; }
+            .name { font-size: 2.8rem; }
             h2 { font-size: 1.8rem; }
-            .parents { font-size: 0.85rem; }
+            .parents { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -412,9 +422,14 @@
                 </div>
             </div>
             
+            <!-- ADDED TEXT HERE -->
+            <div class="anim-element delay-4 shubhvivah-text">
+                यांचा शुभविवाह
+            </div>
+            
         </div>
         
-        <div class="scroll-indicator anim-element delay-4">
+        <div class="scroll-indicator anim-element delay-5">
             <div class="mouse"><div class="wheel"></div></div>
         </div>
     </section>
@@ -422,7 +437,7 @@
     <!-- Scene 3: Events -->
     <section class="scene scene-3">
         <div class="scene-content">
-            <h2 class="anim-element delay-1">शुभविवाह सोहळा</h2>
+            <h2 class="anim-element delay-1">कार्यक्रमाची रूपरेषा</h2>
             
             <div class="info-card anim-element delay-2">
                 <h3>हळदी समारंभ</h3>
