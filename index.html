@@ -28,7 +28,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
-            height: 100dvh; /* Better mobile rendering */
+            height: 100dvh;
             font-family: var(--font-marathi-sans);
             color: var(--text-dark);
             overflow: hidden; 
@@ -100,7 +100,7 @@
            MAIN INVITATION CONTENT (HORIZONTAL SCROLL)
         ------------------------------------------- */
         #invitation-content {
-            display: none; /* Changed to flex via JS */
+            display: none; 
             flex-direction: row;
             width: 100vw; height: 100dvh;
             overflow-x: auto; overflow-y: hidden;
@@ -170,7 +170,7 @@
         .bg-script {
             font-family: var(--font-script);
             font-size: 2.5rem;
-            color: #d8dfd9; /* Very light sage */
+            color: #d8dfd9; 
             margin-bottom: -15px;
             white-space: nowrap;
         }
@@ -185,11 +185,11 @@
 
         .charoli {
             font-family: var(--font-marathi-sans);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-dark);
             margin: 25px 0;
             line-height: 1.8;
-            font-style: italic;
+            font-style: normal;
         }
 
         .title-script {
@@ -277,9 +277,12 @@
                 <div class="anim-element delay-1 god-name" style="margin-top: 10px;">॥ श्री गणेशाय नमः ॥</div>
                 <div class="anim-element delay-1 god-name" style="font-size: 1.1rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
                 
+                <!-- NEW MESSAGE ADDED HERE -->
                 <p class="anim-element delay-2 charoli">
-                    दोन जीवांचे, दोन घराण्यांचे,<br>पवित्र बंधन म्हणजे विवाह...<br><br>
-                    अतूट नात्याची ही सुरुवात,<br>तुमच्या आशीर्वादाने होऊ दे खास!
+                    लग्नाची घाई, वेळेची कमतरता!<br>
+                    म्हणूनच या प्रेमळ संदेशाद्वारे<br>
+                    तुम्हाला आमंत्रित करत आहोत.<br><br>
+                    <strong>आमच्या लग्नाला नक्की या!</strong>
                 </p>
                 
                 <p class="anim-element delay-3" style="color: var(--sage-green); font-size: 1.25rem; font-family: var(--font-marathi-serif); font-weight: bold;">
@@ -292,7 +295,7 @@
             </div>
         </section>
 
-        <!-- Scene 2: Bride & Groom (Now in Card Style) -->
+        <!-- Scene 2: Bride & Groom -->
         <section class="scene" id="scene2">
             <div class="scene-content">
                 <div class="person anim-element">
