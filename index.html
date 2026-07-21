@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav & Sayli - Wedding Invitation</title>
+    <title>प्रणव आणि सायली - विवाह निमंत्रण</title>
     
-    <!-- Cinematic & Script Fonts -->
+    <!-- Beautiful Marathi & Devanagari Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -19,10 +19,9 @@
             --gold-light: #f3e5ab;
             --text-light: #fdfbf7;
             
-            --font-cinematic: 'Cinzel', serif;
-            --font-script: 'Great Vibes', cursive;
-            --font-body: 'Montserrat', sans-serif;
-            --font-marathi: 'Tiro Devanagari Marathi', serif;
+            /* Marathi Typography */
+            --font-traditional: 'Tiro Devanagari Marathi', serif;
+            --font-modern: 'Anek Devanagari', sans-serif;
         }
 
         * {
@@ -33,7 +32,7 @@
 
         body, html {
             height: 100%;
-            font-family: var(--font-body);
+            font-family: var(--font-modern);
             background-color: var(--bg-dark);
             color: var(--text-light);
             overflow-x: hidden;
@@ -126,7 +125,7 @@
 
         /* Typography & Elements */
         .marathi-symbol {
-            font-family: var(--font-marathi);
+            font-family: var(--font-traditional);
             font-size: 2.5rem;
             color: var(--gold-primary);
             margin-bottom: 20px;
@@ -134,19 +133,20 @@
         }
 
         h1, h2, h3 {
-            font-family: var(--font-cinematic);
+            font-family: var(--font-traditional);
             color: var(--gold-light);
             font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
         }
 
         .intro-text {
-            font-size: 0.9rem;
-            letter-spacing: 5px;
+            font-family: var(--font-modern);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             color: #d8c3c6;
             margin: 20px 0;
             line-height: 1.8;
+            font-weight: 300;
         }
 
         .couple-names {
@@ -157,19 +157,18 @@
         }
 
         .name {
-            font-family: var(--font-script);
-            font-size: 6rem;
+            font-family: var(--font-traditional);
+            font-size: 5rem;
             color: var(--gold-primary);
             text-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-transform: none;
-            line-height: 1;
+            line-height: 1.2;
         }
 
         .ampersand {
-            font-family: var(--font-script);
-            font-size: 3rem;
+            font-family: var(--font-traditional);
+            font-size: 2.5rem;
             color: var(--text-light);
-            margin: -10px 0;
+            margin: 0px 0;
         }
 
         .divider {
@@ -181,7 +180,7 @@
 
         /* Details Scene */
         .scene-2 h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 40px;
             color: var(--gold-primary);
         }
@@ -196,14 +195,14 @@
         }
 
         .info-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--gold-light);
             margin-bottom: 15px;
         }
 
         .info-card p {
-            font-size: 1rem;
-            line-height: 2;
+            font-size: 1.1rem;
+            line-height: 2.2;
             color: #e0d5d7;
             font-weight: 300;
         }
@@ -211,7 +210,7 @@
         .info-card strong {
             color: var(--gold-primary);
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
         }
 
         /* Location Scene */
@@ -224,14 +223,14 @@
             background: transparent;
             color: var(--gold-primary);
             border: 1px solid var(--gold-primary);
-            font-family: var(--font-cinematic);
-            font-size: 1rem;
-            letter-spacing: 2px;
+            font-family: var(--font-modern);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
             text-decoration: none;
-            text-transform: uppercase;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            border-radius: 4px;
         }
 
         .btn-location::before {
@@ -292,11 +291,11 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .name { font-size: 4.5rem; }
-            .ampersand { font-size: 2.5rem; }
-            h2 { font-size: 2rem !important; }
+            .name { font-size: 4rem; }
+            .ampersand { font-size: 2rem; }
+            h2 { font-size: 2.2rem !important; }
             .info-card { padding: 30px 20px; }
-            .intro-text { font-size: 0.8rem; letter-spacing: 3px; }
+            .intro-text { font-size: 1rem; letter-spacing: 1px; }
         }
     </style>
 </head>
@@ -308,23 +307,23 @@
     <!-- Scene 1: Introduction -->
     <section class="scene scene-1">
         <div class="scene-content">
-            <div class="anim-element delay-1 marathi-symbol">|| श्री ||</div>
+            <div class="anim-element delay-1 marathi-symbol">|| श्री गणेशाय नमः ||</div>
             
             <p class="anim-element delay-2 intro-text">
-                WITH THE BLESSINGS OF GOD & ELDERS<br>
-                WE REQUEST THE HONOUR OF YOUR PRESENCE
+                ईश्वर आणि ज्येष्ठांच्या आशीर्वादाने,<br>
+                आम्ही तुम्हाला आमच्या विवाह सोहळ्यास सस्नेह निमंत्रित करत आहोत.
             </p>
             
             <div class="anim-element delay-3 couple-names">
-                <span class="name">Pranav</span>
-                <span class="ampersand">&</span>
-                <span class="name">Sayli</span>
+                <span class="name">प्रणव</span>
+                <span class="ampersand">व</span>
+                <span class="name">सायली</span>
             </div>
             
-            <div class="anim-element delay-4 marathi-symbol" style="font-size: 1.8rem;">शुभ विवाह</div>
+            <div class="anim-element delay-4 marathi-symbol" style="font-size: 2rem;">शुभ विवाह</div>
             
             <p class="anim-element delay-5 intro-text" style="color: var(--gold-primary); font-weight: 500;">
-                WEDNESDAY, AUGUST 20, 2026
+                बुधवार, २० ऑगस्ट २०२६
             </p>
         </div>
 
@@ -336,16 +335,15 @@
     <!-- Scene 2: Events -->
     <section class="scene scene-2">
         <div class="scene-content">
-            <h2 class="anim-element delay-1">The Celebration</h2>
+            <h2 class="anim-element delay-1">विवाह सोहळा</h2>
             <div class="divider anim-element delay-2"></div>
             
             <div class="info-card anim-element delay-3">
-                <h3>Wedding Ceremony</h3>
+                <h3>शुभविवाह मुहूर्त</h3>
                 <p>
-                    <strong>12:45 PM</strong><br>
-                    Wednesday, 20th August 2026<br><br>
-                    Followed by Reception<br>
-                    Meals & Celebration
+                    <strong>दुपारी १२:४५ वाजता</strong><br>
+                    बुधवार, २० ऑगस्ट २०२६<br><br>
+                    विवाहानंतर स्नेहभोजन
                 </p>
             </div>
         </div>
@@ -358,14 +356,14 @@
     <!-- Scene 3: Location -->
     <section class="scene scene-3">
         <div class="scene-content">
-            <h2 class="anim-element delay-1">Venue Details</h2>
+            <h2 class="anim-element delay-1">विवाह स्थळ</h2>
             
             <div class="info-card anim-element delay-2">
-                <h3>Swayamvar Mangal Karyalay</h3>
+                <h3>स्वयंवर मंगल कार्यालय</h3>
                 <p>
-                    Akluj Tembhurni Road<br>
-                    Panchavati, Tal. Malshiras<br>
-                    Dist. Solapur, Maharashtra
+                    अकलूज-टेंभुर्णी रोड<br>
+                    पंचवटी, ता. माळशिरस<br>
+                    जि. सोलापूर, महाराष्ट्र
                 </p>
             </div>
 
@@ -374,13 +372,13 @@
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                Navigate to Venue
+                स्थळाकडे मार्गक्रमण करा (नकाशा)
             </a>
 
             <div class="divider anim-element delay-4"></div>
             
-            <p class="anim-element delay-5 intro-text" style="font-family: var(--font-script); font-size: 2.5rem; text-transform: none; color: var(--gold-primary);">
-                We await your presence
+            <p class="anim-element delay-5 intro-text" style="font-family: var(--font-traditional); font-size: 2.2rem; color: var(--gold-primary);">
+                आपल्या उपस्थितीच्या प्रतीक्षेत...
             </p>
         </div>
     </section>
