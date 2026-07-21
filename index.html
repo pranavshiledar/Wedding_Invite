@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600&family=Tiro+Devanagari+Marathi:ital@0;1&family=Alex+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -21,7 +21,6 @@
             
             --font-marathi-serif: 'Tiro Devanagari Marathi', serif;
             --font-marathi-sans: 'Anek Devanagari', sans-serif;
-            --font-script: 'Alex Brush', cursive;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -107,7 +106,7 @@
             position: relative;
         }
 
-        /* DEFAULT MOBILE STYLES (DO NOT CHANGE) */
+        /* DEFAULT MOBILE STYLES */
         .scene-content {
             background-color: #ffffff; border-radius: 20px; padding: 35px 20px;
             width: 85%; max-width: 380px; box-shadow: 0 8px 25px rgba(0,0,0,0.06);
@@ -127,15 +126,32 @@
         @keyframes swipeRightAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% + 8px)); } }
         @keyframes swipeLeftAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% - 8px)); } }
 
-        /* Mobile Typography */
-        .bg-script { font-family: var(--font-script); font-size: 2rem; color: #d8dfd9; margin-bottom: -10px; white-space: nowrap; }
+        /* Typography - Now fully Marathi */
+        .bg-script { 
+            font-family: var(--font-marathi-serif); 
+            font-size: 2rem; 
+            color: #d8dfd9; 
+            margin-bottom: 5px; 
+            white-space: nowrap; 
+            font-weight: bold;
+            opacity: 0.5;
+        }
+        
         .god-name { font-family: var(--font-marathi-serif); font-size: 1.35rem; color: var(--sage-green); font-weight: 600; margin-bottom: 5px; }
         .charoli { font-family: var(--font-marathi-sans); font-size: 1rem; color: var(--text-dark); margin: 20px 0; line-height: 1.8; }
-        .title-script { font-family: var(--font-script); color: var(--sage-green); font-size: 2.4rem; margin-bottom: 15px; }
+        
+        .title-script { 
+            font-family: var(--font-marathi-serif); 
+            color: var(--sage-green); 
+            font-size: 2.1rem; 
+            margin-bottom: 20px; 
+            font-weight: bold;
+        }
+
         .title { font-size: 0.95rem; color: var(--sage-green); margin-bottom: 5px; }
         .name { font-family: var(--font-marathi-serif); font-size: 2.5rem; line-height: 1.1; color: var(--text-dark); }
         .parents { font-size: 0.85rem; color: #5a6b5d; margin-top: 8px; line-height: 1.5; }
-        .and-symbol { font-family: var(--font-script); font-size: 1.8rem; color: var(--sage-green); margin: 8px 0; }
+        .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.5rem; color: var(--sage-green); margin: 8px 0; font-weight: bold; }
         
         .shubhvivah-container { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
         .floral-divider { display: flex; align-items: center; justify-content: center; width: 90%; margin: 5px auto; }
@@ -144,7 +160,7 @@
 
         .event-item { margin-bottom: 18px; position: relative; padding-bottom: 18px; }
         .event-item:not(:last-child)::after { content: ''; position: absolute; bottom: 0; left: 35%; width: 30%; height: 1px; background: var(--divider-color); }
-        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.2rem; margin-bottom: 6px; color: var(--text-dark); }
+        .event-item h3 { font-family: var(--font-marathi-serif); font-size: 1.2rem; margin-bottom: 6px; color: var(--text-dark); font-weight: bold;}
         .event-item p { font-size: 0.9rem; line-height: 1.6; color: var(--sage-green); }
         .event-item strong { color: var(--sage-green); font-size: 1rem; font-weight: 600; }
 
@@ -156,27 +172,23 @@
 
         @media (max-height: 700px) {
             .scene-content { padding: 25px 15px; }
-            .bg-script { font-size: 1.8rem; margin-bottom: -10px; }
+            .bg-script { font-size: 1.6rem; margin-bottom: 0px; }
             .name { font-size: 2.2rem; }
             .shubhvivah-text { font-size: 1.2rem; }
-            .title-script { font-size: 2rem; margin-bottom: 15px; }
+            .title-script { font-size: 1.8rem; margin-bottom: 15px; }
             .swipe-btn { bottom: 15px; padding: 6px 15px; font-size: 0.85rem; }
         }
 
         /* -------------------------------------------
-           DESKTOP STYLES (NEW - FOR LARGER SCREENS)
+           DESKTOP STYLES
         ------------------------------------------- */
         @media (min-width: 768px) {
-            .scene-content {
-                max-width: 550px; /* Increased card size for desktop */
-                padding: 50px 40px;
-                border-radius: 25px;
-            }
-            .envelope-wrapper { width: 400px; height: 260px; } /* Slightly larger envelope */
-            .bg-script { font-size: 3rem; margin-bottom: -15px; }
+            .scene-content { max-width: 550px; padding: 50px 40px; border-radius: 25px; }
+            .envelope-wrapper { width: 400px; height: 260px; }
+            .bg-script { font-size: 2.8rem; margin-bottom: 10px; }
             .god-name { font-size: 1.6rem; }
             .charoli { font-size: 1.25rem; }
-            .title-script { font-size: 3.5rem; margin-bottom: 25px; }
+            .title-script { font-size: 2.6rem; margin-bottom: 25px; }
             .title { font-size: 1.2rem; }
             .name { font-size: 3.8rem; }
             .parents { font-size: 1.1rem; }
@@ -203,7 +215,7 @@
                 <div class="envelope-flap flap-top"></div>
                 <div class="wax-seal">卐</div>
             </div>
-            <div class="click-text">Tap to open</div>
+            <div class="click-text">उघडण्यासाठी टॅप करा</div>
         </div>
     </div>
 
@@ -213,7 +225,7 @@
         <!-- Scene 1: Introduction -->
         <section class="scene" id="scene1">
             <div class="scene-content">
-                <div class="bg-script anim-element">Wedding Invitation</div>
+                <div class="bg-script anim-element">विवाह निमंत्रण</div>
                 <div class="anim-element delay-1 god-name" style="margin-top: 10px;">॥ श्री गणेशाय नमः ॥</div>
                 <div class="anim-element delay-1 god-name" style="font-size: 0.95rem; color: var(--text-dark);">॥ कुलदेवता प्रसन्न ॥</div>
                 
@@ -242,7 +254,8 @@
                     <div class="parents">(श्री. महादेव बापु शिलेदार व सौ. वंदना महादेव शिलेदार यांचे सुपुत्र)</div>
                 </div>
                 
-                <div class="anim-element delay-1 and-symbol">&</div>
+                <!-- '&' replaced with 'व' -->
+                <div class="anim-element delay-1 and-symbol">व</div>
                 
                 <div class="person anim-element delay-2">
                     <div class="title">चि. सौ. कां.</div>
@@ -279,7 +292,7 @@
         <!-- Scene 3: Events -->
         <section class="scene" id="scene3">
             <div class="scene-content">
-                <h2 class="title-script anim-element">Details</h2>
+                <h2 class="title-script anim-element">कार्यक्रम</h2>
                 
                 <div class="event-item anim-element delay-1">
                     <h3>साखरपुडा</h3>
@@ -305,7 +318,7 @@
         <!-- Scene 4: Venue -->
         <section class="scene" id="scene4">
             <div class="scene-content">
-                <h2 class="title-script anim-element">Venue</h2>
+                <h2 class="title-script anim-element">स्थळ</h2>
                 
                 <div class="anim-element delay-1">
                     <h3 style="color: var(--sage-green); font-family: var(--font-marathi-serif); font-size: 1.25rem; margin-bottom: 8px;">स्वयंवर मंगल कार्यालय</h3>
@@ -315,11 +328,11 @@
                 <div class="anim-element delay-2" style="width: 40px; height: 1px; background: var(--divider-color); margin: 15px auto;"></div>
 
                 <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-2" target="_blank" rel="noopener noreferrer">
-                    नकाशावर पहा (Map)
+                    नकाशावर पहा
                 </a>
 
                 <div style="margin-top: 30px;" class="anim-element delay-3">
-                    <p style="color: var(--sage-green); font-family: var(--font-script); font-size: 2rem; margin-bottom: 2px;">Thank You</p>
+                    <p style="color: var(--sage-green); font-family: var(--font-marathi-serif); font-size: 1.8rem; margin-bottom: 5px; font-weight: bold;">धन्यवाद !</p>
                     <p style="font-family: var(--font-marathi-serif); font-size: 1rem; font-weight: bold; color: var(--text-dark);">
                         समस्त शिलेदार आणि शिंदे परिवार
                     </p>
