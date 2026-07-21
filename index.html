@@ -47,7 +47,8 @@
         }
 
         .envelope-wrapper {
-            position: relative; width: 300px; height: 200px;
+            position: relative; 
+            width: 330px; height: 220px; /* SIZE INCREASED FOR MOBILE */
             cursor: pointer; transition: all 0.5s ease;
         }
         
@@ -70,16 +71,16 @@
 
         .wax-seal {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -15%);
-            width: 55px; height: 55px;
+            width: 60px; height: 60px; /* SEAL SIZE INCREASED */
             background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #9c7a21);
             border-radius: 50%; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex; justify-content: center; align-items: center;
-            color: #5c4712; font-size: 1.5rem; transition: opacity 0.3s ease;
+            color: #5c4712; font-size: 1.7rem; transition: opacity 0.3s ease;
         }
 
         .click-text {
-            position: absolute; bottom: -40px; width: 100%; text-align: center;
-            color: var(--sage-green); font-size: 1rem;
+            position: absolute; bottom: -45px; width: 100%; text-align: center;
+            color: var(--sage-green); font-size: 1.05rem;
             animation: pulseText 2s infinite; font-weight: 500;
         }
 
@@ -126,7 +127,7 @@
         @keyframes swipeRightAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% + 8px)); } }
         @keyframes swipeLeftAnim { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% - 8px)); } }
 
-        /* Typography - Now fully Marathi */
+        /* Typography */
         .bg-script { 
             font-family: var(--font-marathi-serif); 
             font-size: 2rem; 
@@ -184,7 +185,8 @@
         ------------------------------------------- */
         @media (min-width: 768px) {
             .scene-content { max-width: 550px; padding: 50px 40px; border-radius: 25px; }
-            .envelope-wrapper { width: 400px; height: 260px; }
+            .envelope-wrapper { width: 450px; height: 300px; } /* INCREASED FOR DESKTOP */
+            .wax-seal { width: 80px; height: 80px; font-size: 2.2rem; } /* INCREASED FOR DESKTOP */
             .bg-script { font-size: 2.8rem; margin-bottom: 10px; }
             .god-name { font-size: 1.6rem; }
             .charoli { font-size: 1.25rem; }
@@ -254,7 +256,6 @@
                     <div class="parents">(श्री. महादेव बापु शिलेदार व सौ. वंदना महादेव शिलेदार यांचे सुपुत्र)</div>
                 </div>
                 
-                <!-- '&' replaced with 'व' -->
                 <div class="anim-element delay-1 and-symbol">व</div>
                 
                 <div class="person anim-element delay-2">
