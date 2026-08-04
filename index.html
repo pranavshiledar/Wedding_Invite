@@ -104,7 +104,6 @@
             scroll-snap-align: start; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             position: relative; 
-            /* कार्डला थोडे वर ढकलण्यासाठी तळाशी पॅडिंग दिले आहे जेणेकरून बटणाला जागा मिळेल */
             padding-bottom: 75px; 
         }
 
@@ -115,10 +114,10 @@
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 16px; 
-            padding: 10vh 15px; /* आतून मजकुरासाठी सुरक्षित जागा */
+            padding: 10vh 15px;
             width: 95%; 
             max-width: 420px; 
-            height: 85dvh; /* कार्डची उंची थोडी कमी केली जेणेकरून तळाशी जागा उरेल */
+            height: 85dvh; 
             box-shadow: 0 10px 35px rgba(0,0,0,0.15);
             text-align: center; 
             position: relative; 
@@ -129,12 +128,13 @@
             align-items: center;
         }
 
-        /* HORIZONTAL BUTTON (Moved Outside the Tab/Card) */
+        /* HORIZONTAL BUTTON (Perfectly Centered) */
         .swipe-btn {
             position: absolute; 
-            bottom: 20px; /* स्क्रीनच्या अगदी तळाशी */
-            left: 50%; 
-            transform: translateX(-50%);
+            bottom: 20px; 
+            left: 0; 
+            right: 0;
+            margin: 0 auto; /* हे बटण मध्यभागी सेट करेल */
             width: 88%;
             max-width: 400px;
             background: var(--main-color); 
@@ -256,7 +256,6 @@
 
         <!-- Scene 1: Introduction -->
         <section class="scene" id="scene1">
-            <!-- मुख्य टॅब/कार्ड -->
             <div class="scene-content">
                 <div class="bg-script anim-element">विवाह निमंत्रण</div>
                 
@@ -285,7 +284,7 @@
                     सस्नेह निमंत्रण
                 </p>
             </div>
-            <!-- टॅबच्या बाहेर असलेले हॉरिझॉन्टल बटण -->
+            
             <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(1)">
                 पुढे पहा <span class="arrow">➔</span>
             </div>
