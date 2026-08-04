@@ -26,7 +26,10 @@
             --text-dark: #3a000f;
             --divider-color: #e8d0d5;
             --bg-script-color: #e8d0d5;
-            --btn-text: #f8e5b0; 
+            --btn-text: #ffffff; 
+            
+            --gold-seal: #cda434;
+            --gold-light: #e8c973;
             
             --font-marathi-serif: 'Tiro Devanagari Marathi', serif;
             --font-marathi-sans: 'Anek Devanagari', sans-serif;
@@ -56,18 +59,22 @@
         }
 
         .envelope-wrapper { position: relative; width: 330px; height: 220px; cursor: pointer; }
-        .envelope { position: absolute; width: 100%; height: 100%; background: var(--envelope-shadow); border-radius: 5px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); transition: background 0.5s ease; }
+        /* Added shadow to envelope to make it less flat */
+        .envelope { position: absolute; width: 100%; height: 100%; background: var(--envelope-shadow); border-radius: 5px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); transition: background 0.5s ease; }
         .envelope-flap { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: background 0.5s ease; }
-        .flap-bottom { background: var(--envelope-main); clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%); z-index: 3; border-radius: 0 0 5px 5px; }
+        .flap-bottom { background: var(--envelope-main); clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%); z-index: 3; border-radius: 0 0 5px 5px; box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);}
         .flap-left { background: var(--envelope-side); clip-path: polygon(0 0, 50% 50%, 0 100%); z-index: 2; border-radius: 5px 0 0 5px; }
         .flap-right { background: var(--envelope-side); clip-path: polygon(100% 0, 50% 50%, 100% 100%); z-index: 2; border-radius: 0 5px 5px 0; }
         .flap-top { background: var(--envelope-flap); clip-path: polygon(0 0, 100% 0, 50% 55%); z-index: 4; transform-origin: top; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease, z-index 0s 0.4s; border-radius: 5px 5px 0 0; }
 
         .wax-seal {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -15%);
-            width: 60px; height: 60px; background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #9c7a21);
-            border-radius: 50%; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: flex; justify-content: center; align-items: center; color: #5c4712; font-size: 1.7rem;
+            width: 60px; height: 60px; background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #8a6408);
+            border-radius: 50%; z-index: 5; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            display: flex; justify-content: center; align-items: center; 
+            color: #ffe600; /* Swastika is now Bright Gold */
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Adds depth to swastika */
         }
 
         .click-text { position: absolute; bottom: -45px; width: 100%; text-align: center; color: var(--main-color); font-size: 1.05rem; animation: pulseText 2s infinite; font-weight: 500; }
@@ -99,7 +106,7 @@
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 16px; 
-            padding: 8vh 15px;
+            padding: 6vh 15px; /* Reduced top/bottom padding to give more central space */
             width: 95%; 
             max-width: 420px; 
             height: 85dvh; 
@@ -113,7 +120,7 @@
             align-items: center;
         }
 
-        /* HORIZONTAL BUTTON (Perfectly Centered) */
+        /* HORIZONTAL BUTTON */
         .swipe-btn {
             position: absolute; 
             bottom: 20px; 
@@ -144,7 +151,7 @@
         @keyframes slideArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
         @keyframes slideArrowLeft { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
 
-        /* COUNTDOWN TIMER STYLES (Aligned and Marathi) */
+        /* COUNTDOWN TIMER STYLES */
         .countdown-container {
             display: flex; 
             justify-content: center; 
@@ -158,7 +165,7 @@
             border: 1px solid rgba(128, 0, 32, 0.2);
             border-radius: 8px; 
             padding: 8px 4px; 
-            flex: 1; /* Makes all boxes equal width */
+            flex: 1; 
             max-width: 65px;
             display: flex;
             flex-direction: column;
@@ -191,7 +198,9 @@
         .bg-script { font-family: var(--font-marathi-serif); font-size: 1.8rem; color: var(--bg-script-color); margin-bottom: 5px; font-weight: bold; opacity: 0.9; }
         .god-name { font-family: var(--font-marathi-serif); font-size: 1.2rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
         .charoli { font-family: var(--font-marathi-sans); font-size: 0.95rem; color: var(--text-dark); margin: 10px 0; line-height: 1.5; width: 100%;}
-        .title-script { font-family: var(--font-marathi-serif); color: var(--main-color); font-size: 1.6rem; margin-bottom: 12px; font-weight: bold; }
+        
+        /* Adjusted Title Script for Events Page to save space */
+        .title-script { font-family: var(--font-marathi-serif); color: var(--main-color); font-size: 1.5rem; margin-bottom: 8px; font-weight: bold; }
 
         .title { font-size: 0.9rem; color: var(--main-color); margin-bottom: 2px; font-weight: 500; }
         .name { font-family: var(--font-marathi-serif); font-size: 2.2rem; line-height: 1.1; color: var(--main-color); margin-bottom: 4px; }
@@ -202,14 +211,14 @@
         .floral-divider::before, .floral-divider::after { content: ''; height: 1.5px; background: var(--main-color); opacity: 0.3; flex-grow: 1; max-width: 50px; margin: 0 10px; }
         .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.15rem; color: var(--main-color); font-weight: bold; padding: 2px 0; }
 
-        /* EVENT CARDS - Optimized for better fit */
+        /* EVENT CARDS - Optimized even further to avoid bottom flowers */
         .event-box {
-            background: rgba(255, 255, 255, 0.85); /* Slightly more solid background */
+            background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(3px);
             border: 1px solid rgba(128, 0, 32, 0.15); 
             border-radius: 8px; 
-            padding: 8px 10px; /* Reduced padding to save height */
-            margin-bottom: 8px; /* Reduced margin between cards */
+            padding: 6px 10px; /* Reduced padding */
+            margin-bottom: 6px; /* Reduced margin */
             position: relative; 
             overflow: hidden; 
             display: flex; 
@@ -220,27 +229,42 @@
         .event-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--main-color); opacity: 0.8; }
         
         .icon-container { margin-bottom: 2px; }
-        .icon-container svg { width: 18px; height: 18px; } /* Smaller icons */
-        .event-box h3 { font-family: var(--font-marathi-serif); font-size: 1.1rem; margin-bottom: 1px; color: var(--main-color); font-weight: bold;}
-        .event-box p { font-size: 0.85rem; line-height: 1.3; color: var(--text-dark); opacity: 0.9; }
-        .event-box strong { font-size: 0.9rem; font-weight: 600; color: var(--text-dark);}
+        .icon-container svg { width: 16px; height: 16px; } 
+        .event-box h3 { font-family: var(--font-marathi-serif); font-size: 1.05rem; margin-bottom: 0px; color: var(--main-color); font-weight: bold;}
+        .event-box p { font-size: 0.8rem; line-height: 1.2; color: var(--text-dark); opacity: 0.9; }
+        .event-box strong { font-size: 0.85rem; font-weight: 600; color: var(--text-dark);}
 
-        .btn-location { display: inline-block; margin-top: 15px; padding: 10px 24px; background: #ffffff; color: var(--main-color); border: 1.5px solid var(--main-color); text-decoration: none; border-radius: 30px; font-size: 0.95rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); transition: background 0.3s ease; }
+        /* VENUE BUTTON - Made consistent with bottom button */
+        .btn-location { 
+            display: inline-flex; justify-content: center; align-items: center; gap: 5px;
+            margin-top: 10px; padding: 10px 24px; 
+            background: var(--main-color); /* Now solid maroon */
+            color: #ffffff; /* White text */
+            text-decoration: none; border-radius: 30px; font-size: 0.95rem; font-weight: 600; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); transition: background 0.3s ease; 
+        }
 
         .anim-element { opacity: 0; transform: translateY(15px); transition: all 0.8s ease; }
         .anim-element.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
 
+        /* Adjusted Venue elements to lift them up */
+        .venue-details {
+            margin-top: -15px; /* Lifts the venue text up */
+        }
+        .thank-you-box {
+            margin-top: 10px; 
+            margin-bottom: 25px; /* Ensures text stays away from bottom border */
+        }
+
         @media (max-height: 700px) {
             .scene { padding-bottom: 70px; }
-            .scene-content { padding: 6vh 10px; height: 83dvh; }
+            .scene-content { padding: 4vh 10px; height: 83dvh; }
             .bg-script { font-size: 1.6rem; }
             .name { font-size: 2rem; }
-            .title-script { font-size: 1.5rem; margin-bottom: 8px; }
-            .event-box { padding: 6px; margin-bottom: 6px; }
-            .event-box h3 { font-size: 1rem; }
+            .event-box { padding: 4px 8px; margin-bottom: 4px; }
+            .event-box h3 { font-size: 0.95rem; }
             .event-box p { font-size: 0.75rem; }
-            .icon-container svg { width: 16px; height: 16px; }
             .swipe-btn { bottom: 15px; padding: 10px 0; font-size: 0.95rem; }
         }
     </style>
@@ -351,7 +375,7 @@
             <div class="scene-content">
                 <h2 class="title-script anim-element">कार्यक्रम</h2>
                 
-                <!-- Sakharpuda Card - Smaller layout -->
+                <!-- Sakharpuda Card -->
                 <div class="event-box anim-element delay-1">
                     <div class="icon-container">
                         <svg viewBox="0 0 24 24" fill="none" stroke="var(--main-color)" stroke-width="1.5" stroke-linecap="round">
@@ -363,7 +387,7 @@
                     <p><strong>बुधवार, १९ ऑगस्ट २०२६</strong><br>सायंकाळी ५:१५ वाजता</p>
                 </div>
 
-                <!-- Haldi Card - Smaller layout -->
+                <!-- Haldi Card -->
                 <div class="event-box anim-element delay-2">
                     <div class="icon-container">
                         <svg viewBox="0 0 24 24" fill="none" stroke="var(--main-color)" stroke-width="1.5" stroke-linecap="round">
@@ -377,7 +401,7 @@
                     <p><strong>बुधवार, १९ ऑगस्ट २०२६</strong><br>सायंकाळी ७:०० वाजता</p>
                 </div>
 
-                <!-- Vivah Card - Smaller layout -->
+                <!-- Vivah Card -->
                 <div class="event-box anim-element delay-3" style="margin-bottom: 0;">
                     <div class="icon-container">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--main-color)" style="opacity: 0.85;">
@@ -398,20 +422,23 @@
         <!-- Scene 4: Venue -->
         <section class="scene" id="scene4">
             <div class="scene-content">
-                <h2 class="title-script anim-element">स्थळ</h2>
-                
-                <div class="anim-element delay-1">
-                    <h3 style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.3rem; margin-bottom: 8px; font-weight: bold;">स्वयंवर मंगल कार्यालय</h3>
-                    <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
+                <div class="venue-details">
+                    <h2 class="title-script anim-element">स्थळ</h2>
+                    
+                    <div class="anim-element delay-1">
+                        <h3 style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.3rem; margin-bottom: 6px; font-weight: bold;">स्वयंवर मंगल कार्यालय</h3>
+                        <p style="color: var(--text-dark); font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">अकलूज-टेंभुर्णी रोड, पंचवटी,<br>ता. माळशिरस, जि. सोलापूर</p>
+                    </div>
+                    
+                    <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-2" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        नकाशावर पहा
+                    </a>
                 </div>
-                
-                <a href="https://maps.app.goo.gl/BMYzSxeH7C4wZpk76" class="btn-location anim-element delay-2" target="_blank" rel="noopener noreferrer">
-                    📍 नकाशावर पहा
-                </a>
 
-                <div class="anim-element delay-3" style="width: 40px; height: 1.5px; background: var(--main-color); opacity: 0.3; margin: 25px auto;"></div>
+                <div class="anim-element delay-3" style="width: 40px; height: 1.5px; background: var(--main-color); opacity: 0.3; margin: 20px auto;"></div>
 
-                <div style="margin-top: 10px;" class="anim-element delay-3">
+                <div class="thank-you-box anim-element delay-3">
                     <p style="color: var(--main-color); font-family: var(--font-marathi-serif); font-size: 1.8rem; margin-bottom: 5px; font-weight: bold;">धन्यवाद !</p>
                     <p style="font-family: var(--font-marathi-serif); font-size: 1rem; font-weight: bold; color: var(--text-dark);">
                         समस्त शिलेदार आणि शिंदे परिवार
