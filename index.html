@@ -150,7 +150,7 @@
         @keyframes slideArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
         @keyframes slideArrowLeft { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
 
-        /* COUNTDOWN TIMER STYLES */
+        /* COUNTDOWN TIMER STYLES - Transparent look */
         .countdown-container {
             display: flex; 
             justify-content: center; 
@@ -160,8 +160,10 @@
             padding: 0 10px;
         }
         .time-box {
-            background: rgba(128, 0, 32, 0.05); 
-            border: 1px solid rgba(128, 0, 32, 0.2);
+            background: rgba(255, 255, 255, 0.35); /* Match transparent style */
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(128, 0, 32, 0.15);
             border-radius: 8px; 
             padding: 8px 4px; 
             flex: 1; 
@@ -209,20 +211,22 @@
         .floral-divider::before, .floral-divider::after { content: ''; height: 1.5px; background: var(--main-color); opacity: 0.3; flex-grow: 1; max-width: 50px; margin: 0 10px; }
         .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.15rem; color: var(--main-color); font-weight: bold; padding: 2px 0; }
 
-        /* EVENT CARDS - REDUCED WIDTH */
+        /* EVENT CARDS - TRANSPARENT (GLASSMORPHISM) */
         .event-box {
-            background: rgba(255, 255, 255, 0.95); 
-            border: 1px solid rgba(128, 0, 32, 0.1); 
+            background: rgba(255, 255, 255, 0.45); /* Transparent Background */
+            backdrop-filter: blur(4px); /* Glass Blur Effect */
+            -webkit-backdrop-filter: blur(4px); /* For Safari */
+            border: 1px solid rgba(128, 0, 32, 0.15); 
             border-radius: 12px; 
             padding: 10px 12px; 
-            margin: 0 auto 12px auto; /* Centered with bottom margin */
+            margin: 0 auto 12px auto; 
             position: relative; 
             overflow: hidden; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            width: 88%; /* Width Reduced */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+            width: 88%; 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); 
         }
         .event-box::before { 
             content: ''; 
@@ -238,7 +242,7 @@
         .icon-container svg { width: 22px; height: 22px; } 
         
         .event-box h3 { font-family: var(--font-marathi-serif); font-size: 1.15rem; margin-bottom: 4px; color: var(--main-color); font-weight: bold;}
-        .event-box p { font-size: 0.85rem; line-height: 1.4; color: var(--text-dark); opacity: 0.9; } 
+        .event-box p { font-size: 0.85rem; line-height: 1.4; color: var(--text-dark); opacity: 0.95; } 
         .event-box strong { font-size: 0.9rem; font-weight: 600; color: var(--text-dark);}
 
         /* VENUE BUTTON */
