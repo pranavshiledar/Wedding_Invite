@@ -48,6 +48,18 @@
             background-color: var(--bg-color); background-image: var(--paper-texture);
         }
 
+        /* BGM TOGGLE BUTTON */
+        .music-btn {
+            position: fixed; top: 15px; right: 15px; 
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--divider-color); 
+            color: var(--main-color);
+            width: 38px; height: 38px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.1rem; z-index: 10000; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
         /* -------------------------------------------
            ENVELOPE SCREEN
         ------------------------------------------- */
@@ -87,7 +99,14 @@
         }
         #invitation-content::-webkit-scrollbar { display: none; }
         
-        .scene { flex: 0 0 100vw; height: 100dvh; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; padding-bottom: 50px; }
+        .scene { 
+            flex: 0 0 100vw; height: 100dvh; 
+            scroll-snap-align: start; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            position: relative; 
+            /* कार्डला थोडे वर ढकलण्यासाठी तळाशी पॅडिंग दिले आहे जेणेकरून बटणाला जागा मिळेल */
+            padding-bottom: 75px; 
+        }
 
         .scene-content {
             background-color: #fdfaf5; 
@@ -96,65 +115,82 @@
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 16px; 
-            padding: 12vh 15px 12vh 15px; /* Bottom padding increased for the horizontal button */
+            padding: 10vh 15px; /* आतून मजकुरासाठी सुरक्षित जागा */
             width: 95%; 
             max-width: 420px; 
-            height: 92vh;
-            max-height: 850px;
+            height: 85dvh; /* कार्डची उंची थोडी कमी केली जेणेकरून तळाशी जागा उरेल */
             box-shadow: 0 10px 35px rgba(0,0,0,0.15);
             text-align: center; 
             position: relative; 
             z-index: 10;
-            border: none; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        /* -------------------------------------------
-           NEW HORIZONTAL BUTTON
-        ------------------------------------------- */
+        /* HORIZONTAL BUTTON (Moved Outside the Tab/Card) */
         .swipe-btn {
             position: absolute; 
-            bottom: 20px; 
+            bottom: 20px; /* स्क्रीनच्या अगदी तळाशी */
             left: 50%; 
             transform: translateX(-50%);
-            width: 85%; /* Make it horizontal and wide */
+            width: 88%;
+            max-width: 400px;
             background: var(--main-color); 
-            color: #ffffff; /* White text for contrast */
+            color: #ffffff; 
             padding: 12px 0; 
-            border-radius: 8px; /* Boxy look with slightly rounded corners */
+            border-radius: 8px; 
             font-size: 1.05rem; 
             font-weight: 600; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(128, 0, 32, 0.3); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
             cursor: pointer; 
             z-index: 20;
-            border: none;
             letter-spacing: 0.5px;
         }
 
-        /* Arrow animation for the button */
         .swipe-right .arrow { display: inline-block; animation: slideArrow 1.5s infinite ease-in-out; }
         .swipe-left .arrow { display: inline-block; animation: slideArrowLeft 1.5s infinite ease-in-out; }
         
         @keyframes slideArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
         @keyframes slideArrowLeft { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
 
+        /* COUNTDOWN TIMER STYLES */
+        .countdown-container {
+            display: flex; justify-content: center; gap: 8px; margin: 10px 0 5px 0; width: 100%;
+        }
+        .time-box {
+            background: rgba(128, 0, 32, 0.08); border: 1px solid rgba(128, 0, 32, 0.2);
+            border-radius: 6px; padding: 4px 6px; min-width: 50px;
+        }
+        .time-box span {
+            display: block; font-size: 1.1rem; font-weight: bold; color: var(--main-color); line-height: 1;
+        }
+        .time-box label {
+            font-size: 0.65rem; color: var(--text-dark); opacity: 0.8;
+        }
+
+        /* HEART PULSE ANIMATION */
+        .heart-pulse {
+            display: inline-block; color: #e74c3c; animation: heartBeat 1.2s infinite ease-in-out;
+            margin: 0 6px; font-size: 1.2rem;
+        }
+        @keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+
         /* Typography */
         .bg-script { font-family: var(--font-marathi-serif); font-size: 1.8rem; color: var(--bg-script-color); margin-bottom: 5px; font-weight: bold; opacity: 0.9; }
         .god-name { font-family: var(--font-marathi-serif); font-size: 1.2rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
-        .charoli { font-family: var(--font-marathi-sans); font-size: 0.95rem; color: var(--text-dark); margin: 15px 0; line-height: 1.6; width: 100%;}
+        .charoli { font-family: var(--font-marathi-sans); font-size: 0.9rem; color: var(--text-dark); margin: 8px 0; line-height: 1.5; width: 100%;}
         .title-script { font-family: var(--font-marathi-serif); color: var(--main-color); font-size: 1.8rem; margin-bottom: 15px; font-weight: bold; }
 
         .title { font-size: 0.9rem; color: var(--main-color); margin-bottom: 2px; font-weight: 500; }
         .name { font-family: var(--font-marathi-serif); font-size: 2.2rem; line-height: 1.1; color: var(--main-color); margin-bottom: 4px; }
         .parents { font-size: 0.8rem; color: var(--text-dark); line-height: 1.4; opacity: 0.8; margin: 0 10px; }
-        .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.3rem; color: var(--main-color); margin: 8px 0; font-weight: bold; }
+        .and-symbol { font-family: var(--font-marathi-serif); font-size: 1.2rem; color: var(--main-color); margin: 4px 0; font-weight: bold; display: flex; align-items: center; justify-content: center;}
 
         .floral-divider { display: flex; align-items: center; justify-content: center; width: 80%; margin: 8px auto; }
         .floral-divider::before, .floral-divider::after { content: ''; height: 1.5px; background: var(--main-color); opacity: 0.3; flex-grow: 1; max-width: 50px; margin: 0 10px; }
@@ -162,13 +198,9 @@
 
         /* EVENT CARDS */
         .event-box {
-            background: rgba(255, 255, 255, 0.75); 
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(232, 208, 213, 0.5);
-            border-radius: 10px; padding: 10px 8px; margin-bottom: 10px;
-            position: relative; overflow: hidden;
-            display: flex; flex-direction: column; align-items: center;
-            width: 100%;
+            background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(2px);
+            border: 1px solid rgba(232, 208, 213, 0.5); border-radius: 10px; padding: 10px 8px; margin-bottom: 10px;
+            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; width: 100%;
         }
         .event-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--main-color); opacity: 0.7; }
         
@@ -184,7 +216,8 @@
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
 
         @media (max-height: 700px) {
-            .scene-content { padding: 10vh 10px 12vh 10px; }
+            .scene { padding-bottom: 70px; }
+            .scene-content { padding: 8vh 10px; height: 83dvh; }
             .bg-script { font-size: 1.6rem; }
             .name { font-size: 2rem; }
             .title-script { font-size: 1.6rem; margin-bottom: 10px; }
@@ -197,6 +230,12 @@
     </style>
 </head>
 <body>
+
+    <!-- BGM AUDIO PLAYER -->
+    <audio id="bgm" loop>
+        <source src="wedding-music.mp3" type="audio/mpeg">
+    </audio>
+    <div class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</div>
 
     <!-- ENVELOPE SCREEN -->
     <div id="envelope-screen">
@@ -217,11 +256,12 @@
 
         <!-- Scene 1: Introduction -->
         <section class="scene" id="scene1">
+            <!-- मुख्य टॅब/कार्ड -->
             <div class="scene-content">
                 <div class="bg-script anim-element">विवाह निमंत्रण</div>
                 
-                <div class="anim-element delay-1" style="margin: 5px 0 10px 0;">
-                    <img src="ganpati.png" alt="श्री गणेश" style="width: 55px; height: auto;">
+                <div class="anim-element delay-1" style="margin: 3px 0 8px 0;">
+                    <img src="ganpati.png" alt="श्री गणेश" style="width: 50px; height: auto;">
                 </div>
 
                 <div class="anim-element delay-1 god-name">॥ श्री गणेशाय नमः ॥</div>
@@ -230,17 +270,24 @@
                     लग्नाची घाई, वेळेची कमतरता!<br>
                     म्हणूनच या प्रेमळ संदेशाद्वारे<br>
                     तुम्हाला आमंत्रित करत आहोत.<br><br>
-                    <strong style="color: var(--main-color); font-size: 1.05rem;">आमच्या लग्नाला नक्की या!</strong>
+                    <strong style="color: var(--main-color); font-size: 1rem;">आमच्या लग्नाला नक्की या!</strong>
                 </p>
                 
-                <p class="anim-element delay-3" style="color: var(--main-color); font-size: 1.15rem; font-family: var(--font-marathi-serif); font-weight: bold;">
+                <!-- LIVE COUNTDOWN TIMER -->
+                <div class="anim-element delay-3 countdown-container">
+                    <div class="time-box"><span id="days">00</span><label>दिवस</label></div>
+                    <div class="time-box"><span id="hours">00</span><label>तास</label></div>
+                    <div class="time-box"><span id="minutes">00</span><label>मिनिटे</label></div>
+                    <div class="time-box"><span id="seconds">00</span><label>सेकंद</label></div>
+                </div>
+
+                <p class="anim-element delay-3" style="color: var(--main-color); font-size: 1.1rem; font-family: var(--font-marathi-serif); font-weight: bold; margin-top: 5px;">
                     सस्नेह निमंत्रण
                 </p>
-
-                <!-- New Horizontal Button -->
-                <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(1)">
-                    पुढे पहा <span class="arrow">➔</span>
-                </div>
+            </div>
+            <!-- टॅबच्या बाहेर असलेले हॉरिझॉन्टल बटण -->
+            <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(1)">
+                पुढे पहा <span class="arrow">➔</span>
             </div>
         </section>
 
@@ -253,7 +300,10 @@
                     <div class="parents">(श्री. महादेव बापु शिलेदार व सौ. वंदना महादेव शिलेदार यांचे सुपुत्र)</div>
                 </div>
                 
-                <div class="anim-element delay-1 and-symbol">व</div>
+                <!-- HEART PULSE ANIMATION -->
+                <div class="anim-element delay-1 and-symbol">
+                    व <span class="heart-pulse">❤️</span>
+                </div>
                 
                 <div class="person anim-element delay-2">
                     <div class="title">चि. सौ. कां.</div>
@@ -280,10 +330,10 @@
                         <span style="font-size: 1rem; opacity: 0.8; transform: scaleX(-1);">🌿</span>
                     </div>
                 </div>
-
-                <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(2)">
-                    पुढे पहा <span class="arrow">➔</span>
-                </div>
+            </div>
+            
+            <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(2)">
+                पुढे पहा <span class="arrow">➔</span>
             </div>
         </section>
 
@@ -329,10 +379,10 @@
                     <p><strong>गुरुवार, २० ऑगस्ट २०२६</strong><br>दुपारी ठीक १२:४५ वाजता<br>
                     <span style="font-size: 0.75rem; opacity: 0.8;">(तदनंतर स्नेहभोजन)</span></p>
                 </div>
-
-                <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(3)">
-                    पुढे पहा <span class="arrow">➔</span>
-                </div>
+            </div>
+            
+            <div class="swipe-btn swipe-right anim-element delay-4" onclick="nextPage(3)">
+                पुढे पहा <span class="arrow">➔</span>
             </div>
         </section>
 
@@ -358,15 +408,33 @@
                         समस्त शिलेदार आणि शिंदे परिवार
                     </p>
                 </div>
-
-                <div class="swipe-btn swipe-left anim-element delay-4" onclick="nextPage(4)">
-                    <span class="arrow">←</span> सुरवातीला जा
-                </div>
+            </div>
+            
+            <div class="swipe-btn swipe-left anim-element delay-4" onclick="nextPage(4)">
+                <span class="arrow">←</span> सुरवातीला जा
             </div>
         </section>
     </div>
 
     <script>
+        // BGM AUDIO LOGIC
+        const bgm = document.getElementById('bgm');
+        const musicToggle = document.getElementById('musicToggle');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgm.pause();
+                musicToggle.innerHTML = "🔇";
+                isPlaying = false;
+            } else {
+                bgm.play().then(() => {
+                    musicToggle.innerHTML = "🎵";
+                    isPlaying = true;
+                }).catch(() => {});
+            }
+        }
+
         function openInvitation() {
             const envelopeScreen = document.getElementById('envelope-screen');
             const envelopeWrapper = document.getElementById('envelope');
@@ -374,6 +442,15 @@
             
             envelopeWrapper.classList.add('open');
             
+            // Try to auto-play BGM when envelope opens
+            bgm.play().then(() => {
+                isPlaying = true;
+                musicToggle.innerHTML = "🎵";
+            }).catch(() => {
+                isPlaying = false;
+                musicToggle.innerHTML = "🔇";
+            });
+
             setTimeout(() => {
                 envelopeScreen.style.transform = 'translateY(100vh)';
                 envelopeScreen.style.opacity = '0';
@@ -404,6 +481,31 @@
                 }
             }
         }
+
+        // LIVE COUNTDOWN TIMER LOGIC
+        const weddingDate = new Date("August 20, 2026 12:45:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+            } else {
+                document.querySelector(".countdown-container").innerHTML = "<strong style='color: var(--main-color);'>आज शुभविवाह दिवस आहे!</strong>";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
         document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById('invitation-content');
