@@ -59,7 +59,6 @@
         }
 
         .envelope-wrapper { position: relative; width: 330px; height: 220px; cursor: pointer; }
-        /* Added shadow to envelope to make it less flat */
         .envelope { position: absolute; width: 100%; height: 100%; background: var(--envelope-shadow); border-radius: 5px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); transition: background 0.5s ease; }
         .envelope-flap { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: background 0.5s ease; }
         .flap-bottom { background: var(--envelope-main); clip-path: polygon(0 100%, 50% 45%, 100% 100%, 100% 100%, 0 100%); z-index: 3; border-radius: 0 0 5px 5px; box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);}
@@ -72,9 +71,9 @@
             width: 60px; height: 60px; background: radial-gradient(circle at 30% 30%, var(--gold-light), var(--gold-seal) 70%, #8a6408);
             border-radius: 50%; z-index: 5; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             display: flex; justify-content: center; align-items: center; 
-            color: #ffe600; /* Swastika is now Bright Gold */
+            color: #ffe600; 
             font-size: 1.8rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Adds depth to swastika */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .click-text { position: absolute; bottom: -45px; width: 100%; text-align: center; color: var(--main-color); font-size: 1.05rem; animation: pulseText 2s infinite; font-weight: 500; }
@@ -106,7 +105,7 @@
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 16px; 
-            padding: 6vh 15px; /* Reduced top/bottom padding to give more central space */
+            padding: 6vh 15px; 
             width: 95%; 
             max-width: 420px; 
             height: 85dvh; 
@@ -199,8 +198,7 @@
         .god-name { font-family: var(--font-marathi-serif); font-size: 1.2rem; color: var(--main-color); font-weight: 600; margin-bottom: 5px; }
         .charoli { font-family: var(--font-marathi-sans); font-size: 0.95rem; color: var(--text-dark); margin: 10px 0; line-height: 1.5; width: 100%;}
         
-        /* Adjusted Title Script for Events Page to save space */
-        .title-script { font-family: var(--font-marathi-serif); color: var(--main-color); font-size: 1.5rem; margin-bottom: 8px; font-weight: bold; }
+        .title-script { font-family: var(--font-marathi-serif); color: var(--main-color); font-size: 1.5rem; margin-bottom: 15px; font-weight: bold; }
 
         .title { font-size: 0.9rem; color: var(--main-color); margin-bottom: 2px; font-weight: 500; }
         .name { font-family: var(--font-marathi-serif); font-size: 2.2rem; line-height: 1.1; color: var(--main-color); margin-bottom: 4px; }
@@ -211,35 +209,44 @@
         .floral-divider::before, .floral-divider::after { content: ''; height: 1.5px; background: var(--main-color); opacity: 0.3; flex-grow: 1; max-width: 50px; margin: 0 10px; }
         .shubhvivah-text { font-family: var(--font-marathi-serif); font-size: 1.15rem; color: var(--main-color); font-weight: bold; padding: 2px 0; }
 
-        /* EVENT CARDS - Optimized even further to avoid bottom flowers */
+        /* EVENT CARDS - REDUCED WIDTH */
         .event-box {
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(3px);
-            border: 1px solid rgba(128, 0, 32, 0.15); 
-            border-radius: 8px; 
-            padding: 6px 10px; /* Reduced padding */
-            margin-bottom: 6px; /* Reduced margin */
+            background: rgba(255, 255, 255, 0.95); 
+            border: 1px solid rgba(128, 0, 32, 0.1); 
+            border-radius: 12px; 
+            padding: 10px 12px; 
+            margin: 0 auto 12px auto; /* Centered with bottom margin */
             position: relative; 
             overflow: hidden; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            width: 100%;
+            width: 88%; /* Width Reduced */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
         }
-        .event-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--main-color); opacity: 0.8; }
+        .event-box::before { 
+            content: ''; 
+            position: absolute; 
+            left: 0; top: 0; bottom: 0; 
+            width: 3px; 
+            background: var(--main-color); 
+            opacity: 0.85; 
+            border-radius: 12px 0 0 12px;
+        }
         
-        .icon-container { margin-bottom: 2px; }
-        .icon-container svg { width: 16px; height: 16px; } 
-        .event-box h3 { font-family: var(--font-marathi-serif); font-size: 1.05rem; margin-bottom: 0px; color: var(--main-color); font-weight: bold;}
-        .event-box p { font-size: 0.8rem; line-height: 1.2; color: var(--text-dark); opacity: 0.9; }
-        .event-box strong { font-size: 0.85rem; font-weight: 600; color: var(--text-dark);}
+        .icon-container { margin-bottom: 6px; }
+        .icon-container svg { width: 22px; height: 22px; } 
+        
+        .event-box h3 { font-family: var(--font-marathi-serif); font-size: 1.15rem; margin-bottom: 4px; color: var(--main-color); font-weight: bold;}
+        .event-box p { font-size: 0.85rem; line-height: 1.4; color: var(--text-dark); opacity: 0.9; } 
+        .event-box strong { font-size: 0.9rem; font-weight: 600; color: var(--text-dark);}
 
-        /* VENUE BUTTON - Made consistent with bottom button */
+        /* VENUE BUTTON */
         .btn-location { 
             display: inline-flex; justify-content: center; align-items: center; gap: 5px;
             margin-top: 10px; padding: 10px 24px; 
-            background: var(--main-color); /* Now solid maroon */
-            color: #ffffff; /* White text */
+            background: var(--main-color); 
+            color: #ffffff; 
             text-decoration: none; border-radius: 30px; font-size: 0.95rem; font-weight: 600; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); transition: background 0.3s ease; 
         }
@@ -248,23 +255,18 @@
         .anim-element.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
 
-        /* Adjusted Venue elements to lift them up */
-        .venue-details {
-            margin-top: -15px; /* Lifts the venue text up */
-        }
-        .thank-you-box {
-            margin-top: 10px; 
-            margin-bottom: 25px; /* Ensures text stays away from bottom border */
-        }
+        .venue-details { margin-top: -15px; }
+        .thank-you-box { margin-top: 10px; margin-bottom: 25px; }
 
         @media (max-height: 700px) {
             .scene { padding-bottom: 70px; }
             .scene-content { padding: 4vh 10px; height: 83dvh; }
             .bg-script { font-size: 1.6rem; }
             .name { font-size: 2rem; }
-            .event-box { padding: 4px 8px; margin-bottom: 4px; }
-            .event-box h3 { font-size: 0.95rem; }
-            .event-box p { font-size: 0.75rem; }
+            .event-box { padding: 8px; margin: 0 auto 8px auto; width: 90%; }
+            .event-box h3 { font-size: 1.05rem; }
+            .event-box p { font-size: 0.8rem; }
+            .icon-container svg { width: 18px; height: 18px; }
             .swipe-btn { bottom: 15px; padding: 10px 0; font-size: 0.95rem; }
         }
     </style>
@@ -510,7 +512,6 @@
                 const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-                // Add leading zero if less than 10, then convert to Marathi
                 document.getElementById("days").innerText = toMarathiNumbers(days < 10 ? '0' + days : days);
                 document.getElementById("hours").innerText = toMarathiNumbers(hours < 10 ? '0' + hours : hours);
                 document.getElementById("minutes").innerText = toMarathiNumbers(minutes < 10 ? '0' + minutes : minutes);
